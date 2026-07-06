@@ -164,4 +164,4 @@ Theo dõi tiến độ chi tiết tại `TODO.md`. Giai đoạn hiện tại và
 ## 10. Liên hệ
 
 - Chủ dự án: FregD nguyentduy156@gmail.com
-- Repo: *(điền link GitHub repo)*
+- Repo: https://github.com/FregD156/DBlink
