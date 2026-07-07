@@ -18,14 +18,16 @@ export default function CollectionPage() {
   const [maxPrice, setMaxPrice] = useState<number>(1500000);
 
   const category = CATEGORIES.find((c) => c.slug === slug) || CATEGORIES[0];
-  const rawProducts = getProductsByCategory(slug);
+  const rawProducts = getProductsByCategory(slug) || [];
 
   // Lấy danh sách màu sắc duy nhất có trong các sản phẩm để lọc
   const allColors = useMemo(() => {
     const colorsMap = new Map<string, string>();
     rawProducts.forEach((product) => {
       product.colors?.forEach((color) => {
-        colorsMap.set(color.hex, color.name);
+        if (color.hex && color.name) {
+          colorsMap.set(color.hex, color.name);
+        }
       });
     });
     return Array.from(colorsMap.entries()).map(([hex, name]) => ({ hex, name }));
@@ -37,7 +39,7 @@ export default function CollectionPage() {
 
     // Lọc theo màu
     if (selectedColor) {
-      result = result.filter((p) => p.colors.some((c) => c.hex === selectedColor));
+      result = result.filter((p) => p.colors && p.colors.some((c) => c.hex === selectedColor));
     }
 
     // Lọc theo giá tối đa
@@ -104,7 +106,7 @@ export default function CollectionPage() {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setSelectedColor(null)}
-                  className={`px-3 py-1.5 text-xs rounded-button border font-body transition-all duration-300 ${
+                  className={`px-3 py-1.5 text-xs rounded-button border font-body transition-all duration-300 focus:outline-none ${
                     !selectedColor
                       ? 'border-text-primary bg-text-primary text-white'
                       : 'border-border bg-white text-text-secondary hover:border-text-primary hover:text-text-primary'
@@ -116,7 +118,7 @@ export default function CollectionPage() {
                   <button
                     key={color.hex}
                     onClick={() => setSelectedColor(color.hex)}
-                    className={`flex items-center gap-2 px-3 py-1.5 text-xs rounded-button border font-body transition-all duration-300 ${
+                    className={`flex items-center gap-2 px-3 py-1.5 text-xs rounded-button border font-body transition-all duration-300 focus:outline-none ${
                       selectedColor === color.hex
                         ? 'border-text-primary bg-text-primary text-white'
                         : 'border-border bg-white text-text-secondary hover:border-text-primary'
@@ -165,7 +167,7 @@ export default function CollectionPage() {
               <p className="font-body text-sm text-text-secondary">Không tìm thấy sản phẩm nào khớp với bộ lọc.</p>
               <button 
                 onClick={() => { setSelectedColor(null); setMaxPrice(1500000); }} 
-                className="mt-4 font-body text-xs text-accent underline tracking-wider uppercase font-semibold"
+                className="mt-4 font-body text-xs text-accent underline tracking-wider uppercase font-semibold focus:outline-none"
               >
                 Xóa bộ lọc
               </button>

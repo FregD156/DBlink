@@ -40,7 +40,11 @@ export default function ProductDetailPage() {
     );
   }
 
-  const relatedProducts = getRelatedProducts(product.id, product.category, 4);
+  const relatedProducts = product ? getRelatedProducts(product.id, product.category, 4) : [];
+  const images = product.images || [];
+  const colors = product.colors || [];
+  const buyLinks = product.buyLinks || {};
+  const details = product.details || { material: "", dimensions: "", care: "" };
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
@@ -60,7 +64,7 @@ export default function ProductDetailPage() {
         <div className="flex flex-col gap-4">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/30">
             <Image
-              src={product.images[activeImageIndex]}
+              src={images[activeImageIndex] || "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"}
               alt={`${product.name} - View ${activeImageIndex + 1}`}
               fill
               priority
@@ -75,11 +79,11 @@ export default function ProductDetailPage() {
           
           {/* Thumbnails */}
           <div className="grid grid-cols-3 gap-3">
-            {product.images.map((img, index) => (
+            {images.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setActiveImageIndex(index)}
-                className={`relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border transition-all duration-300 ${
+                className={`relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border transition-all duration-300 focus:outline-none ${
                   activeImageIndex === index ? 'border-accent' : 'border-border hover:border-text-secondary'
                 }`}
               >
@@ -97,7 +101,7 @@ export default function ProductDetailPage() {
         {/* Right: Info */}
         <div className="flex flex-col">
           <span className="font-body text-[10px] font-semibold text-accent uppercase tracking-widest block mb-2">
-            Mã sản phẩm: DB-{product.slug.slice(0, 8).toUpperCase()}
+            Mã sản phẩm: DB-{product.slug?.slice(0, 8).toUpperCase()}
           </span>
           <h1 className="font-heading text-3xl sm:text-4xl font-bold text-text-primary leading-tight">
             {product.name}
@@ -121,13 +125,13 @@ export default function ProductDetailPage() {
           <div className="border-t border-border my-8" />
 
           {/* Color Selection */}
-          {product.colors && product.colors.length > 0 && (
+          {colors.length > 0 && (
             <div className="mb-8">
               <span className="font-body text-[10px] font-semibold text-text-primary uppercase tracking-widest block mb-3">
                 Màu sắc: {selectedColor?.name}
               </span>
               <div className="flex gap-3">
-                {product.colors.map((color) => (
+                {colors.map((color) => (
                   <button
                     key={color.hex}
                     onClick={() => setSelectedColor(color)}
@@ -138,7 +142,7 @@ export default function ProductDetailPage() {
                     title={color.name}
                   >
                     {selectedColor?.hex === color.hex && (
-                      <Check className={`h-4.5 w-4.5 ${color.hex === '#FAF8F5' || color.hex === '#EFE6DC' ? 'text-black' : 'text-white'}`} />
+                      <Check className={`h-4 w-4 ${color.hex === '#FAF8F5' || color.hex === '#EFE6DC' ? 'text-black' : 'text-white'}`} />
                     )}
                   </button>
                 ))}
@@ -148,9 +152,9 @@ export default function ProductDetailPage() {
 
           {/* Buy Now Buttons — Link to Channels */}
           <div className="space-y-4 mb-8">
-            {product.buyLinks.shopee && (
+            {buyLinks.shopee && (
               <a
-                href={product.buyLinks.shopee}
+                href={buyLinks.shopee}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-button font-body text-xs font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-[#A83B29] shadow-sm hover:shadow"
@@ -160,9 +164,9 @@ export default function ProductDetailPage() {
             )}
 
             <div className="grid grid-cols-2 gap-4">
-              {product.buyLinks.facebook && (
+              {buyLinks.facebook && (
                 <a
-                  href={product.buyLinks.facebook}
+                  href={buyLinks.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-3 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
@@ -170,9 +174,9 @@ export default function ProductDetailPage() {
                   <MessageSquare className="h-4 w-4" /> Messenger
                 </a>
               )}
-              {product.buyLinks.zalo && (
+              {buyLinks.zalo && (
                 <a
-                  href={product.buyLinks.zalo}
+                  href={buyLinks.zalo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-3 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
@@ -215,14 +219,14 @@ export default function ProductDetailPage() {
             <div className="p-6 font-body text-xs text-text-secondary leading-relaxed space-y-3">
               {activeTab === 'desc' && (
                 <>
-                  <p><strong className="text-text-primary">Kích thước:</strong> {product.details.dimensions}</p>
+                  <p><strong className="text-text-primary">Kích thước:</strong> {details.dimensions}</p>
                   <p><strong className="text-text-primary">Bảo hành:</strong> Hỗ trợ bảo hành lỗi đường may, cúc bấm trong vòng 6 tháng kể từ khi mua hàng tại các kênh bán chính thức.</p>
                 </>
               )}
               {activeTab === 'material' && (
                 <>
-                  <p><strong className="text-text-primary">Chất liệu:</strong> {product.details.material}</p>
-                  <p><strong className="text-text-primary">Bảo quản:</strong> {product.details.care}</p>
+                  <p><strong className="text-text-primary">Chất liệu:</strong> {details.material}</p>
+                  <p><strong className="text-text-primary">Hướng dẫn bảo quản:</strong> {details.care}</p>
                 </>
               )}
               {activeTab === 'shipping' && (
