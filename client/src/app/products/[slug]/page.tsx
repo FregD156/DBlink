@@ -4,25 +4,21 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useProducts } from '@/hooks/useProducts';
-import { useCart } from '@/hooks/useCart';
-import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { ProductCard } from '@/components/product/ProductCard';
 import { formatPrice } from '@/lib/utils';
-import { ShoppingBag, ChevronRight, Check } from 'lucide-react';
+import { ChevronRight, Check, ArrowUpRight, MessageSquare, PhoneCall } from 'lucide-react';
 
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
   const { getProductBySlug, getRelatedProducts } = useProducts();
-  const { addToCart } = useCart();
 
   const product = getProductBySlug(slug);
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState<any>(null);
-  const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<'desc' | 'material' | 'shipping'>('desc');
 
   // Đặt màu mặc định khi load xong
@@ -46,12 +42,6 @@ export default function ProductDetailPage() {
 
   const relatedProducts = getRelatedProducts(product.id, product.category, 4);
 
-  const handleAddToCart = () => {
-    if (!selectedColor) return;
-    addToCart(product, selectedColor, quantity);
-    alert(`Đã thêm ${quantity} x ${product.name} (${selectedColor.name}) vào giỏ hàng!`);
-  };
-
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
       {/* Breadcrumb */}
@@ -68,7 +58,7 @@ export default function ProductDetailPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
         {/* Left: Gallery */}
         <div className="flex flex-col gap-4">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/40">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/30">
             <Image
               src={product.images[activeImageIndex]}
               alt={`${product.name} - View ${activeImageIndex + 1}`}
@@ -106,6 +96,9 @@ export default function ProductDetailPage() {
 
         {/* Right: Info */}
         <div className="flex flex-col">
+          <span className="font-body text-[10px] font-semibold text-accent uppercase tracking-widest block mb-2">
+            Mã sản phẩm: DB-{product.slug.slice(0, 8).toUpperCase()}
+          </span>
           <h1 className="font-heading text-3xl sm:text-4xl font-bold text-text-primary leading-tight">
             {product.name}
           </h1>
@@ -129,8 +122,8 @@ export default function ProductDetailPage() {
 
           {/* Color Selection */}
           {product.colors && product.colors.length > 0 && (
-            <div className="mb-6">
-              <span className="font-body text-[11px] font-semibold text-text-primary uppercase tracking-widest block mb-3">
+            <div className="mb-8">
+              <span className="font-body text-[10px] font-semibold text-text-primary uppercase tracking-widest block mb-3">
                 Màu sắc: {selectedColor?.name}
               </span>
               <div className="flex gap-3">
@@ -138,14 +131,14 @@ export default function ProductDetailPage() {
                   <button
                     key={color.hex}
                     onClick={() => setSelectedColor(color)}
-                    className={`relative w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                    className={`relative w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 focus:outline-none ${
                       selectedColor?.hex === color.hex ? 'border-text-primary scale-110 shadow-sm' : 'border-border hover:border-text-secondary'
                     }`}
                     style={{ backgroundColor: color.hex }}
                     title={color.name}
                   >
                     {selectedColor?.hex === color.hex && (
-                      <Check className={`h-4 w-4 ${color.hex === '#FAF8F5' || color.hex === '#F1ECE4' ? 'text-black' : 'text-white'}`} />
+                      <Check className={`h-4.5 w-4.5 ${color.hex === '#FAF8F5' || color.hex === '#EFE6DC' ? 'text-black' : 'text-white'}`} />
                     )}
                   </button>
                 ))}
@@ -153,31 +146,41 @@ export default function ProductDetailPage() {
             </div>
           )}
 
-          {/* Quantity & Add to Cart */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <div className="flex items-center border border-border rounded-button h-13 w-fit bg-white">
-              <button
-                onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                className="w-12 h-full flex items-center justify-center font-body font-medium text-text-primary hover:text-accent transition-colors focus:outline-none"
+          {/* Buy Now Buttons — Link to Channels */}
+          <div className="space-y-4 mb-8">
+            {product.buyLinks.shopee && (
+              <a
+                href={product.buyLinks.shopee}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-button font-body text-xs font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-[#A83B29] shadow-sm hover:shadow"
               >
-                -
-              </button>
-              <span className="w-10 text-center font-body text-sm font-semibold">{quantity}</span>
-              <button
-                onClick={() => setQuantity(q => q + 1)}
-                className="w-12 h-full flex items-center justify-center font-body font-medium text-text-primary hover:text-accent transition-colors focus:outline-none"
-              >
-                +
-              </button>
+                Mua ngay tại Shopee <ArrowUpRight className="h-4 w-4" />
+              </a>
+            )}
+
+            <div className="grid grid-cols-2 gap-4">
+              {product.buyLinks.facebook && (
+                <a
+                  href={product.buyLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-3 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
+                >
+                  <MessageSquare className="h-4 w-4" /> Messenger
+                </a>
+              )}
+              {product.buyLinks.zalo && (
+                <a
+                  href={product.buyLinks.zalo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-3 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
+                >
+                  <PhoneCall className="h-4 w-4" /> Zalo Tư Vấn
+                </a>
+              )}
             </div>
-            
-            <Button
-              onClick={handleAddToCart}
-              className="flex-grow h-13 flex items-center justify-center gap-2 text-xs"
-            >
-              <ShoppingBag className="h-4.5 w-4.5" />
-              Thêm vào giỏ hàng
-            </Button>
           </div>
 
           {/* Tabs Details */}
@@ -213,19 +216,19 @@ export default function ProductDetailPage() {
               {activeTab === 'desc' && (
                 <>
                   <p><strong className="text-text-primary">Kích thước:</strong> {product.details.dimensions}</p>
-                  <p><strong className="text-text-primary">Chế độ bảo hành:</strong> Bảo hành 12 tháng toàn bộ lỗi chỉ may, khóa kéo, lỗi bong tróc da từ nhà sản xuất.</p>
+                  <p><strong className="text-text-primary">Bảo hành:</strong> Hỗ trợ bảo hành lỗi đường may, cúc bấm trong vòng 6 tháng kể từ khi mua hàng tại các kênh bán chính thức.</p>
                 </>
               )}
               {activeTab === 'material' && (
                 <>
                   <p><strong className="text-text-primary">Chất liệu:</strong> {product.details.material}</p>
-                  <p><strong className="text-text-primary">Hướng dẫn bảo quản:</strong> {product.details.care}</p>
+                  <p><strong className="text-text-primary">Bảo quản:</strong> {product.details.care}</p>
                 </>
               )}
               {activeTab === 'shipping' && (
                 <>
-                  <p><strong className="text-text-primary">Vận chuyển:</strong> Miễn phí vận chuyển toàn quốc cho đơn hàng từ 500k. Giao hàng hỏa tốc nội thành Hà Nội/TP.HCM trong 2-4h (có phụ phí).</p>
-                  <p><strong className="text-text-primary">Đổi trả:</strong> Đổi mới sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng với bất kỳ lý do gì. Sản phẩm đổi trả phải còn nguyên nhãn mác, chưa qua sử dụng.</p>
+                  <p><strong className="text-text-primary">Đặt mua:</strong> Vui lòng click nút "Mua ngay tại Shopee" hoặc liên hệ Messenger/Zalo để được tư vấn kích thước và chốt đơn nhanh nhất.</p>
+                  <p><strong className="text-text-primary">Hỗ trợ giao hàng:</strong> Giao hàng COD toàn quốc, được kiểm tra hàng trước khi thanh toán.</p>
                 </>
               )}
             </div>

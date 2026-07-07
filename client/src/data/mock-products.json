@@ -5,15 +5,15 @@
     "name": "Balo Da Mềm Minimalist DBlink",
     "price": 850000,
     "originalPrice": 1100000,
-    "description": "Thiết kế tối giản sang trọng phong cách Charles & Keith, làm từ chất liệu da tổng hợp cao cấp siêu bền mịn. Thích hợp cho dân văn phòng trẻ và học sinh sinh viên năng động.",
+    "description": "Thiết kế tối giản sang trọng với những đường nét góc cạnh thanh lịch. Được làm từ chất liệu da tổng hợp cao cấp mềm mịn, chống xước tốt. Hoàn hảo cho các cô nàng hiện đại đi làm hay dạo phố.",
     "category": "balo-da",
     "rating": 4.8,
     "isNew": true,
     "isBestSeller": true,
     "colors": [
-      { "name": "Đen Nâu", "hex": "#241F1C" },
-      { "name": "Cam Đất", "hex": "#C97B63" },
-      { "name": "Be Nhẹ", "hex": "#F1ECE4" }
+      { "name": "Đen Nâu", "hex": "#221C18" },
+      { "name": "Đỏ Gạch", "hex": "#C24E3A" },
+      { "name": "Xanh Rêu", "hex": "#3F4B3B" }
     ],
     "images": [
       "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop",
@@ -21,9 +21,15 @@
       "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop"
     ],
     "details": {
-      "material": "Da PU cao cấp chống thấm nước, lót trong bằng vải Polyester mịn.",
-      "dimensions": "32cm x 26cm x 12cm (Vừa máy tính bảng 11 inch & sổ tay A4)",
-      "care": "Lau sạch bằng khăn ẩm mềm, tránh tiếp xúc trực tiếp với hóa chất và cồn."
+      "material": "Da tổng hợp cao cấp chống xước nhẹ, lót trong Polyester chống thấm.",
+      "dimensions": "32cm x 26cm x 12cm (Vừa iPad 11 inch & sổ tay A4)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn ẩm mềm. Tránh tiếp xúc cồn hay hóa chất tẩy rửa mạnh."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/dblink.vn/balo-da-minimalist",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
     }
   },
   {
@@ -32,14 +38,14 @@
     "name": "Balo Canvas Phối Da Classic",
     "price": 680000,
     "originalPrice": 850000,
-    "description": "Sự kết hợp hoàn hảo giữa chất liệu vải canvas dệt mật độ cao và các chi tiết da thật cao cấp, mang lại vẻ ngoài trẻ trung thanh lịch.",
+    "description": "Sự hòa quyện tuyệt vời giữa chất liệu vải canvas dệt sợi kép bền bỉ và các chi tiết viền da cao cấp. Mang phong cách trẻ trung năng động nhưng không kém phần thanh lịch.",
     "category": "balo-canvas",
     "rating": 4.6,
     "isNew": true,
     "isBestSeller": false,
     "colors": [
-      { "name": "Trắng Kem", "hex": "#FAF8F5" },
-      { "name": "Be Nâu", "hex": "#8B7355" }
+      { "name": "Be Cát", "hex": "#EFE6DC" },
+      { "name": "Đen Nâu", "hex": "#221C18" }
     ],
     "images": [
       "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop",
@@ -47,25 +53,31 @@
       "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop"
     ],
     "details": {
-      "material": "Vải Canvas 12oz dệt sợi kép bền bỉ phối da bò thật ở nắp khóa.",
+      "material": "Vải Canvas 12oz bền bỉ phối viền da bò thật.",
       "dimensions": "30cm x 24cm x 11cm",
-      "care": "Nên giặt tay nhẹ nhàng bằng xà phòng loãng, phơi bóng râm."
+      "care": "Nên giặt tay nhẹ nhàng bằng xà phòng loãng, phơi bóng râm tránh nắng gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/dblink.vn/balo-canvas-classic",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
     }
   },
   {
     "id": "p3",
-    "slug": "balo-lap-top-nu-chong-nuoc-smart",
+    "slug": "balo-laptop-nu-chong-nuoc-smart",
     "name": "Balo Laptop Nữ Chống Nước Smart",
     "price": 950000,
     "originalPrice": 1250000,
-    "description": "Balo chống nước thời thượng chuyên dụng cho laptop lên đến 14 inch. Ngăn khóa ẩn thông minh chống trộm hoàn hảo cho các bạn nữ công sở.",
+    "description": "Balo chuyên dụng cho laptop lên đến 14 inch với chất liệu vải Oxford trượt nước vượt trội. Các ngăn khóa ẩn thông minh bảo vệ đồ dùng cá nhân hoàn hảo.",
     "category": "balo-laptop",
     "rating": 4.9,
     "isNew": false,
     "isBestSeller": true,
     "colors": [
-      { "name": "Đen Nâu", "hex": "#241F1C" },
-      { "name": "Hồng Tro", "hex": "#C97B63" }
+      { "name": "Đen Nâu", "hex": "#221C18" },
+      { "name": "Đỏ Gạch", "hex": "#C24E3A" }
     ],
     "images": [
       "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop",
@@ -73,9 +85,15 @@
       "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop"
     ],
     "details": {
-      "material": "Vải Oxford cao cấp trượt nước vượt trội, chống trầy xước.",
+      "material": "Vải Oxford cao cấp trượt nước, chống trầy xước.",
       "dimensions": "38cm x 28cm x 13cm (Vừa laptop 14 inch)",
-      "care": "Không giặt máy, dùng bàn chải mềm vệ sinh nhẹ nhàng vết bẩn cục bộ."
+      "care": "Lau sạch vết bẩn bằng cọ mềm hoặc khăn ẩm. Không giặt máy."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/dblink.vn/balo-laptop-smart",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
     }
   },
   {
@@ -84,15 +102,15 @@
     "name": "Balo Mini Nữ Longchamp Vibes",
     "price": 590000,
     "originalPrice": 750000,
-    "description": "Kích thước nhỏ gọn, quai đeo thanh mảnh và chất liệu nilon cao cấp bóng mờ siêu nhẹ, mang đến vẻ năng động trẻ trung khi đi dạo phố.",
+    "description": "Kích thước mini cực xinh xắn, quai đeo thanh mảnh và chất liệu Nylon cao cấp bóng mờ siêu nhẹ. Lựa chọn tuyệt vời cho các buổi dạo phố nhẹ nhàng.",
     "category": "balo-mini",
     "rating": 4.7,
     "isNew": false,
     "isBestSeller": true,
     "colors": [
-      { "name": "Xanh Rêu", "hex": "#6B8F71" },
-      { "name": "Cam Đất", "hex": "#C97B63" },
-      { "name": "Trắng Kem", "hex": "#FAF8F5" }
+      { "name": "Xanh Rêu", "hex": "#3F4B3B" },
+      { "name": "Đỏ Gạch", "hex": "#C24E3A" },
+      { "name": "Be Cát", "hex": "#EFE6DC" }
     ],
     "images": [
       "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=600&auto=format&fit=crop",
@@ -100,9 +118,15 @@
       "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"
     ],
     "details": {
-      "material": "Nylon cao cấp chống thấm siêu nhẹ phối viền da PU.",
+      "material": "Nylon cao cấp chống thấm siêu nhẹ, quai viền da.",
       "dimensions": "25cm x 22cm x 10cm",
-      "care": "Lau bằng khăn ẩm, không là/ủi ở nhiệt độ cao."
+      "care": "Dùng khăn ẩm lau sạch. Không là/ủi ở nhiệt độ cao."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/dblink.vn/balo-mini-longchamp",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
     }
   }
 ]

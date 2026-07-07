@@ -1,23 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #FAF8F5;      /* nền chính - trắng ngà ấm */
-  --color-bg-secondary: #F1ECE4;    /* nền phụ, section xen kẽ */
-  --color-text-primary: #241F1C;    /* chữ chính - đen nâu */
-  --color-text-secondary: #6B625B;  /* chữ phụ, mô tả */
-  --color-accent: #C97B63;          /* màu nhấn - cam đất/terracotta, trẻ trung */
-  --color-accent-alt: #8B7355;      /* màu nhấn phụ - be nâu (nếu cần 2 tông sản phẩm) */
-  --color-success: #6B8F71;         /* thông báo thành công */
-  --color-error: #B54A4A;           /* lỗi/cảnh báo */
-  --color-white: #FFFFFF;
+  --color-bg-primary: #FAF8F5;      /* nền chính - trắng ngà ấm, không dùng #F4F1EA quá phổ biến */
+  --color-bg-secondary: #EFE6DC;    /* nền phụ - be cát ấm */
+  --color-text-primary: #221C18;    /* chữ chính - đen nâu đất */
+  --color-text-secondary: #6B625B;  /* chữ phụ - xám tro ấm */
+  --color-accent: #C24E3A;          /* đỏ gạch/rust — có sức nặng hơn cam đất thường thấy */
+  --color-accent-alt: #3F4B3B;      /* xanh rêu đậm — tương phản có chủ đích với accent chính */
   --color-border: #E3DDD3;
 
-  --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
-  --font-body: 'Be Vietnam Pro', 'Inter', sans-serif;
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
 }
 
 body {
@@ -41,7 +38,7 @@ body {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -50,24 +47,24 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.4s ease-out forwards;
+  animation: slideUp 0.5s ease-out forwards;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-bg-primary);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-secondary);

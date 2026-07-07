@@ -6,8 +6,7 @@ import Image from 'next/image';
 import { Product } from '@/types';
 import { Badge } from '@/components/ui/Badge';
 import { formatPrice } from '@/lib/utils';
-import { ShoppingBag } from 'lucide-react';
-import { useCart } from '@/hooks/useCart';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -15,14 +14,6 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { addToCart } = useCart();
-
-  const handleQuickAdd = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (product.colors && product.colors.length > 0) {
-      addToCart(product, product.colors[0], 1);
-    }
-  };
 
   return (
     <Link 
@@ -30,7 +21,7 @@ export function ProductCard({ product }: ProductCardProps) {
       className="group flex flex-col w-full focus:outline-none animate-fade-in"
     >
       <div 
-        className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] cursor-pointer border border-[#EBE6DD]/40"
+        className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] cursor-pointer border border-[#EBE6DD]/30"
         onMouseEnter={() => product.images[1] && setCurrentImageIndex(1)}
         onMouseLeave={() => setCurrentImageIndex(0)}
       >
@@ -54,27 +45,25 @@ export function ProductCard({ product }: ProductCardProps) {
           )}
         </div>
 
-        {/* Quick Add Button */}
-        <button
-          onClick={handleQuickAdd}
-          className="absolute bottom-3 right-3 p-2.5 bg-white text-text-primary rounded-full shadow-md hover:bg-accent hover:text-white transition-all duration-300 transform translate-y-8 opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 focus:translate-y-0 focus:opacity-100 z-10 active:scale-90"
-          title="Thêm nhanh vào giỏ"
-        >
-          <ShoppingBag className="w-4 h-4" />
-        </button>
+        {/* Hover Detail Overlay */}
+        <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 z-10">
+          <span className="inline-flex items-center gap-1 px-4 py-2 bg-white text-text-primary text-[9px] font-semibold uppercase tracking-widest rounded-button shadow-sm transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+            Xem chi tiết <ArrowUpRight className="h-3 w-3" />
+          </span>
+        </div>
       </div>
 
-      <div className="mt-3 flex flex-col">
-        <h3 className="font-body text-[15px] font-normal text-text-primary group-hover:text-accent transition-colors duration-300 line-clamp-1">
+      <div className="mt-3.5 flex flex-col">
+        <h3 className="font-body text-sm font-semibold text-text-primary group-hover:text-accent transition-colors duration-300 line-clamp-1">
           {product.name}
         </h3>
         
         <div className="mt-1 flex items-baseline gap-2">
-          <span className="font-body font-semibold text-[15px] text-accent">
+          <span className="font-body font-semibold text-sm text-accent">
             {formatPrice(product.price)}
           </span>
           {product.originalPrice > product.price && (
-            <span className="font-body text-xs text-text-secondary line-through">
+            <span className="font-body text-[11px] text-text-secondary line-through">
               {formatPrice(product.originalPrice)}
             </span>
           )}

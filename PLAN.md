@@ -1,23 +1,26 @@
-# PLAN.md — Kế hoạch xây dựng website Shop Balo Nữ
+# PLAN.md — Kế hoạch xây dựng website Shop Balo Nữ (Showcase & Thương hiệu)
 
 ## 1. Tổng quan dự án
 
 | Hạng mục | Chi tiết |
 |---|---|
-| Sản phẩm | Balo nữ, phân khúc 500.000đ – 1.500.000đ |
-| Phong cách | Trẻ trung nhưng cao cấp (tham khảo Charles & Keith, Kate Spade, Longchamp) |
-| Nền tảng | Next.js (client) + Node/Express hoặc headless CMS (server) |
-| Hosting | Vercel (frontend), Render/Railway (backend nếu có) |
-| Thời gian dự kiến toàn bộ | 7–10 tuần (tuỳ quy mô đội ngũ) |
+| Mục đích web | Trưng bày sản phẩm mới/thịnh hành + thông tin thương hiệu. KHÔNG bán hàng trực tiếp trên web |
+| Kênh bán hàng | Đã có sẵn (Shopee + các kênh khác) — web chỉ dẫn link ra |
+| Ưu tiên số 1 | **Chất lượng giao diện** — chuyên nghiệp, có điểm nhấn riêng, không rập khuôn |
+| Phân khúc giá | 500.000đ – 1.500.000đ |
+| Phong cách | Trẻ trung nhưng cao cấp |
+| Nền tảng | Next.js + Tailwind CSS + Framer Motion, Supabase (chỉ đọc dữ liệu sản phẩm) |
+| Hosting | Vercel |
+| Thời gian dự kiến | 4–6 tuần (rút ngắn đáng kể vì bỏ giỏ hàng/thanh toán) |
 | Tài liệu liên quan | `AGENTS.md` (quy tắc thiết kế/code), `TODO.md` (checklist chi tiết) |
 
-**Mục tiêu kinh doanh**: có website bán hàng chuyển đổi tốt, xây dựng nhận diện thương hiệu riêng, giảm phụ thuộc vào sàn TMĐT (Shopee/Lazada).
+**Thay đổi lớn so với kế hoạch trước**: bỏ hoàn toàn Phase giỏ hàng/thanh toán, backend đơn hàng. Dồn thời gian tiết kiệm được vào giai đoạn thiết kế (brainstorm, tinh chỉnh, tự phản biện) để giao diện thực sự nổi bật.
 
 **Chỉ số thành công (KPI) sau ra mắt**:
-- Tỷ lệ chuyển đổi (conversion rate) mục tiêu: 1.5–3% trong 3 tháng đầu.
-- Thời gian tải trang chủ < 3 giây (4G trung bình VN).
-- Tỷ lệ thoát trang (bounce rate) < 55%.
-- Điểm Lighthouse Performance/SEO ≥ 90.
+- Thời gian ở lại trang trung bình > 1.5 phút (đo mức độ hấp dẫn thị giác).
+- Tỷ lệ click vào nút "Mua ngay tại [Kênh]" — đây là chỉ số chuyển đổi chính thay cho tỷ lệ chốt đơn.
+- Điểm Lighthouse Performance/SEO ≥ 90 dù nhiều ảnh/animation.
+- Được chia sẻ trên mạng xã hội nhờ hình ảnh/thiết kế đẹp (đo qua lượt truy cập từ social).
 
 ---
 
@@ -25,131 +28,112 @@
 
 | Tuần | Giai đoạn | Trọng tâm |
 |---|---|---|
-| 1 | Phase 0 | Chuẩn bị nội dung, tài khoản, nhận diện |
-| 2–3 | Phase 1 | Dựng khung kỹ thuật (client + server + kết nối) |
-| 3–5 | Phase 2 | Giao diện các trang chính |
-| 5–6 | Phase 3 | Giỏ hàng, thanh toán |
-| 4–6 | Phase 4 | Nội dung, SEO (chạy song song 2–3) |
-| 7 | Phase 5 | Kiểm thử toàn diện, ra mắt |
-| 8+ | Phase 6 | Hậu ra mắt, tối ưu liên tục |
-
-> Nếu chỉ có 1 người vừa code vừa làm nội dung, nhân thời gian mỗi giai đoạn lên khoảng 1.5–2 lần.
+| 1 | Phase 0 | Chuẩn bị nội dung, ảnh, tài khoản |
+| 1–2 | Phase 1 | Brainstorm & chốt hệ thống thiết kế (design token, signature element) |
+| 2–3 | Phase 2 | Dựng khung kỹ thuật + kết nối Supabase |
+| 2–4 | Phase 3 | Xây dựng giao diện các trang chính |
+| 4 | Phase 4 | Tinh chỉnh chuyển động, chi tiết thị giác, tự phản biện |
+| 5 | Phase 5 | Nội dung, SEO, Open Graph |
+| 6 | Phase 6 | Kiểm thử & ra mắt |
+| 6+ | Phase 7 | Hậu ra mắt, cập nhật sản phẩm mới định kỳ |
 
 ---
 
 ## 3. Chi tiết từng giai đoạn
 
 ### Phase 0 — Chuẩn bị (Tuần 1)
-**Mục tiêu**: có đủ "nguyên liệu" trước khi code, tránh vừa code vừa chờ nội dung.
+- [ ] Chụp/chỉnh ảnh sản phẩm chất lượng cao — đây là web showcase nên **ảnh là yếu tố sống còn**, ưu tiên đầu tư hơn cả code.
+- [ ] Thu thập link các kênh bán hiện có (Shopee, Facebook, Zalo, TikTok Shop...) — mỗi sản phẩm nên có link kênh bán tương ứng, không chỉ link chung.
+- [ ] Viết nội dung "Về chúng tôi" — câu chuyện thật, tránh sáo rỗng.
+- [ ] Đăng ký domain, Vercel, Supabase.
 
-Công việc:
-- [ ] Chốt logo, bảng màu chính thức, bộ font (đối chiếu `AGENTS.md` mục 2).
-- [ ] Chụp/chỉnh ảnh sản phẩm đồng bộ: tỷ lệ 4:5, nền be nhạt (#F8F6F2), tối thiểu 3 ảnh/sản phẩm (studio, lifestyle, cận cảnh chất liệu).
-- [ ] Viết mô tả cho toàn bộ sản phẩm ban đầu (tên, giá, chất liệu, kích thước, hướng dẫn bảo quản).
-- [ ] Viết nội dung trang "Câu chuyện thương hiệu" (About).
-- [ ] Viết chính sách đổi trả, vận chuyển, bảo hành.
-- [ ] Đăng ký domain, tài khoản Vercel, tài khoản CMS (Sanity/Strapi) hoặc Shopify/Haravan nếu chọn hướng đơn giản.
-- [ ] Đăng ký tài khoản cổng thanh toán (VNPay/MoMo) — quá trình duyệt hồ sơ doanh nghiệp có thể mất vài ngày, nên làm sớm.
-
-**Deliverable**: bộ ảnh + nội dung đầy đủ, tài khoản hạ tầng sẵn sàng.
-**Rủi ro thường gặp**: chờ duyệt hồ sơ cổng thanh toán lâu → nên nộp hồ sơ ngay đầu tuần 1.
+**Deliverable**: bộ ảnh chất lượng cao + danh sách link kênh bán + nội dung thương hiệu.
 
 ---
 
-### Phase 1 — Dựng khung kỹ thuật (Tuần 2–3)
-**Mục tiêu**: có bộ khung chạy được (chưa cần đẹp), sẵn sàng để lắp giao diện.
+### Phase 1 — Brainstorm & chốt hệ thống thiết kế (Tuần 1–2)
+**Đây là giai đoạn quan trọng nhất, không được bỏ qua hay làm vội.**
 
-Công việc:
-- [ ] Khởi tạo `client/` bằng Next.js + TypeScript + Tailwind.
-- [ ] Cấu hình `tailwind.config.ts` theo đúng bảng màu/font trong `AGENTS.md`.
-- [ ] Tạo project Supabase, chạy `docs/schema.sql` để khởi tạo bảng `products`, `orders`, `order_items`, `profiles` + bật RLS.
-- [ ] Tạo bucket `product-images` trong Supabase Storage, upload thử ảnh mẫu.
-- [ ] Khởi tạo `server/` (Express + `@supabase/supabase-js` dùng service role key) **hoặc** bỏ qua và gọi Supabase thẳng từ Next.js nếu không cần logic backend phức tạp.
-- [ ] Viết `client/src/lib/api.ts` (hoặc `lib/supabase.ts`) để gọi dữ liệu sản phẩm (tạm thời dùng `mock-products.json` nếu Supabase chưa có dữ liệu thật).
-- [ ] Cấu hình `vercel.json`, deploy bản "Hello World" lên Vercel để test pipeline CI/CD sớm.
-- [ ] Thiết lập biến môi trường (`.env.local`, `.env`) cho cả client/server.
+- [ ] Brainstorm bảng token: 4-6 màu (mã hex), 2+ font, layout concept, 1 signature element (theo quy trình mục 2.7 trong `AGENTS.md`).
+- [ ] Tự phản biện: so với 3 "khuôn mẫu AI" phổ biến (nền cream+serif+cam đất / nền đen+neon / báo giấy) — điều chỉnh nếu trùng.
+- [ ] Vẽ wireframe (có thể bằng ASCII hoặc Figma) cho trang chủ, trang sản phẩm, trang bộ sưu tập.
+- [ ] Chốt 1 khoảnh khắc chuyển động chính (page-load hoặc scroll-reveal) sẽ là điểm nhấn của site.
+- [ ] Duyệt bảng thiết kế trước khi chuyển sang code (dừng ở bước prototype, có thể làm 1 mockup HTML trước khi code chính thức).
 
-**Deliverable**: trang trắng chạy được trên domain thật (chưa có giao diện đầy đủ), API trả về danh sách sản phẩm mẫu.
-**Tiêu chí hoàn thành**: truy cập được domain, gọi API lấy được ít nhất 1 sản phẩm mẫu ra màn hình.
+**Deliverable**: bảng design token đã chốt + wireframe các trang chính + 1 mockup thử nghiệm.
+**Tiêu chí hoàn thành**: nhìn vào mockup, không ai nhầm đây là 1 trong 3 khuôn mẫu AI phổ biến hoặc 1 shop balo khác.
 
 ---
 
-### Phase 2 — Xây dựng giao diện (Tuần 3–5)
-**Mục tiêu**: dựng đầy đủ giao diện các trang theo design system.
+### Phase 2 — Dựng khung kỹ thuật (Tuần 2–3)
+- [ ] Khởi tạo `client/` (Next.js + TypeScript + Tailwind + Framer Motion).
+- [ ] Cấu hình `tailwind.config.ts` theo đúng token đã chốt ở Phase 1.
+- [ ] Tạo project Supabase, chạy `docs/schema.sql` (bản rút gọn — chỉ bảng `products`, `collections`, không cần `orders`).
+- [ ] Nhập dữ liệu sản phẩm mẫu qua Supabase Table Editor hoặc `mock-products.json` để dev trước khi có dữ liệu thật.
+- [ ] Deploy bản khung lên Vercel sớm để test pipeline.
 
-Công việc:
-- [ ] Component gốc dùng chung: `Button`, `Input`, `Badge`, `Card` (`components/ui`).
-- [ ] Layout chung: `Header` (sticky, menu, search, cart icon), `Footer`, `MobileNav`.
-- [ ] Trang chủ: Hero banner, danh mục nổi bật, sản phẩm bán chạy, đánh giá khách hàng, newsletter.
-- [ ] Trang danh mục (`/collections/[slug]`): bộ lọc (giá/màu/size), sắp xếp, grid sản phẩm.
-- [ ] Trang chi tiết sản phẩm (`/products/[slug]`): gallery ảnh, chọn màu/size, tabs mô tả/chất liệu/vận chuyển, sản phẩm liên quan.
-- [ ] Test responsive ở 4 mốc: 375px (mobile), 768px (tablet), 1280px, 1440px (desktop).
-
-**Deliverable**: toàn bộ trang hiển thị đúng nội dung thật (không còn placeholder), đúng màu/font/spacing theo AGENTS.md.
-**Tiêu chí hoàn thành**: click được từ trang chủ → danh mục → chi tiết sản phẩm mượt mà trên cả mobile và desktop.
+**Deliverable**: site chạy được trên domain thật, hiển thị được dữ liệu sản phẩm mẫu (chưa cần đẹp).
 
 ---
 
-### Phase 3 — Giỏ hàng & Thanh toán (Tuần 5–6)
-**Mục tiêu**: khách có thể mua hàng thật từ đầu đến cuối.
+### Phase 3 — Xây dựng giao diện các trang chính (Tuần 2–4)
+- [ ] Component gốc: `Button`, `Card`, `Badge`, `BuyNowButton` (nút dẫn ra kênh bán).
+- [ ] Layout chung: `Header`, `Footer`.
+- [ ] Trang chủ: hero (thesis-driven, không dùng công thức số liệu lớn mặc định), sản phẩm mới/thịnh hành, câu chuyện thương hiệu rút gọn.
+- [ ] Trang `/collections` và `/collections/[slug]`: trưng bày sản phẩm theo bộ sưu tập.
+- [ ] Trang `/products/[slug]`: ảnh lớn, mô tả, nút "Mua ngay tại [Kênh]" nổi bật.
+- [ ] Trang `/about`: câu chuyện thương hiệu đầy đủ.
+- [ ] Trang `/contact`: thông tin liên hệ + toàn bộ link kênh bán.
+- [ ] (Tuỳ chọn) Trang `/lookbook`: bộ ảnh editorial kể chuyện phong cách.
+- [ ] Test responsive 375px / 768px / 1280px / 1440px.
 
-Công việc:
-- [ ] Logic giỏ hàng (`useCart.ts`): thêm/xoá/sửa số lượng, lưu localStorage.
-- [ ] Trang `/cart`: hiển thị danh sách sản phẩm, tổng tiền, mã giảm giá (nếu có).
-- [ ] Trang `/checkout`: form thông tin giao hàng → chọn phương thức thanh toán (COD bắt buộc + VNPay/MoMo) → xác nhận đơn.
-- [ ] `server/src/services/payment.service.js`: tích hợp API cổng thanh toán, xử lý webhook xác nhận giao dịch.
-- [ ] `server/src/services/email.service.js`: gửi email/SMS xác nhận đơn hàng.
-
-**Deliverable**: đặt được 1 đơn hàng thử nghiệm thành công từ giỏ hàng đến xác nhận.
-**Tiêu chí hoàn thành**: đơn hàng test COD và đơn hàng test qua cổng thanh toán online đều lên đúng trạng thái trong hệ thống quản lý.
+**Deliverable**: toàn bộ trang hiển thị nội dung thật, đúng design token.
 
 ---
 
-### Phase 4 — Nội dung & SEO (chạy song song Tuần 4–6)
-**Mục tiêu**: website sẵn sàng được tìm thấy trên Google và tạo niềm tin thương hiệu.
+### Phase 4 — Tinh chỉnh chuyển động & tự phản biện (Tuần 4)
+- [ ] Cài đặt khoảnh khắc chuyển động chính đã chốt ở Phase 1 (page-load sequence hoặc scroll-reveal).
+- [ ] Hover micro-interactions cho card sản phẩm.
+- [ ] Chụp screenshot toàn bộ trang, tự phản biện: có chi tiết nào thừa cần bỏ bớt không (nguyên tắc "bỏ bớt 1 món trang sức trước khi ra khỏi nhà").
+- [ ] Kiểm tra `prefers-reduced-motion` được tôn trọng.
 
-Công việc:
-- [ ] Trang `/about`: câu chuyện thương hiệu kèm ảnh.
-- [ ] Trang `/journal`: 3–5 bài blog phong cách ban đầu (mix & match balo, tips phối đồ...).
-- [ ] Meta title/description riêng cho từng trang sản phẩm.
-- [ ] Structured data (schema.org Product: giá, tồn kho, đánh giá).
+**Deliverable**: giao diện hoàn chỉnh, có điểm nhấn rõ ràng, không thừa chi tiết.
+
+---
+
+### Phase 5 — Nội dung & SEO (Tuần 5)
+- [ ] Meta title/description riêng cho từng trang sản phẩm/bộ sưu tập.
+- [ ] Open Graph image đẹp riêng (quan trọng vì web showcase hay được chia sẻ).
 - [ ] `sitemap.xml`, `robots.txt`.
-- [ ] Kiểm tra tốc độ tải ảnh (WebP, lazy-load).
+- [ ] Kiểm tra tối ưu ảnh (WebP, lazy-load) — cân bằng giữa ảnh đẹp và tốc độ tải.
 
-**Deliverable**: site được Google index đúng, có ít nhất 5 bài viết SEO ban đầu.
-
----
-
-### Phase 5 — Kiểm thử & Ra mắt (Tuần 7)
-Công việc:
-- [ ] Chạy lại toàn bộ checklist trong `AGENTS.md` mục 7.
-- [ ] Test đơn hàng đầu-cuối trên môi trường production thật (không phải staging).
-- [ ] Test trên thiết bị thật: iOS Safari, Android Chrome, không chỉ DevTools giả lập.
-- [ ] Gắn Google Analytics 4 + Meta Pixel để đo hành vi và chuyển đổi.
-- [ ] Trỏ domain chính thức, bật HTTPS, kiểm tra chứng chỉ SSL.
-- [ ] Thông báo ra mắt trên kênh mạng xã hội hiện có của shop.
-
-**Deliverable**: website chính thức hoạt động ổn định trên domain thật.
+**Deliverable**: site sẵn sàng được Google index, chia sẻ social đẹp.
 
 ---
 
-### Phase 6 — Hậu ra mắt (Tuần 8 trở đi, liên tục)
-Công việc:
-- [ ] Theo dõi Google Analytics: trang nào thoát nhiều, giỏ hàng bị bỏ ở bước nào.
-- [ ] A/B test màu nút CTA, vị trí banner.
-- [ ] Thêm tính năng review sản phẩm (tăng độ tin cậy).
-- [ ] Thêm chương trình khách hàng thân thiết / mã giảm giá tự động.
-- [ ] Cân nhắc live chat (Messenger/Zalo OA) hỗ trợ khách real-time.
+### Phase 6 — Kiểm thử & Ra mắt (Tuần 6)
+- [ ] Chạy lại checklist `AGENTS.md` mục 8.
+- [ ] Test trên thiết bị thật (iOS Safari, Android Chrome).
+- [ ] Test toàn bộ nút "Mua ngay tại [Kênh]" trỏ đúng link, mở tab mới.
+- [ ] Gắn Google Analytics 4 + Meta Pixel để đo lượt click ra kênh bán.
+- [ ] Trỏ domain chính thức.
+
+**Deliverable**: website chính thức hoạt động, đo được lượt dẫn khách sang kênh bán.
+
+---
+
+### Phase 7 — Hậu ra mắt (liên tục)
+- [ ] Quy trình cập nhật sản phẩm mới định kỳ (qua Supabase Table Editor hoặc trang admin nếu làm sau).
+- [ ] Theo dõi trang nào giữ chân khách lâu nhất, tối ưu thêm.
+- [ ] Cân nhắc thêm `/lookbook` nếu chưa làm ở Phase 3, hoặc mở rộng thêm bộ sưu tập theo mùa.
 
 ---
 
 ## 4. Thứ tự ưu tiên nếu cần rút ngắn thời gian
 
-Nếu ngân sách/thời gian hạn chế, làm theo đúng thứ tự sau — không bỏ nhóm 1, có thể lùi nhóm 2–3:
-
-1. **Bắt buộc để bán được hàng**: Trang chủ + danh mục + chi tiết sản phẩm + giỏ hàng + checkout (Phase 1–3).
-2. **Tăng độ tin cậy, nên có sớm**: About, chính sách đổi trả rõ ràng, ít nhất 3–5 review thật (Phase 4 rút gọn).
-3. **Làm sau, ở bản v2**: Blog Journal đầy đủ, review có ảnh, chương trình loyalty, live chat (Phase 6).
+1. **Bắt buộc**: Phase 1 (thiết kế) — đây là giá trị cốt lõi của dự án, không được cắt giảm.
+2. **Bắt buộc**: Trang chủ + trang sản phẩm + nút dẫn kênh bán (Phase 3 rút gọn).
+3. **Có thể làm sau**: `/lookbook`, animation phức tạp ở Phase 4, trang admin nội bộ.
 
 ---
 
@@ -157,13 +141,10 @@ Nếu ngân sách/thời gian hạn chế, làm theo đúng thứ tự sau — k
 
 | Vai trò | Công việc chính | Bắt buộc? |
 |---|---|---|
-| Frontend dev | Xây `client/` theo design system | Có |
-| Backend dev (hoặc dùng CMS có sẵn) | API sản phẩm/đơn hàng, tích hợp thanh toán | Có (hoặc thay bằng Shopify/Haravan) |
-| Người chụp ảnh sản phẩm | Ảnh đồng bộ theo chuẩn Phase 0 | Có |
-| Người viết nội dung | Mô tả sản phẩm, blog, câu chuyện thương hiệu | Có |
-| Người vận hành/CSKH | Xử lý đơn hàng, hỗ trợ khách | Có (khi ra mắt) |
-
-Nếu chỉ có 1 người: ưu tiên dùng Shopify/Haravan để giảm tải phần backend, tập trung nguồn lực vào ảnh sản phẩm + nội dung + giao diện.
+| Frontend dev / Designer | Brainstorm thiết kế + xây `client/` | Có — vai trò quan trọng nhất dự án này |
+| Người chụp ảnh sản phẩm | Ảnh chất lượng cao, đồng bộ | Có — quan trọng ngang thiết kế |
+| Người viết nội dung | Câu chuyện thương hiệu, mô tả sản phẩm | Có |
+| ~~Backend dev~~ | Không bắt buộc vì không có đơn hàng/thanh toán | Không |
 
 ---
 
@@ -171,10 +152,8 @@ Nếu chỉ có 1 người: ưu tiên dùng Shopify/Haravan để giảm tải p
 
 | Rủi ro | Cách giảm thiểu |
 |---|---|
-| Duyệt hồ sơ cổng thanh toán chậm | Nộp hồ sơ VNPay/MoMo ngay từ Phase 0 |
-| Ảnh sản phẩm không đồng bộ (do nhiều đợt chụp khác nhau) | Lập chuẩn ảnh cố định (mục 2.4 AGENTS.md) và áp dụng cho mọi đợt chụp sau này |
-| Chậm nội dung khiến dev phải chờ | Viết nội dung sản phẩm song song ngay từ Phase 0, không để dồn đến Phase 2 |
-| Website chậm do ảnh nặng | Bắt buộc dùng `next/image` + WebP ngay từ đầu, không tối ưu sau |
-| Thiếu hỗ trợ COD | COD là bắt buộc với thị trường VN — không được bỏ qua dù ưu tiên thanh toán online |
-| Cấu hình sai Row Level Security (RLS) trên Supabase | Luôn bật RLS ngay từ đầu, test bằng anon key xem có bị lộ/sửa được dữ liệu không nên sửa trước khi ra mắt |
-| Lộ `SUPABASE_SERVICE_ROLE_KEY` ra frontend | Chỉ dùng service role key trong `server/.env`, không bao giờ đặt trong biến `NEXT_PUBLIC_*` |
+| Giao diện rơi vào khuôn mẫu "AI-generated" phổ biến | Bắt buộc chạy bước tự phản biện ở Phase 1 trước khi code |
+| Ảnh sản phẩm chất lượng thấp làm hỏng cả thiết kế đẹp | Đầu tư chụp ảnh chuyên nghiệp ngay từ Phase 0, không dùng ảnh chụp vội |
+| Lạm dụng animation khiến site nặng/chậm | Chỉ giữ 1 khoảnh khắc chuyển động chính đã chốt ở Phase 1, cắt bớt hiệu ứng thừa ở Phase 4 |
+| Link kênh bán bị sai/lỗi thời khi sản phẩm hết hàng trên Shopee | Có quy trình kiểm tra định kỳ link kênh bán còn hoạt động không |
+| Cấu hình sai Row Level Security (RLS) trên Supabase | Bật RLS ngay từ đầu, chỉ cho SELECT công khai với bảng sản phẩm |

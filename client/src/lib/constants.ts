@@ -1,5 +1,5 @@
 export const SITE_NAME = "DBlink";
-export const SITE_SLOGAN = "Phong cách trẻ, chất riêng bạn";
+export const SITE_SLOGAN = "Trẻ trung nhưng cao cấp";
 
 export const CATEGORIES = [
   { slug: "all", name: "Tất cả" },

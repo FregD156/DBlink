@@ -3,20 +3,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, ShoppingBag, User, Menu, X } from 'lucide-react';
-import { useCart } from '@/hooks/useCart';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { NAV_LINKS, SITE_NAME } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
 export function Header() {
   const pathname = usePathname();
-  const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-bg-primary/80 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Mobile Menu Icon */}
           <div className="flex md:hidden">
             <button
@@ -35,7 +33,7 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-10">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
               return (
@@ -43,9 +41,9 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "font-body text-xs font-medium tracking-wider uppercase transition-all duration-300 relative py-1 hover:text-accent",
+                    "font-body text-[11px] font-semibold tracking-widest uppercase transition-all duration-300 relative py-1 hover:text-accent",
                     isActive 
-                      ? "text-accent after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-accent" 
+                      ? "text-accent after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-accent" 
                       : "text-text-secondary"
                   )}
                 >
@@ -55,22 +53,26 @@ export function Header() {
             })}
           </nav>
 
-          {/* Right Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <button className="text-text-secondary hover:text-accent transition-colors duration-300 p-2 focus:outline-none">
-              <Search className="h-5 w-5" />
-            </button>
-            <button className="text-text-secondary hover:text-accent transition-colors duration-300 p-2 focus:outline-none">
-              <User className="h-5 w-5" />
-            </button>
-            <Link href="/cart" className="text-text-secondary hover:text-accent transition-colors duration-300 p-2 relative focus:outline-none">
-              <ShoppingBag className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[9px] font-bold text-white leading-none">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
+          {/* Right Action: Shopee Link */}
+          <div className="flex items-center">
+            <a
+              href="https://shopee.vn/dblink.vn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
+            >
+              Ghé Shopee <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+            
+            {/* Mobile Shop Link Icon */}
+            <a
+              href="https://shopee.vn/dblink.vn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden text-text-primary hover:text-accent p-2"
+            >
+              <ArrowUpRight className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>
@@ -78,8 +80,8 @@ export function Header() {
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 md:hidden flex">
-          <div className="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300" onClick={() => setMobileMenuOpen(false)} />
-          <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-bg-primary pb-12 shadow-xl animate-fade-in">
+          <div className="fixed inset-0 bg-black/25 backdrop-blur-sm transition-opacity duration-300" onClick={() => setMobileMenuOpen(false)} />
+          <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-bg-primary pb-12 shadow-xl animate-fade-in border-r border-border">
             <div className="flex px-4 pb-2 pt-5 justify-between items-center border-b border-border">
               <span className="font-heading text-xl font-bold tracking-widest">{SITE_NAME}</span>
               <button
@@ -98,7 +100,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "block font-body text-sm font-medium uppercase tracking-wider transition-colors duration-300",
+                    "block font-body text-xs font-semibold uppercase tracking-widest transition-colors duration-300",
                     pathname === link.href ? "text-accent" : "text-text-primary hover:text-accent"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -106,6 +108,17 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
+              
+              <div className="border-t border-border pt-6">
+                <a
+                  href="https://shopee.vn/dblink.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-1.5 px-4 py-3.5 bg-accent text-white rounded-button font-body text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-[#B36852]"
+                >
+                  Mua tại Shopee <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

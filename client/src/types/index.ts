@@ -9,6 +9,13 @@ export interface ProductDetails {
   care: string;
 }
 
+export interface BuyLinks {
+  shopee?: string;
+  facebook?: string;
+  tiktok?: string;
+  zalo?: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -23,23 +30,5 @@ export interface Product {
   colors: Color[];
   images: string[];
   details: ProductDetails;
-}
-
-export interface CartItem {
-  product: Product;
-  selectedColor: Color;
-  quantity: number;
-}
-
-export interface Order {
-  id: string;
-  items: CartItem[];
-  totalAmount: number;
-  customerName: string;
-  customerPhone: string;
-  customerEmail: string;
-  customerAddress: string;
-  paymentMethod: 'COD' | 'VNPAY' | 'MOMO';
-  status: 'PENDING' | 'PAID' | 'SHIPPED' | 'CANCELLED';
-  createdAt: string;
+  buyLinks: BuyLinks;
 }
