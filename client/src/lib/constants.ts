@@ -7,6 +7,8 @@ export const CATEGORIES = [
   { slug: "balo-canvas", name: "Balo Canvas Trẻ Trung" },
   { slug: "balo-laptop", name: "Balo Laptop Công Sở" },
   { slug: "balo-mini", name: "Balo Mini Dạo Phố" },
+  { slug: "balo-du-lich", name: "Balo Du Lịch Dã Ngoại" },
+  { slug: "limited-edition", name: "BST Giới Hạn" },
 ];
 
 export const NAV_LINKS = [

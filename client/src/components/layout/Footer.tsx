@@ -64,7 +64,7 @@ export function Footer() {
               <h3 className="font-body text-[10px] font-bold text-text-primary tracking-widest uppercase">Cửa hàng</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <a href="https://shopee.vn/dblink.vn" target="_blank" rel="noopener noreferrer" className="font-body text-xs text-text-secondary hover:text-accent transition-colors duration-300 inline-flex items-center gap-1">
+                  <a href="https://shopee.vn/d.blink" target="_blank" rel="noopener noreferrer" className="font-body text-xs text-text-secondary hover:text-accent transition-colors duration-300 inline-flex items-center gap-1">
                     Shopee Store <ArrowUpRight className="h-3 w-3" />
                   </a>
                 </li>

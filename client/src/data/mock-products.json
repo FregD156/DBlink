@@ -26,7 +26,7 @@
       "care": "Lau sạch nhẹ nhàng bằng khăn ẩm mềm. Tránh tiếp xúc cồn hay hóa chất tẩy rửa mạnh."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/dblink.vn/balo-da-minimalist",
+      "shopee": "https://shopee.vn/d.blink",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"
@@ -58,7 +58,7 @@
       "care": "Nên giặt tay nhẹ nhàng bằng xà phòng loãng, phơi bóng râm tránh nắng gắt."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/dblink.vn/balo-canvas-classic",
+      "shopee": "https://shopee.vn/d.blink",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"
@@ -66,7 +66,7 @@
   },
   {
     "id": "p3",
-    "slug": "balo-laptop-nu-chong-nuoc-smart",
+    "slug": "balo-lap-top-nu-chong-nuoc-smart",
     "name": "Balo Laptop Nữ Chống Nước Smart",
     "price": 950000,
     "originalPrice": 1250000,
@@ -90,7 +90,7 @@
       "care": "Lau sạch vết bẩn bằng cọ mềm hoặc khăn ẩm. Không giặt máy."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/dblink.vn/balo-laptop-smart",
+      "shopee": "https://shopee.vn/d.blink",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"
@@ -123,7 +123,71 @@
       "care": "Dùng khăn ẩm lau sạch. Không là/ủi ở nhiệt độ cao."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/dblink.vn/balo-mini-longchamp",
+      "shopee": "https://shopee.vn/d.blink",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "p5",
+    "slug": "balo-du-lich-dã-ngoai-travel-smart",
+    "name": "Balo Du Lịch Dã Ngoại Travel Smart",
+    "price": 1250000,
+    "originalPrice": 1500000,
+    "description": "Balo du lịch đa năng, chống thấm nước tuyệt đối với dung tích lớn, ngăn chứa thông minh và đệm quai vai êm ái chống gù lưng hiệu quả cho các hành trình dài ngày.",
+    "category": "balo-du-lich",
+    "rating": 4.9,
+    "isNew": true,
+    "isBestSeller": false,
+    "colors": [
+      { "name": "Đen Nâu", "hex": "#221C18" },
+      { "name": "Xanh Rêu", "hex": "#3F4B3B" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"
+    ],
+    "details": {
+      "material": "Vải Oxford 900D siêu bền bỉ, chống mài mòn và kháng nước vượt trội.",
+      "dimensions": "45cm x 32cm x 18cm (Dung tích 25L)",
+      "care": "Vệ sinh khô bằng bàn chải mềm, tránh phơi trực tiếp dưới ánh nắng chói chang."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "p6",
+    "slug": "balo-da-bo-limited-edition",
+    "name": "Balo Da Bò Limited Edition",
+    "price": 1450000,
+    "originalPrice": 1850000,
+    "description": "Sản phẩm chế tác số lượng giới hạn. Khâu thủ công tỉ mỉ bằng chất liệu da bò thật nguyên tấm mang lại độ bóng tự nhiên sang trọng bậc nhất.",
+    "category": "limited-edition",
+    "rating": 5.0,
+    "isNew": true,
+    "isBestSeller": true,
+    "colors": [
+      { "name": "Be Cát", "hex": "#EFE6DC" },
+      { "name": "Đen Nâu", "hex": "#221C18" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop"
+    ],
+    "details": {
+      "material": "Da bò thật 100% nguyên tấm phối hợp phụ kiện khóa đồng thau mạ vàng.",
+      "dimensions": "34cm x 28cm x 12cm",
+      "care": "Dùng kem dưỡng da chuyên dụng lau bề mặt 3 tháng một lần để giữ độ mềm bóng."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"

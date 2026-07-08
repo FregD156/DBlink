@@ -34,6 +34,48 @@ function SplitText({ text, className }: { text: string; className?: string }) {
   );
 }
 
+// Component Marquee chạy vô tận cực kỳ sang trọng và mượt mà
+function InfiniteMarquee() {
+  return (
+    <div className="bg-text-primary text-bg-primary py-8 overflow-hidden select-none border-y border-border flex w-full relative">
+      <motion.div 
+        animate={{ x: [0, -1000] }}
+        transition={{
+          ease: "linear",
+          duration: 35,
+          repeat: Infinity,
+        }}
+        className="flex whitespace-nowrap gap-16 font-heading text-4xl sm:text-6xl font-medium uppercase tracking-[0.2em] italic opacity-25 pr-16"
+      >
+        <span>Tối giản</span>
+        <span>•</span>
+        <span>Tự tin</span>
+        <span>•</span>
+        <span>Sang trọng</span>
+        <span>•</span>
+        <span>DBlink Style</span>
+        <span>•</span>
+        <span>Tối giản</span>
+        <span>•</span>
+        <span>Tự tin</span>
+        <span>•</span>
+        <span>Sang trọng</span>
+        <span>•</span>
+        <span>DBlink Style</span>
+        <span>•</span>
+        <span>Tối giản</span>
+        <span>•</span>
+        <span>Tự tin</span>
+        <span>•</span>
+        <span>Sang trọng</span>
+        <span>•</span>
+        <span>DBlink Style</span>
+        <span>•</span>
+      </motion.div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const { getFeaturedProducts } = useProducts();
   const featuredProducts = getFeaturedProducts();
@@ -58,6 +100,27 @@ export default function HomePage() {
       description: "Thời thượng, ngăn chứa thông minh bảo vệ tối đa thiết bị của bạn.",
       slug: "balo-laptop",
       image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop",
+      gridClass: "lg:col-span-1 h-[298px]"
+    },
+    {
+      name: "Balo Mini Dạo Phố",
+      description: "Kích thước nhỏ gọn, quai đeo thanh mảnh và chất liệu nilon cao cấp siêu nhẹ.",
+      slug: "balo-mini",
+      image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=600&auto=format&fit=crop",
+      gridClass: "lg:col-span-1 h-[298px]"
+    },
+    {
+      name: "Balo Du Lịch Dã Ngoại",
+      description: "Thể tích chứa lớn, đệm vai êm ái cho những chuyến đi dài ngày.",
+      slug: "balo-du-lich",
+      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
+      gridClass: "lg:col-span-1 h-[298px]"
+    },
+    {
+      name: "BST Giới Hạn",
+      description: "Sản phẩm thời trang cao cấp chế tác độc quyền từ nguyên liệu cao cấp.",
+      slug: "limited-edition",
+      image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
       gridClass: "lg:col-span-1 h-[298px]"
     }
   ];
@@ -119,7 +182,7 @@ export default function HomePage() {
                 </Button>
               </Link>
               <a
-                href="https://shopee.vn/dblink.vn"
+                href="https://shopee.vn/d.blink"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 border border-white text-white hover:bg-white hover:text-text-primary rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
@@ -131,13 +194,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Slogan lớn tràn màn hình (Typography Moment) */}
-      <section className="bg-text-primary text-bg-primary py-8 overflow-hidden select-none border-y border-border">
-        <div className="whitespace-nowrap flex animate-fade-in font-heading text-4xl sm:text-6xl font-bold uppercase tracking-widest opacity-20 justify-around w-full">
-          <span>Tối giản • Tự tin • Sang trọng</span>
-          <span className="hidden md:inline">Tối giản • Tự tin • Sang trọng</span>
-        </div>
-      </section>
+      {/* Slogan lớn tràn màn hình (Infinite Marquee) */}
+      <InfiniteMarquee />
 
       {/* 2. Brand Story Summary Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
@@ -151,7 +209,7 @@ export default function HomePage() {
           >
             <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block">Chúng tôi là ai</span>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text-primary leading-tight">
-              Sử mệnh đồng hành cùng phong cách sống hiện đại
+              Sứ mệnh đồng hành cùng phong cách sống hiện đại
             </h2>
             <div className="h-[1px] w-12 bg-accent" />
             <p className="font-body text-sm text-text-secondary leading-relaxed">
@@ -216,7 +274,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. Featured Categories — Asymmetrical Grid (Signature Element with Curtain Reveals) */}
+      {/* 3. Featured Categories — Expanded Asymmetrical Grid (Signature Element with Curtain Reveals) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 border-t border-border">
         <div className="text-center mb-16">
           <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Xem theo dòng sản phẩm</span>
@@ -224,14 +282,14 @@ export default function HomePage() {
           <div className="h-[1px] w-12 bg-accent mx-auto mt-4" />
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {collections.map((col, index) => (
             <motion.div 
               key={col.slug}
               initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
               whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
               viewport={{ once: true, margin: "-5%" }}
-              transition={{ duration: 1.0, delay: index * 0.15, ease: easing.reveal }}
+              transition={{ duration: 1.0, delay: index * 0.1, ease: easing.reveal }}
               className={`group relative overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/30 shadow-sm ${col.gridClass}`}
             >
               <Link href={`/collections/${col.slug}`} className="w-full h-full block relative">

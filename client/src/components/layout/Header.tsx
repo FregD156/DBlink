@@ -56,7 +56,7 @@ export function Header() {
           {/* Right Action: Shopee Link */}
           <div className="flex items-center">
             <a
-              href="https://shopee.vn/dblink.vn"
+              href="https://shopee.vn/d.blink"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
@@ -66,7 +66,7 @@ export function Header() {
             
             {/* Mobile Shop Link Icon */}
             <a
-              href="https://shopee.vn/dblink.vn"
+              href="https://shopee.vn/d.blink"
               target="_blank"
               rel="noopener noreferrer"
               className="sm:hidden text-text-primary hover:text-accent p-2"
@@ -111,7 +111,7 @@ export function Header() {
               
               <div className="border-t border-border pt-6">
                 <a
-                  href="https://shopee.vn/dblink.vn"
+                  href="https://shopee.vn/d.blink"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-1.5 px-4 py-3.5 bg-accent text-white rounded-button font-body text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-[#B36852]"
