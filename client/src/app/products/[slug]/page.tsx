@@ -15,11 +15,17 @@ export default function ProductDetailPage() {
   const slug = params.slug as string;
   const { getProductBySlug, getRelatedProducts } = useProducts();
 
-  const product = getProductBySlug(slug);
-
+  const [mounted, setMounted] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<'desc' | 'material' | 'shipping'>('desc');
+
+  // Kích hoạt mounted để tránh Hydration Mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const product = getProductBySlug(slug);
 
   // Đặt màu mặc định khi load xong
   useEffect(() => {
@@ -27,6 +33,15 @@ export default function ProductDetailPage() {
       setSelectedColor(product.colors[0]);
     }
   }, [product]);
+
+  if (!mounted) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-20 text-center animate-pulse">
+        <div className="h-8 bg-bg-secondary w-48 mx-auto rounded-button mb-4" />
+        <div className="h-4 bg-bg-secondary w-96 mx-auto rounded-button" />
+      </div>
+    );
+  }
 
   if (!product) {
     return (

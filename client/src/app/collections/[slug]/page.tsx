@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { useProducts } from '@/hooks/useProducts';
 import { CATEGORIES } from '@/lib/constants';
@@ -13,12 +13,25 @@ export default function CollectionPage() {
   const slug = params.slug as string;
   const { getProductsByCategory } = useProducts();
 
+  const [mounted, setMounted] = useState(false);
   const [sortBy, setSortBy] = useState<'newest' | 'price-asc' | 'price-desc'>('newest');
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [maxPrice, setMaxPrice] = useState<number>(1500000);
 
-  const category = CATEGORIES.find((c) => c.slug === slug) || CATEGORIES[0];
-  const rawProducts = getProductsByCategory(slug) || [];
+  // Kích hoạt mount check để tránh lỗi Hydration Mismatch trong Next.js App Router
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const category = useMemo(() => {
+    if (!mounted) return CATEGORIES[0];
+    return CATEGORIES.find((c) => c.slug === slug) || CATEGORIES[0];
+  }, [slug, mounted]);
+
+  const rawProducts = useMemo(() => {
+    if (!mounted) return [];
+    return getProductsByCategory(slug) || [];
+  }, [slug, getProductsByCategory, mounted]);
 
   // Lấy danh sách màu sắc duy nhất có trong các sản phẩm để lọc
   const allColors = useMemo(() => {
@@ -56,6 +69,15 @@ export default function CollectionPage() {
 
     return result;
   }, [rawProducts, selectedColor, maxPrice, sortBy]);
+
+  if (!mounted) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center animate-pulse">
+        <div className="h-8 bg-bg-secondary w-48 mx-auto rounded-button mb-4" />
+        <div className="h-4 bg-bg-secondary w-96 mx-auto rounded-button" />
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
