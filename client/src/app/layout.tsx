@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SmoothScroll } from "@/components/showcase/SmoothScroll";
 import { SITE_NAME, SITE_SLOGAN } from "@/lib/constants";
 import "./globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className="flex flex-col min-h-screen bg-bg-primary text-text-primary antialiased">
+        <SmoothScroll />
         <Header />
         <main className="flex-grow">
           {children}
