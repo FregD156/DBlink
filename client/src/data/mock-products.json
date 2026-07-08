@@ -42,7 +42,7 @@
     "category": "balo-canvas",
     "rating": 4.6,
     "isNew": true,
-    "isBestSeller": false,
+    "isBestSeller": true,
     "colors": [
       { "name": "Be Cát", "hex": "#EFE6DC" },
       { "name": "Đen Nâu", "hex": "#221C18" }
@@ -139,7 +139,7 @@
     "category": "balo-du-lich",
     "rating": 4.9,
     "isNew": true,
-    "isBestSeller": false,
+    "isBestSeller": true,
     "colors": [
       { "name": "Đen Nâu", "hex": "#221C18" },
       { "name": "Xanh Rêu", "hex": "#3F4B3B" }

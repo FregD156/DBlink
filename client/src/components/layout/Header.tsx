@@ -1,18 +1,70 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { NAV_LINKS, SITE_NAME } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { easing, duration } from '@/lib/motion-tokens';
 
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // Các state quản lý Smart Sticky Header
+  const [isVisible, setIsVisible] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    // Chỉ kích hoạt trên các thiết bị không giảm chuyển động
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // 1. Nếu ở sát đỉnh trang (< 50px), luôn hiện và bỏ màu nền đè
+      if (currentScrollY < 50) {
+        setIsAtTop(true);
+        setIsVisible(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+
+      setIsAtTop(false);
+
+      // 2. Định hướng cuộn trang: Cuộn xuống ẩn, cuộn lên hiện
+      // Thêm đệm cuộn tối thiểu 5px để tránh kích hoạt rung lắc nhẹ
+      if (Math.abs(currentScrollY - lastScrollY) > 5) {
+        if (currentScrollY > lastScrollY) {
+          setIsVisible(false); // Cuộn xuống -> Ẩn Toolbar
+        } else {
+          setIsVisible(true); // Cuộn lên -> Hiện Toolbar trượt xuống
+        }
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-bg-primary/80 backdrop-blur-md transition-all duration-300">
+    <motion.header
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -80 }}
+      transition={{ duration: duration.base, ease: easing.reveal }}
+      className={cn(
+        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        isAtTop 
+          ? "border-transparent bg-transparent py-2" // Rộng rãi ở đỉnh trang
+          : "border-border bg-bg-primary/90 backdrop-blur-md shadow-sm py-0" // Gọn gàng và mờ khi cuộn xuống
+      )}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Mobile Menu Icon */}
@@ -25,10 +77,29 @@ export function Header() {
             </button>
           </div>
 
-          {/* Logo */}
-          <div className="flex justify-center md:justify-start">
-            <Link href="/" className="font-heading text-2xl font-bold tracking-widest text-text-primary hover:opacity-90 transition-opacity">
-              {SITE_NAME}
+          {/* Brand Logo */}
+          <div className="flex items-center justify-center md:justify-start">
+            <Link href="/" className="hover:opacity-90 transition-opacity flex items-center">
+              {/* Desktop Logo */}
+              <div className="hidden sm:block relative w-[130px] h-[36px]">
+                <Image
+                  src="/logo-full.png"
+                  alt={SITE_NAME}
+                  fill
+                  priority
+                  className="object-contain object-left"
+                />
+              </div>
+              {/* Mobile Logo */}
+              <div className="sm:hidden relative w-[32px] h-[32px]">
+                <Image
+                  src="/logo-icon.png"
+                  alt={SITE_NAME}
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
             </Link>
           </div>
 
@@ -83,7 +154,15 @@ export function Header() {
           <div className="fixed inset-0 bg-black/25 backdrop-blur-sm transition-opacity duration-300" onClick={() => setMobileMenuOpen(false)} />
           <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-bg-primary pb-12 shadow-xl animate-fade-in border-r border-border">
             <div className="flex px-4 pb-2 pt-5 justify-between items-center border-b border-border">
-              <span className="font-heading text-xl font-bold tracking-widest">{SITE_NAME}</span>
+              {/* Mobile Drawer Brand Logo */}
+              <div className="relative w-[110px] h-[30px]">
+                <Image
+                  src="/logo-full.png"
+                  alt={SITE_NAME}
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
               <button
                 type="button"
                 className="text-text-primary hover:text-accent p-2 focus:outline-none"
@@ -123,6 +202,6 @@ export function Header() {
           </div>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }

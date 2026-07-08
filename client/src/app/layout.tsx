@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/showcase/SmoothScroll";
+import { Watermark } from "@/components/showcase/Watermark";
 import { SITE_NAME, SITE_SLOGAN } from "@/lib/constants";
 import "./globals.css";
 
@@ -31,8 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className="flex flex-col min-h-screen bg-bg-primary text-text-primary antialiased">
+      <body className="flex flex-col min-h-screen bg-bg-primary text-text-primary antialiased relative">
         <SmoothScroll />
+        
+        {/* Background Watermark Logo Icon (Parallax Scroll) */}
+        <Watermark />
+
         <Header />
         <main className="flex-grow">
           {children}

@@ -1,14 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useProducts } from '@/hooks/useProducts';
 import { ProductCard } from '@/components/product/ProductCard';
 import { Button } from '@/components/ui/Button';
-import { ArrowRight, ShieldCheck, Truck, RefreshCw, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, RefreshCw, ArrowUpRight, Plus, Sparkles } from 'lucide-react';
 import { easing, duration, stagger } from '@/lib/motion-tokens';
+import { formatPrice } from '@/lib/utils';
 
 // Component phụ để băm nhỏ và tạo chuyển động chữ trễ (stagger) tinh tế
 function SplitText({ text, className }: { text: string; className?: string }) {
@@ -34,7 +35,7 @@ function SplitText({ text, className }: { text: string; className?: string }) {
   );
 }
 
-// Component Marquee chạy vô tận cực kỳ sang trọng và mượt mà
+// Component Marquee chạy vô chậm và mượt mà
 function InfiniteMarquee() {
   return (
     <div className="bg-text-primary text-bg-primary py-8 overflow-hidden select-none border-y border-border flex w-full relative">
@@ -80,50 +81,82 @@ export default function HomePage() {
   const { getFeaturedProducts } = useProducts();
   const featuredProducts = getFeaturedProducts();
 
-  const collections = [
+  // 1. Dữ liệu Phối đồ ảo (Mix & Match Coordinator)
+  const [selectedOutfit, setSelectedOutfit] = useState<'blazer' | 'dress' | 'denim'>('blazer');
+  const [selectedBalo, setSelectedBalo] = useState<'balo-da' | 'balo-canvas' | 'balo-laptop' | 'balo-mini'>('balo-da');
+
+  const outfits = {
+    blazer: { name: "Blazer Công Sở", desc: "Set suit/blazer tone beige trang nhã, thanh lịch." },
+    dress: { name: "Đầm Lụa Dạo Phố", desc: "Nhẹ nhàng, thướt tha cho các buổi trà chiều cuối tuần." },
+    denim: { name: "Cá Tính Denim", desc: "Chất liệu bò phủi bụi, năng động và trẻ trung dạo phố." }
+  };
+
+  const balos = {
+    'balo-da': { name: "Balo Da Mềm Minimalist", slug: "balo-da-mem-minimalist-dblink" },
+    'balo-canvas': { name: "Balo Canvas Phối Da", slug: "balo-canvas-phoi-da-classic" },
+    'balo-laptop': { name: "Balo Laptop Smart", slug: "balo-lap-top-nu-chong-nuoc-smart" },
+    'balo-mini': { name: "Balo Mini Longchamp Vibes", slug: "balo-mini-nu-longchamp-vibes" }
+  };
+
+  const getMixMatchImage = () => {
+    const key = `${selectedOutfit}-${selectedBalo}`;
+    const imagesMap: Record<string, string> = {
+      'blazer-balo-da': 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop',
+      'blazer-balo-laptop': 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=800&auto=format&fit=crop',
+      'dress-balo-mini': 'https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=800&auto=format&fit=crop',
+      'denim-balo-canvas': 'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=800&auto=format&fit=crop',
+    };
+    return imagesMap[key] || 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop';
+  };
+
+  const getStyleRating = () => {
+    const key = `${selectedOutfit}-${selectedBalo}`;
+    const ratingsMap: Record<string, { rating: string; tip: string }> = {
+      'blazer-balo-da': {
+        rating: "9.8/10 — Cực Kỳ Thanh Lịch",
+        tip: "Sự kết hợp hoàn hảo tôn vinh vẻ đẹp tối giản của các cô nàng công sở. Chiếc balo da trơn mang lại sự chuyên nghiệp nhưng vô cùng thời thượng."
+      },
+      'blazer-balo-laptop': {
+        rating: "9.5/10 — Workstyle Thời Thượng",
+        tip: "Thiết kế balo ôm dáng kết hợp cùng blazer đứng phom mang lại sự an tâm tuyệt đối mà vẫn bảo vệ laptop của bạn mượt mà."
+      },
+      'dress-balo-mini': {
+        rating: "9.7/10 — Nữ Tính & Bay Bổng",
+        tip: "Quai đeo mảnh mai của balo mini giúp cân bằng lại sự mềm mại của đầm lụa. Điểm nhấn tuyệt vời cho các buổi hẹn hò chụp hình lookbook."
+      },
+      'denim-balo-canvas': {
+        rating: "9.6/10 — Streetwear Năng Động",
+        tip: "Vải canvas thô bụi bặm phối hợp cực ăn ý với chất denim phóng khoáng. Một set đồ lý tưởng cho các chuyến dã ngoại hay dạo phố dài ngày."
+      }
+    };
+    return ratingsMap[key] || {
+      rating: "9.0/10 — Phối Đồ Hài Hòa",
+      tip: "Tông màu đồng điệu dễ dàng hòa quyện cùng trang phục, mang lại cảm giác thoải mái tự tin khi di chuyển."
+    };
+  };
+
+  // 2. Dữ liệu Shop the Look (Hotspots)
+  const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+  const lookbookProducts = [
     {
-      name: "Balo Da Cao Cấp",
-      description: "Đột phá phong cách với chất liệu da tổng hợp mềm mịn và thiết kế tối giản hiện đại.",
-      slug: "balo-da",
-      image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop",
-      gridClass: "lg:col-span-2 lg:row-span-2 h-[450px] lg:h-[620px]"
+      id: 1,
+      name: "Balo Da Mềm Minimalist",
+      price: 850000,
+      slug: "balo-da-mem-minimalist-dblink",
+      coords: { top: "35%", left: "45%" },
+      image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=200&auto=format&fit=crop"
     },
     {
-      name: "Balo Canvas Trẻ Trung",
-      description: "Sự năng động phối hợp giữa canvas dệt mật độ cao và da thật bền bỉ.",
-      slug: "balo-canvas",
-      image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop",
-      gridClass: "lg:col-span-1 h-[298px]"
-    },
-    {
-      name: "Balo Laptop Công Sở",
-      description: "Thời thượng, ngăn chứa thông minh bảo vệ tối đa thiết bị của bạn.",
-      slug: "balo-laptop",
-      image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop",
-      gridClass: "lg:col-span-1 h-[298px]"
-    },
-    {
-      name: "Balo Mini Dạo Phố",
-      description: "Kích thước nhỏ gọn, quai đeo thanh mảnh và chất liệu nilon cao cấp siêu nhẹ.",
-      slug: "balo-mini",
-      image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=600&auto=format&fit=crop",
-      gridClass: "lg:col-span-1 h-[298px]"
-    },
-    {
-      name: "Balo Du Lịch Dã Ngoại",
-      description: "Thể tích chứa lớn, đệm vai êm ái cho những chuyến đi dài ngày.",
-      slug: "balo-du-lich",
-      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
-      gridClass: "lg:col-span-1 h-[298px]"
-    },
-    {
-      name: "BST Giới Hạn",
-      description: "Sản phẩm thời trang cao cấp chế tác độc quyền từ nguyên liệu cao cấp.",
-      slug: "limited-edition",
-      image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
-      gridClass: "lg:col-span-1 h-[298px]"
+      id: 2,
+      name: "Balo Mini Longchamp Vibes",
+      price: 590000,
+      slug: "balo-mini-nu-longchamp-vibes",
+      coords: { top: "60%", left: "70%" },
+      image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=200&auto=format&fit=crop"
     }
   ];
+
+
 
   return (
     <div className="flex flex-col w-full pb-16 overflow-hidden">
@@ -194,7 +227,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Slogan lớn tràn màn hình (Infinite Marquee) */}
+      {/* Slogan lớn chạy ngang màn hình (Infinite Marquee) */}
       <InfiniteMarquee />
 
       {/* 2. Brand Story Summary Section */}
@@ -274,57 +307,212 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. Featured Categories — Expanded Asymmetrical Grid (Signature Element with Curtain Reveals) */}
+      {/* 3. Phối Đồ Tương Tác (Mix & Match Coordinator) */}
+      <section className="bg-[#FAF8F5] border-y border-border py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Trải nghiệm tương tác</span>
+            <h2 className="font-heading text-3xl font-bold text-text-primary">Outfit Coordinator</h2>
+            <div className="h-[1px] w-12 bg-accent mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mt-8">
+            {/* Left Column: Select Options */}
+            <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
+              {/* Chọn Outfit */}
+              <div className="space-y-4">
+                <span className="font-body text-[10px] font-bold tracking-widest text-text-secondary uppercase block">Bước 1: Chọn trang phục nền</span>
+                <div className="flex flex-col gap-2">
+                  {Object.entries(outfits).map(([key, item]) => (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedOutfit(key as any)}
+                      className={`w-full text-left px-5 py-4 border rounded-button font-body transition-all duration-300 focus:outline-none ${
+                        selectedOutfit === key 
+                          ? 'border-accent bg-accent/5 text-accent shadow-sm'
+                          : 'border-border bg-white text-text-primary hover:border-text-secondary'
+                      }`}
+                    >
+                      <h4 className="text-xs font-bold uppercase tracking-wider">{item.name}</h4>
+                      <p className="text-[11px] text-text-secondary mt-1">{item.desc}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Chọn Balo */}
+              <div className="space-y-4">
+                <span className="font-body text-[10px] font-bold tracking-widest text-text-secondary uppercase block">Bước 2: Phối với balo DBlink</span>
+                <div className="grid grid-cols-2 gap-2">
+                  {Object.entries(balos).map(([key, item]) => (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedBalo(key as any)}
+                      className={`text-center px-3 py-4 border rounded-button font-body transition-all duration-300 focus:outline-none ${
+                        selectedBalo === key
+                          ? 'border-accent bg-accent/5 text-accent'
+                          : 'border-border bg-white text-text-primary hover:border-text-secondary'
+                      }`}
+                    >
+                      <span className="text-[10px] font-bold uppercase tracking-wider block leading-tight">{item.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Middle Column: Live Style Render */}
+            <div className="lg:col-span-5 flex flex-col justify-center items-center">
+              <div className="relative aspect-[4/5] w-full max-w-[380px] overflow-hidden rounded-card bg-bg-secondary border border-border shadow-md">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${selectedOutfit}-${selectedBalo}`}
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: duration.base, ease: easing.reveal }}
+                    className="w-full h-full relative"
+                  >
+                    <Image
+                      src={getMixMatchImage()}
+                      alt="Outfit Coordination Model"
+                      fill
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+                
+                {/* Floating Stylist Mark */}
+                <div className="absolute top-4 right-4 bg-white/95 text-text-primary border border-border px-3 py-1.5 rounded-button shadow-sm flex items-center gap-1.5 z-10">
+                  <Sparkles className="h-3.5 w-3.5 text-accent animate-pulse" />
+                  <span className="font-body text-[9px] font-bold tracking-wider uppercase">Live Preview</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Style Advice & CTA */}
+            <div className="lg:col-span-3 flex flex-col justify-center bg-white p-8 border border-border rounded-card shadow-sm">
+              <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Đánh giá phong cách</span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${selectedOutfit}-${selectedBalo}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4"
+                >
+                  <h3 className="font-heading text-lg font-bold text-text-primary leading-tight">
+                    {getStyleRating().rating}
+                  </h3>
+                  <p className="font-body text-xs text-text-secondary leading-relaxed">
+                    {getStyleRating().tip}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+              
+              <div className="border-t border-border my-6" />
+              
+              <Link href={`/products/${balos[selectedBalo].slug}`} className="w-full">
+                <Button variant="primary" className="w-full text-[9px] py-3.5 tracking-widest uppercase">
+                  Chi tiết sản phẩm phối <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Brand Artwork Showcase (LOGO THƯƠNG HIỆU TỐI GIẢN ĐỘC LẬP - KHÔNG CÓ Ô CLICK) */}
+      <section className="w-full py-24 border-t border-border bg-[#FAF8F5] flex items-center justify-center">
+        <div className="relative w-[340px] sm:w-[420px] h-[110px] sm:h-[140px] opacity-30 hover:opacity-50 transition-opacity duration-500 select-none">
+          <Image
+            src="/logo-full.png"
+            alt="DBlink Logo Centerpiece"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </section>
+
+      {/* 5. Mua sắm theo ảnh thời trang (Shop The Look) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 border-t border-border">
         <div className="text-center mb-16">
-          <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Xem theo dòng sản phẩm</span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text-primary">Bộ sưu tập nổi bật</h2>
+          <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Thời trang dạo phố</span>
+          <h2 className="font-heading text-3xl font-bold text-text-primary">Shop The Look</h2>
           <div className="h-[1px] w-12 bg-accent mx-auto mt-4" />
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {collections.map((col, index) => (
-            <motion.div 
-              key={col.slug}
-              initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
-              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-              viewport={{ once: true, margin: "-5%" }}
-              transition={{ duration: 1.0, delay: index * 0.1, ease: easing.reveal }}
-              className={`group relative overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/30 shadow-sm ${col.gridClass}`}
+
+        <div className="relative aspect-[16/9] w-full min-h-[400px] md:min-h-[550px] overflow-hidden rounded-card bg-bg-secondary border border-border shadow-sm">
+          <Image
+            src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1200&auto=format&fit=crop"
+            alt="DBlink Editorial Lookbook"
+            fill
+            className="object-cover brightness-95"
+          />
+          <div className="absolute inset-0 bg-black/10" />
+
+          {/* Interactive Hotspots */}
+          {lookbookProducts.map((p) => (
+            <div
+              key={p.id}
+              className="absolute z-20"
+              style={{ top: p.coords.top, left: p.coords.left }}
             >
-              <Link href={`/collections/${col.slug}`} className="w-full h-full block relative">
-                <motion.div
-                  initial={{ scale: 1.12 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.1, ease: easing.reveal }}
-                  className="w-full h-full relative"
-                >
-                  <Image
-                    src={col.image}
-                    alt={col.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-103"
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#221C18]/80 via-[#221C18]/20 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
-                <div className="absolute bottom-8 left-8 right-8 text-white">
-                  <h3 className="font-heading text-2xl font-bold tracking-wide mb-2">{col.name}</h3>
-                  <p className="font-body text-xs text-bg-primary/80 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
-                    {col.description}
-                  </p>
-                  <span className="font-body text-[10px] font-semibold uppercase tracking-widest border-b border-white/60 pb-1 group-hover:text-accent group-hover:border-accent transition-colors duration-300 inline-flex items-center gap-1">
-                    Khám phá bộ sưu tập <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
+              {/* Pulse Hotspot Trigger */}
+              <button
+                onClick={() => setActiveHotspot(activeHotspot === p.id ? null : p.id)}
+                className="relative w-8 h-8 flex items-center justify-center bg-white text-text-primary rounded-full shadow-md focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-200"
+              >
+                <Plus className={`h-4 w-4 transition-transform duration-300 ${activeHotspot === p.id ? 'rotate-45 text-accent' : ''}`} />
+                <span className="absolute -inset-2 rounded-full border-2 border-white/40 animate-ping pointer-events-none" />
+              </button>
+
+              {/* Shopping Card Popup */}
+              <AnimatePresence>
+                {activeHotspot === p.id && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                    transition={{ duration: 0.25, ease: easing.hover }}
+                    className="absolute top-10 -left-20 sm:left-10 bg-white p-4 rounded-card border border-border shadow-xl w-[220px] z-30"
+                  >
+                    <div className="flex gap-3">
+                      <div className="relative w-12 h-15 rounded overflow-hidden bg-bg-secondary flex-shrink-0">
+                        <Image src={p.image} alt={p.name} fill className="object-cover" />
+                      </div>
+                      <div className="flex flex-col justify-center min-w-0">
+                        <h4 className="font-body text-[11px] font-bold text-text-primary truncate leading-tight">{p.name}</h4>
+                        <span className="font-body text-[11.5px] text-accent font-semibold mt-1 block">{formatPrice(p.price)}</span>
+                      </div>
+                    </div>
+                    <div className="border-t border-border/60 my-3" />
+                    <div className="flex gap-2">
+                      <Link href={`/products/${p.slug}`} className="flex-1">
+                        <Button variant="outline" className="w-full text-[8.5px] py-2 uppercase tracking-wider font-semibold">
+                          Chi tiết
+                        </Button>
+                      </Link>
+                      <a 
+                        href="https://shopee.vn/d.blink" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center bg-accent text-white text-[8.5px] font-bold uppercase tracking-wider py-2 rounded-button transition-all duration-300 hover:bg-[#A83B29] text-center"
+                      >
+                        Shopee <ArrowUpRight className="ml-0.5 h-2.5 w-2.5" />
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* 4. Best Sellers Products */}
+      {/* 6. Best Sellers Products — CẢI TIẾN BỐ CỤC 6 SẢN PHẨM SO LE PHÁ CÁCH */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 border-t border-border mt-20">
         <div className="flex justify-between items-end mb-12">
           <div>
@@ -336,14 +524,50 @@ export default function HomePage() {
           </Link>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        {/* Lưới 3 cột bất đối xứng so le cho đủ 6 sản phẩm */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start mt-8">
+          {/* Cột 1: Sản phẩm 1 & Sản phẩm 4 */}
+          <div className="w-full flex flex-col gap-16">
+            {featuredProducts[0] && (
+              <div className="space-y-4">
+                <span className="font-body text-[9px] font-bold text-accent tracking-widest uppercase bg-accent/5 px-2.5 py-1.5 rounded-button inline-block shadow-sm">
+                  Signature Piece
+                </span>
+                <ProductCard product={featuredProducts[0]} />
+              </div>
+            )}
+            {featuredProducts[3] && (
+              <div className="md:-ml-4 md:pr-4"> {/* Lệch nhẹ sang trái */}
+                <ProductCard product={featuredProducts[3]} />
+              </div>
+            )}
+          </div>
+
+          {/* Cột 2: Sản phẩm 2 & Sản phẩm 5 (Thụt sâu toàn bộ cột xuống dưới tạo sự so le) */}
+          <div className="w-full md:mt-24 flex flex-col gap-16">
+            {featuredProducts[1] && (
+              <ProductCard product={featuredProducts[1]} />
+            )}
+            {featuredProducts[4] && (
+              <ProductCard product={featuredProducts[4]} />
+            )}
+          </div>
+
+          {/* Cột 3: Sản phẩm 3 & Sản phẩm 6 (Xếp dọc so le) */}
+          <div className="w-full flex flex-col gap-16">
+            {featuredProducts[2] && (
+              <ProductCard product={featuredProducts[2]} />
+            )}
+            {featuredProducts[5] && (
+              <div className="md:pl-8"> {/* Thụt nhẹ sang phải 32px */}
+                <ProductCard product={featuredProducts[5]} />
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* 5. Campaign Split Banner with Curtain Reveal */}
+      {/* 7. Campaign Split Banner with Curtain Reveal */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 bg-bg-secondary rounded-card overflow-hidden border border-border shadow-sm">
           <motion.div 
@@ -391,7 +615,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Store Information Values */}
+      {/* 8. Store Information Values */}
       <section className="bg-bg-secondary border-y border-border py-12 mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">

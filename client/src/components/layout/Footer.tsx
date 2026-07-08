@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE_NAME, SITE_SLOGAN } from '@/lib/constants';
 import { Facebook, Instagram, Twitter, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -16,10 +17,17 @@ export function Footer() {
     <footer className="bg-bg-secondary border-t border-border mt-16 transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 xl:grid-cols-3 xl:gap-8 gap-12">
-          {/* Brand Column */}
+          {/* Brand Column with Image Logo */}
           <div className="space-y-6 xl:col-span-1">
-            <Link href="/" className="font-heading text-2xl font-bold tracking-widest text-text-primary">
-              {SITE_NAME}
+            <Link href="/" className="block hover:opacity-90 transition-opacity">
+              <div className="relative w-[130px] h-[36px]">
+                <Image
+                  src="/logo-full.png"
+                  alt={SITE_NAME}
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
             </Link>
             <p className="font-body text-xs text-text-secondary max-w-sm leading-relaxed">
               {SITE_SLOGAN}. Định vị dòng sản phẩm balo nữ tối giản sang trọng, thời thượng và đồng hành cùng bạn mỗi ngày trên hành trình tự tin.
