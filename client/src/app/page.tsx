@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,7 +8,7 @@ import { useProducts } from '@/hooks/useProducts';
 import { ProductCard } from '@/components/product/ProductCard';
 import { QuickViewModal } from '@/components/product/QuickViewModal';
 import { Button } from '@/components/ui/Button';
-import { ArrowRight, ShieldCheck, Truck, RefreshCw, ArrowUpRight, Plus, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, RefreshCw, ArrowUpRight, Plus, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { easing, duration, stagger } from '@/lib/motion-tokens';
 import { formatPrice } from '@/lib/utils';
 
@@ -84,6 +84,17 @@ export default function HomePage() {
   const { getFeaturedProducts } = useProducts();
   const featuredProducts = getFeaturedProducts();
   const [quickViewProduct, setQuickViewProduct] = useState<any>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 340; // card width + gap
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   // 1. Dữ liệu Phối đồ ảo (Mix & Match Coordinator)
   const [selectedOutfit, setSelectedOutfit] = useState<'blazer' | 'dress' | 'denim'>('blazer');
@@ -634,8 +645,29 @@ export default function HomePage() {
         </div>
         
         {/* Bố cục cuộn ngang (Horizontal Scroll Slider) mượt mà cho toàn bộ sản phẩm thịnh hành */}
-        <div className="relative mt-8">
-          <div className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div className="relative mt-8 group">
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => handleScroll('left')}
+            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-text-primary border border-border w-10 h-10 rounded-full shadow-md z-10 transition-all duration-300 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 focus:outline-none"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => handleScroll('right')}
+            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-text-primary border border-border w-10 h-10 rounded-full shadow-md z-10 transition-all duration-300 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 focus:outline-none"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+          >
             {featuredProducts.map((product, idx) => (
               <motion.div
                 key={product.id}
