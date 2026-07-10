@@ -1,0 +1,15 @@
+{
+  "watch": [
+    "src",
+    "tailwind.config.js",
+    "postcss.config.js",
+    "next.config.mjs"
+  ],
+  "ext": "ts,tsx,js,jsx,json,css",
+  "ignore": [
+    ".next/*",
+    "node_modules/*"
+  ],
+  "exec": "next dev",
+  "delay": "1000"
+}

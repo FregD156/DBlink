@@ -1,4 +1,4 @@
-export const SITE_NAME = "DBlink";
+export const SITE_NAME = "D' Blink";
 export const SITE_SLOGAN = "Trẻ trung nhưng cao cấp";
 
 export const CATEGORIES = [

@@ -35,43 +35,45 @@ function SplitText({ text, className }: { text: string; className?: string }) {
   );
 }
 
-// Component Marquee chạy vô chậm và mượt mà
+// Component Marquee chạy vô chậm và mượt mà dạng chữ nghiêng bay bướm uyển chuyển
 function InfiniteMarquee() {
   return (
-    <div className="bg-text-primary text-bg-primary py-8 overflow-hidden select-none border-y border-border flex w-full relative">
+    <div className="bg-bg-primary py-3 overflow-hidden select-none border-y border-border/50 flex w-full relative">
       <motion.div 
-        animate={{ x: [0, -1000] }}
+        animate={{ x: [0, -900] }}
         transition={{
           ease: "linear",
-          duration: 35,
+          duration: 32,
           repeat: Infinity,
         }}
-        className="flex whitespace-nowrap gap-16 font-heading text-4xl sm:text-6xl font-medium uppercase tracking-[0.2em] italic opacity-25 pr-16"
+        className="flex whitespace-nowrap gap-10 items-center font-heading text-sm sm:text-base italic text-text-secondary tracking-wider pr-10"
       >
-        <span>Tối giản</span>
-        <span>•</span>
-        <span>Tự tin</span>
-        <span>•</span>
-        <span>Sang trọng</span>
-        <span>•</span>
-        <span>DBlink Style</span>
-        <span>•</span>
-        <span>Tối giản</span>
-        <span>•</span>
-        <span>Tự tin</span>
-        <span>•</span>
-        <span>Sang trọng</span>
-        <span>•</span>
-        <span>DBlink Style</span>
-        <span>•</span>
-        <span>Tối giản</span>
-        <span>•</span>
-        <span>Tự tin</span>
-        <span>•</span>
-        <span>Sang trọng</span>
-        <span>•</span>
-        <span>DBlink Style</span>
-        <span>•</span>
+        <span>Tối giản tinh tế</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span>Khí chất tự tin</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span>Sang trọng kiêu sa</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span className="text-accent font-semibold not-italic font-heading">D' Blink Style</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        
+        <span>Tối giản tinh tế</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span>Khí chất tự tin</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span>Sang trọng kiêu sa</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span className="text-accent font-semibold not-italic font-heading">D' Blink Style</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+
+        <span>Tối giản tinh tế</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span>Khí chất tự tin</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span>Sang trọng kiêu sa</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
+        <span className="text-accent font-semibold not-italic font-heading">D' Blink Style</span>
+        <span className="text-accent-alt text-[10px] animate-pulse">✦</span>
       </motion.div>
     </div>
   );
@@ -135,24 +137,69 @@ export default function HomePage() {
     };
   };
 
-  // 2. Dữ liệu Shop the Look (Hotspots)
+  // 2. Dữ liệu Shop the Look (Polaroid Collage & Hotspots)
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
-  const lookbookProducts = [
+  const [hoveredPolaroid, setHoveredPolaroid] = useState<number | null>(null);
+  const polaroids = [
     {
       id: 1,
-      name: "Balo Da Mềm Minimalist",
-      price: 850000,
-      slug: "balo-da-mem-minimalist-dblink",
-      coords: { top: "35%", left: "45%" },
-      image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=200&auto=format&fit=crop"
+      title: "I. Office Elegance",
+      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
+      layoutClass: "absolute left-[4%] top-[10%] w-[210px] sm:w-[270px] aspect-[3/4]",
+      defaultRotate: -4,
+      product: {
+        id: 1,
+        name: "Balo Da Mềm Minimalist D' Blink",
+        price: 850000,
+        slug: "balo-da-mem-minimalist-dblink",
+        coords: { top: "45%", left: "55%" },
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=200&auto=format&fit=crop"
+      }
     },
     {
       id: 2,
-      name: "Balo Mini Longchamp Vibes",
-      price: 590000,
-      slug: "balo-mini-nu-longchamp-vibes",
-      coords: { top: "60%", left: "70%" },
-      image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=200&auto=format&fit=crop"
+      title: "II. Smart Innovation",
+      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop",
+      layoutClass: "absolute left-[28%] top-[5%] w-[200px] sm:w-[260px] aspect-[3/4]",
+      defaultRotate: 3,
+      product: {
+        id: 3,
+        name: "Balo Laptop Chống Nước Smart",
+        price: 950000,
+        slug: "balo-laptop-nu-chong-nuoc-smart",
+        coords: { top: "48%", left: "50%" },
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=200"
+      }
+    },
+    {
+      id: 3,
+      title: "III. Street Casual",
+      image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=800&auto=format&fit=crop",
+      layoutClass: "absolute right-[28%] top-[12%] w-[200px] sm:w-[265px] aspect-[3/4]",
+      defaultRotate: -2,
+      product: {
+        id: 4,
+        name: "Balo Mini Longchamp Vibes",
+        price: 590000,
+        slug: "balo-mini-nu-longchamp-vibes",
+        coords: { top: "52%", left: "48%" },
+        image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=200&auto=format&fit=crop"
+      }
+    },
+    {
+      id: 4,
+      title: "IV. Weekend Wanderlust",
+      image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=800&auto=format&fit=crop",
+      layoutClass: "absolute right-[4%] top-[6%] w-[210px] sm:w-[270px] aspect-[3/4]",
+      defaultRotate: 5,
+      product: {
+        id: 2,
+        name: "Balo Canvas Phối Da Classic",
+        price: 650000,
+        slug: "balo-canvas-phoi-da-classic",
+        coords: { top: "45%", left: "42%" },
+        image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=200&auto=format&fit=crop"
+      }
     }
   ];
 
@@ -160,78 +207,88 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col w-full pb-16 overflow-hidden">
-      {/* 1. Hero Section — Thesis Driven Slogan & High Quality Lifestyle */}
-      <section className="relative w-full h-[90vh] bg-bg-secondary flex items-center overflow-hidden">
-        <motion.div 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: easing.premium }}
-          className="absolute inset-0 z-0"
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1600&auto=format&fit=crop"
-            alt="DBlink Hero Campaign"
-            fill
-            priority
-            className="object-cover object-center brightness-[0.85] grayscale-[5%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#221C18]/65 via-[#221C18]/25 to-transparent md:from-[#221C18]/80" />
-        </motion.div>
+      {/* 1. Hero Section — Minimalist Typographic Brand Showcase (Trình diễn thương hiệu chữ tối giản) */}
+      <section className="relative w-full h-[90vh] bg-bg-primary flex flex-col items-center justify-center overflow-hidden">
         
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl text-white">
-            <motion.span 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: duration.base, ease: easing.reveal }}
-              className="font-body text-[10px] font-bold tracking-[0.25em] uppercase text-accent-alt bg-bg-primary/95 text-bg-primary px-3 py-1.5 inline-block mb-6 rounded-button shadow-sm"
+        {/* Lớp chữ chìm khổng lồ phía sau (Z-index 0) */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 0.85, y: 0, scale: 1 }}
+            transition={{ duration: 1.5, ease: easing.premium }}
+            className="font-heading text-[18vw] font-black uppercase tracking-[0.12em] text-outline-thin text-center leading-none"
+          >
+            D' BLINK
+          </motion.h1>
+        </div>
+
+        {/* Lớp chữ nổi (Hình ảnh logo thương hiệu đầy đủ) và thông tin đè phía trước (Z-index 10) */}
+        <div className="relative z-10 w-full max-w-5xl px-4 flex flex-col items-center text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.88, filter: "blur(8px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ delay: 0.3, duration: 1.5, ease: easing.reveal }}
+            className="relative w-[280px] sm:w-[420px] md:w-[540px] lg:w-[620px] h-[80px] sm:h-[120px] md:h-[150px] lg:h-[175px] select-none mb-4"
+          >
+            <Image
+              src="/logo-full.png"
+              alt="D' Blink Brand Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.85 }}
+            transition={{ delay: 0.6, duration: duration.base }}
+            className="mt-6 font-body text-xs sm:text-sm text-text-primary tracking-widest leading-relaxed max-w-md select-all font-medium uppercase"
+          >
+            Balo nữ tối giản sang trọng — Tinh tế trong từng đường kim mũi chỉ.
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: duration.base, ease: easing.reveal }}
+            className="flex flex-wrap gap-4 mt-10 justify-center"
+          >
+            <Link href="/collections/all">
+              <Button variant="primary" className="text-[10px] tracking-widest px-8">
+                Khám phá bộ sưu tập
+              </Button>
+            </Link>
+            <a
+              href="https://shopee.vn/d.blink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
             >
-              Bộ sưu tập Thu Đông 2026
-            </motion.span>
-            
-            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
-              <SplitText text="Định hình" /> <br />
-              <span className="text-accent"><SplitText text="cá tính riêng" /></span> <SplitText text="của bạn" />
-            </h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: duration.base, ease: easing.reveal }}
-              className="font-body text-sm sm:text-base text-bg-primary/80 mb-10 leading-relaxed max-w-lg"
-            >
-              DBlink mang tới dòng sản phẩm balo nữ tối giản sang trọng, tinh tế trong từng đường kim mũi chỉ. Khởi đầu hành trình mới đầy tự tin của chính bạn.
-            </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: duration.base, ease: easing.reveal }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link href="/collections/all">
-                <Button variant="primary" className="text-[10px] tracking-widest px-8">
-                  Khám phá bộ sưu tập
-                </Button>
-              </Link>
-              <a
-                href="https://shopee.vn/d.blink"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 border border-white text-white hover:bg-white hover:text-text-primary rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
-              >
-                Ghé Shopee Store <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-            </motion.div>
-          </div>
+              Ghé Shopee Store <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Tag nhỏ góc trên bên phải làm điểm nhấn lookbook */}
+        <div className="absolute top-8 right-8 z-30 hidden lg:block">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.2, duration: duration.base }}
+            className="flex flex-col items-end border-l border-border pl-4"
+          >
+            <span className="font-body text-[9px] font-bold tracking-widest text-text-secondary uppercase">Lookbook 2026</span>
+            <span className="font-body text-[10px] font-medium tracking-[0.2em] text-accent uppercase mt-1">Thu Đông Edition</span>
+          </motion.div>
         </div>
       </section>
 
       {/* Slogan lớn chạy ngang màn hình (Infinite Marquee) */}
       <InfiniteMarquee />
 
-      {/* 2. Brand Story Summary Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      {/* 2. Brand Story Summary Section — Overlapping Collage (Cắt ghép chồng lớp nghệ thuật) */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
@@ -246,7 +303,7 @@ export default function HomePage() {
             </h2>
             <div className="h-[1px] w-12 bg-accent" />
             <p className="font-body text-sm text-text-secondary leading-relaxed">
-              DBlink không sản xuất balo đại trà. Chúng tôi chế tác ra những người bạn đồng hành. Định vị phân khúc thời trang cao cấp giá hợp lý, DBlink tôn vinh vẻ đẹp của sự giản đơn, tinh gọn nhưng đầy khí chất của người phụ nữ thế hệ mới.
+              D' Blink không sản xuất balo đại trà. Chúng tôi chế tác ra những người bạn đồng hành. Định vị phân khúc thời trang cao cấp giá hợp lý, D' Blink tôn vinh vẻ đẹp của sự giản đơn, tinh gọn nhưng đầy khí chất của người phụ nữ thế hệ mới.
             </p>
             <div>
               <Link href="/about">
@@ -255,60 +312,73 @@ export default function HomePage() {
             </div>
           </motion.div>
           
-          <div className="lg:col-span-7 grid grid-cols-2 gap-4">
-            {/* Curtain Image Reveal (Khối ảnh trái) */}
+          <div className="lg:col-span-7 relative w-full h-[450px] sm:h-[550px] lg:h-[600px] mt-8 lg:mt-0 flex items-center justify-center">
+            {/* Ảnh nền lớn bên trái (Z-index 0) */}
             <motion.div 
-              initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-              viewport={{ once: true, margin: "-5%" }}
-              transition={{ duration: 1.1, ease: easing.reveal }}
-              className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-bg-secondary"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 1.2, ease: easing.reveal }}
+              className="absolute left-2 bottom-2 w-[65%] h-[80%] overflow-hidden rounded-card border border-border/40 shadow-lg bg-bg-secondary"
             >
               <motion.div 
-                initial={{ scale: 1.15 }}
+                initial={{ scale: 1.12 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: easing.reveal }}
+                transition={{ duration: 1.5, ease: easing.premium }}
                 className="w-full h-full relative"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop"
-                  alt="DBlink Detail Craft"
+                  src="https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=800&auto=format&fit=crop"
+                  alt="D' Blink Lifestyle"
                   fill
+                  sizes="(max-width: 768px) 60vw, 40vw"
                   className="object-cover"
                 />
               </motion.div>
             </motion.div>
             
-            {/* Curtain Image Reveal (Khối ảnh phải) */}
+            {/* Ảnh nổi nhỏ đè chéo bên phải (Z-index 10) */}
             <motion.div 
-              initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-              viewport={{ once: true, margin: "-5%" }}
-              transition={{ duration: 1.1, delay: 0.2, ease: easing.reveal }}
-              className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-bg-secondary mt-8"
+              initial={{ opacity: 0, y: 40, x: 20 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 1.2, delay: 0.2, ease: easing.reveal }}
+              className="absolute right-2 top-2 w-[55%] h-[55%] overflow-hidden rounded-card border border-border/60 shadow-2xl z-10 bg-bg-secondary"
             >
               <motion.div 
-                initial={{ scale: 1.15 }}
+                initial={{ scale: 1.12 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: easing.reveal }}
+                transition={{ duration: 1.5, ease: easing.premium }}
                 className="w-full h-full relative"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=600&auto=format&fit=crop"
-                  alt="DBlink Lifestyle"
+                  src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop"
+                  alt="D' Blink Detail Craft"
                   fill
+                  sizes="(max-width: 768px) 50vw, 30vw"
                   className="object-cover"
                 />
               </motion.div>
             </motion.div>
+
+            {/* Chữ ký mỏng đè lên ảnh nền (Z-index 20) */}
+            <motion.span 
+              initial={{ opacity: 0, rotate: -5, scale: 0.9 }}
+              whileInView={{ opacity: 0.85, rotate: -3, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="absolute bottom-[10%] right-[32%] z-20 font-heading text-2xl sm:text-3xl italic text-accent select-none pointer-events-none drop-shadow-sm"
+            >
+              Craftsmanship
+            </motion.span>
           </div>
         </div>
       </section>
 
       {/* 3. Phối Đồ Tương Tác (Mix & Match Coordinator) */}
-      <section className="bg-[#FAF8F5] border-y border-border py-20">
+      <section className="bg-bg-primary border-y border-border py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Trải nghiệm tương tác</span>
@@ -424,7 +494,7 @@ export default function HomePage() {
       </section>
 
       {/* 4. Brand Artwork Showcase (LOGO THƯƠNG HIỆU TỐI GIẢN ĐỘC LẬP - KHÔNG CÓ Ô CLICK) */}
-      <section className="w-full py-24 border-t border-border bg-[#FAF8F5] flex items-center justify-center">
+      <section className="w-full py-6 border-t border-border bg-bg-primary flex items-center justify-center">
         <div className="relative w-[340px] sm:w-[420px] h-[110px] sm:h-[140px] opacity-30 hover:opacity-50 transition-opacity duration-500 select-none">
           <Image
             src="/logo-full.png"
@@ -436,84 +506,121 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Mua sắm theo ảnh thời trang (Shop The Look) */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 border-t border-border">
-        <div className="text-center mb-16">
+      {/* 5. Mua sắm theo ảnh thời trang (Shop The Look) — Editorial Polaroid Collage (Ảnh Polaroid chồng chéo tương tác) */}
+      <section className="w-full py-10 border-t border-border bg-bg-primary">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-16">
           <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Thời trang dạo phố</span>
           <h2 className="font-heading text-3xl font-bold text-text-primary">Shop The Look</h2>
           <div className="h-[1px] w-12 bg-accent mx-auto mt-4" />
         </div>
 
-        <div className="relative aspect-[16/9] w-full min-h-[400px] md:min-h-[550px] overflow-hidden rounded-card bg-bg-secondary border border-border shadow-sm">
-          <Image
-            src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1200&auto=format&fit=crop"
-            alt="DBlink Editorial Lookbook"
-            fill
-            className="object-cover brightness-95"
-          />
-          <div className="absolute inset-0 bg-black/10" />
-
-          {/* Interactive Hotspots */}
-          {lookbookProducts.map((p) => (
-            <div
-              key={p.id}
-              className="absolute z-20"
-              style={{ top: p.coords.top, left: p.coords.left }}
-            >
-              {/* Pulse Hotspot Trigger */}
-              <button
-                onClick={() => setActiveHotspot(activeHotspot === p.id ? null : p.id)}
-                className="relative w-8 h-8 flex items-center justify-center bg-white text-text-primary rounded-full shadow-md focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-200"
+        {/* Khung chứa Polaroid Collage lơ lửng — Giãn rộng ngang hết 2 bên màn hình (Căn chỉnh khoảng trống vừa vặn 4 tấm) */}
+        <div className="relative w-full h-[480px] sm:h-[580px] lg:h-[650px] bg-[#FAF8F5] border-y border-border/50 overflow-hidden">
+          {polaroids.map((p) => {
+            const isHovered = hoveredPolaroid === p.id;
+            return (
+              <motion.div
+                key={p.id}
+                className={p.layoutClass}
+                style={{ originX: 0.5, originY: 0.5 }}
+                animate={{ 
+                  rotate: isHovered ? 0 : p.defaultRotate,
+                  scale: isHovered ? 1.05 : 1,
+                  zIndex: isHovered ? 30 : (p.id === 2 ? 20 : 10),
+                  boxShadow: isHovered 
+                    ? "0 25px 50px -12px rgba(29, 11, 17, 0.12)" 
+                    : "0 6px 16px -4px rgba(29, 11, 17, 0.04)"
+                }}
+                transition={{ duration: 0.45, ease: easing.reveal }}
+                onMouseEnter={() => setHoveredPolaroid(p.id)}
+                onMouseLeave={() => {
+                  setHoveredPolaroid(null);
+                  setActiveHotspot(null);
+                }}
               >
-                <Plus className={`h-4 w-4 transition-transform duration-300 ${activeHotspot === p.id ? 'rotate-45 text-accent' : ''}`} />
-                <span className="absolute -inset-2 rounded-full border-2 border-white/40 animate-ping pointer-events-none" />
-              </button>
+                {/* Khung ảnh Polaroid truyền thống */}
+                <div className="w-full h-full bg-white p-3 pb-8 sm:p-4 sm:pb-10 border border-border/60 rounded shadow-sm flex flex-col justify-between select-none">
+                  <div className="relative flex-1 w-full overflow-hidden bg-bg-secondary rounded-sm">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 30vw"
+                      className="object-cover brightness-95"
+                    />
+                    <div className="absolute inset-0 bg-[#1D0B11]/5" />
 
-              {/* Shopping Card Popup */}
-              <AnimatePresence>
-                {activeHotspot === p.id && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                    transition={{ duration: 0.25, ease: easing.hover }}
-                    className="absolute top-10 -left-20 sm:left-10 bg-white p-4 rounded-card border border-border shadow-xl w-[220px] z-30"
-                  >
-                    <div className="flex gap-3">
-                      <div className="relative w-12 h-15 rounded overflow-hidden bg-bg-secondary flex-shrink-0">
-                        <Image src={p.image} alt={p.name} fill className="object-cover" />
-                      </div>
-                      <div className="flex flex-col justify-center min-w-0">
-                        <h4 className="font-body text-[11px] font-bold text-text-primary truncate leading-tight">{p.name}</h4>
-                        <span className="font-body text-[11.5px] text-accent font-semibold mt-1 block">{formatPrice(p.price)}</span>
-                      </div>
-                    </div>
-                    <div className="border-t border-border/60 my-3" />
-                    <div className="flex gap-2">
-                      <Link href={`/products/${p.slug}`} className="flex-1">
-                        <Button variant="outline" className="w-full text-[8.5px] py-2 uppercase tracking-wider font-semibold">
-                          Chi tiết
-                        </Button>
-                      </Link>
-                      <a 
-                        href="https://shopee.vn/d.blink" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center bg-accent text-white text-[8.5px] font-bold uppercase tracking-wider py-2 rounded-button transition-all duration-300 hover:bg-[#A83B29] text-center"
+                    {/* Interactive Hotspot */}
+                    <div
+                      className="absolute z-20"
+                      style={{ top: p.product.coords.top, left: p.product.coords.left }}
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveHotspot(activeHotspot === p.product.id ? null : p.product.id);
+                        }}
+                        className="relative w-7 h-7 flex items-center justify-center bg-white text-text-primary rounded-full shadow-md focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-200"
                       >
-                        Shopee <ArrowUpRight className="ml-0.5 h-2.5 w-2.5" />
-                      </a>
+                        <Plus className={`h-3.5 w-3.5 transition-transform duration-300 ${activeHotspot === p.product.id ? 'rotate-45 text-accent' : ''}`} />
+                        <span className="absolute -inset-1.5 rounded-full border border-white/50 animate-ping pointer-events-none" />
+                      </button>
+
+                      {/* Shopping Card Popup */}
+                      <AnimatePresence>
+                        {activeHotspot === p.product.id && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                            transition={{ duration: 0.25, ease: easing.hover }}
+                            className="absolute top-9 -left-20 sm:left-9 bg-white p-4 rounded-card border border-border shadow-xl w-[210px] z-30"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <div className="flex gap-3 text-left">
+                              <div className="relative w-11 h-14 rounded overflow-hidden bg-bg-secondary flex-shrink-0">
+                                <Image src={p.product.image} alt={p.product.name} fill className="object-cover" />
+                              </div>
+                              <div className="flex flex-col justify-center min-w-0">
+                                <h4 className="font-heading text-[10.5px] font-medium text-text-primary truncate leading-tight">{p.product.name}</h4>
+                                <span className="font-heading italic text-[11px] text-accent font-semibold mt-1 block">{formatPrice(p.product.price)}</span>
+                              </div>
+                            </div>
+                            <div className="border-t border-border/60 my-2.5" />
+                            <div className="flex gap-2">
+                              <Link href={`/products/${p.product.slug}`} className="flex-1">
+                                <Button variant="outline" className="w-full text-[8.5px] py-1.5 uppercase tracking-wider font-semibold">
+                                  Chi tiết
+                                </Button>
+                              </Link>
+                              <a 
+                                href="https://shopee.vn/d.blink" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center bg-accent text-white text-[8.5px] font-bold uppercase tracking-wider py-1.5 rounded-button transition-all duration-300 hover:bg-[#7D1137] text-center"
+                              >
+                                Shopee <ArrowUpRight className="ml-0.5 h-2.5 w-2.5" />
+                              </a>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                  </div>
+                  
+                  {/* Chú thích viết tay */}
+                  <span className="font-heading italic text-[11px] sm:text-xs text-text-secondary mt-2 sm:mt-3 text-center tracking-wide block">
+                    {p.title}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
-      {/* 6. Best Sellers Products — CẢI TIẾN BỐ CỤC 6 SẢN PHẨM SO LE PHÁ CÁCH */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 border-t border-border mt-20">
+      {/* 6. Best Sellers Products — CẢI TIẾN BỐ CỤC 6 SẢN PHẨM SO LE PHÁ CÁCH (Khôi phục container căn giữa như cũ) */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 border-t border-border bg-bg-primary">
         <div className="flex justify-between items-end mb-12">
           <div>
             <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-1">Mùa này được yêu thích</span>
@@ -567,56 +674,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Campaign Split Banner with Curtain Reveal */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 bg-bg-secondary rounded-card overflow-hidden border border-border shadow-sm">
-          <motion.div 
-            initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-            whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            viewport={{ once: true, margin: "-5%" }}
-            transition={{ duration: 1.1, ease: easing.reveal }}
-            className="relative h-[320px] md:h-auto min-h-[350px] overflow-hidden"
+      {/* 7. Campaign Split Banner — Widescreen Full-Width (Rộng ngang tràn lề hoàn toàn) */}
+      <section className="w-full border-t border-border bg-bg-secondary flex flex-col md:flex-row items-stretch min-h-[450px] sm:min-h-[500px] overflow-hidden">
+        <motion.div 
+          initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+          whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+          viewport={{ once: true, margin: "-5%" }}
+          transition={{ duration: 1.1, ease: easing.reveal }}
+          className="relative h-[320px] md:h-auto md:w-1/2 overflow-hidden"
+        >
+          <motion.div
+            initial={{ scale: 1.15 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: easing.reveal }}
+            className="w-full h-full relative"
           >
-            <motion.div
-              initial={{ scale: 1.15 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: easing.reveal }}
-              className="w-full h-full relative"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop"
-                alt="DBlink Leather detail"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </motion.div>
+            <Image
+              src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop"
+              alt="D' Blink Leather detail"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: duration.base, ease: easing.reveal }}
-            className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center"
-          >
-            <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Chất lượng hoàn mỹ</span>
-            <h2 className="font-heading text-3xl font-bold text-text-primary mb-4 leading-tight">Chế tác từ sự tinh tế và bền bỉ</h2>
-            <p className="font-body text-sm text-text-secondary leading-relaxed mb-8">
-              Mỗi sản phẩm balo DBlink không đơn thuần là vật dụng chứa đồ, đó là người bạn đồng hành cùng bạn trên mọi nẻo đường. Chúng tôi tuyển chọn nghiêm ngặt nguồn chất liệu da cao cấp và quy trình gia công tỉ mỉ để tạo ra sản phẩm hoàn hảo nhất.
-            </p>
-            <div>
-              <Link href="/about">
-                <Button variant="outline" className="text-[10px] px-6">Xem câu chuyện chất liệu</Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: duration.base, ease: easing.reveal }}
+          className="md:w-1/2 p-8 sm:p-16 lg:p-20 flex flex-col justify-center bg-bg-secondary"
+        >
+          <span className="font-body text-[10px] font-bold text-accent tracking-widest uppercase block mb-2">Chất lượng hoàn mỹ</span>
+          <h2 className="font-heading text-3xl font-bold text-text-primary mb-4 leading-tight">Chế tác từ sự tinh tế và bền bỉ</h2>
+          <p className="font-body text-sm text-text-secondary leading-relaxed mb-8">
+            Mỗi sản phẩm balo D' Blink không đơn thuần là vật dụng chứa đồ, đó là người bạn đồng hành cùng bạn trên mọi nẻo đường. Chúng tôi tuyển chọn nghiêm ngặt nguồn chất liệu da cao cấp và quy trình gia công tỉ mỉ để tạo ra sản phẩm hoàn hảo nhất.
+          </p>
+          <div>
+            <Link href="/about">
+              <Button variant="outline" className="text-[10px] px-6">Xem câu chuyện chất liệu</Button>
+            </Link>
+          </div>
+        </motion.div>
       </section>
 
       {/* 8. Store Information Values */}
-      <section className="bg-bg-secondary border-y border-border py-12 mt-24">
+      <section className="bg-bg-secondary border-y border-border py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <motion.div 

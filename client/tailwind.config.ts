@@ -11,17 +11,17 @@ const config: Config = {
       colors: {
         bg: {
           primary: "var(--color-bg-primary, #FAF8F5)",
-          secondary: "var(--color-bg-secondary, #EFE6DC)",
+          secondary: "var(--color-bg-secondary, #F2EAE4)",
         },
         text: {
-          primary: "var(--color-text-primary, #221C18)",
-          secondary: "var(--color-text-secondary, #6B625B)",
+          primary: "var(--color-text-primary, #1D0B11)",
+          secondary: "var(--color-text-secondary, #5E5256)",
         },
         accent: {
-          DEFAULT: "var(--color-accent, #C24E3A)",
-          alt: "var(--color-accent-alt, #3F4B3B)",
+          DEFAULT: "var(--color-accent, #650728)",
+          alt: "var(--color-accent-alt, #8F7E6D)",
         },
-        border: "var(--color-border, #E3DDD3)",
+        border: "var(--color-border, #E8DFD8)",
       },
       fontFamily: {
         heading: ["var(--font-heading)", "Fraunces", "serif"],

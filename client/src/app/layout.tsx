@@ -38,6 +38,9 @@ export default function RootLayout({
         {/* Background Watermark Logo Icon (Parallax Scroll) */}
         <Watermark />
 
+        {/* Film Grain Texture overlay toàn trang */}
+        <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.025] bg-grain" />
+
         <Header />
         <main className="flex-grow">
           {children}

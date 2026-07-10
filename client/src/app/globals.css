@@ -5,13 +5,13 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #FAF8F5;      /* nền chính - trắng ngà ấm, không dùng #F4F1EA quá phổ biến */
-  --color-bg-secondary: #EFE6DC;    /* nền phụ - be cát ấm */
-  --color-text-primary: #221C18;    /* chữ chính - đen nâu đất */
-  --color-text-secondary: #6B625B;  /* chữ phụ - xám tro ấm */
-  --color-accent: #C24E3A;          /* đỏ gạch/rust — có sức nặng hơn cam đất thường thấy */
-  --color-accent-alt: #3F4B3B;      /* xanh rêu đậm — tương phản có chủ đích với accent chính */
-  --color-border: #E3DDD3;
+  --color-bg-primary: #FAF8F5;      /* nền chính - trắng ngà ấm */
+  --color-bg-secondary: #F2EAE4;    /* nền phụ - be hồng nhạt sang trọng đồng điệu với đỏ mận */
+  --color-text-primary: #1D0B11;    /* chữ chính - đen ánh mận siêu sẫm quý phái */
+  --color-text-secondary: #5E5256;  /* chữ phụ - xám hồng ấm */
+  --color-accent: #650728;          /* đỏ mận chín của logo - màu chủ đạo */
+  --color-accent-alt: #8F7E6D;      /* vàng champagne bụi - tương phản sang trọng với đỏ mận */
+  --color-border: #E8DFD8;          /* viền nhạt ấm */
 
   --font-heading: 'Fraunces', serif;
   --font-body: 'Be Vietnam Pro', sans-serif;
@@ -68,4 +68,37 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-secondary);
+}
+
+/* Metallic Shimmer Text Effect for D' Blink Logo */
+.shimmer-text {
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent-alt) 25%,
+    var(--color-accent) 50%,
+    var(--color-accent-alt) 75%,
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 0.8s ease-out;
+  background-position: 0% center;
+}
+
+.shimmer-text:hover {
+  background-position: -200% center;
+}
+
+/* Outline text style utility */
+.text-outline-thin {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border);
+}
+
+/* Subtle Film Grain Texture overlay */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }

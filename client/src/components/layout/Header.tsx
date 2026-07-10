@@ -38,7 +38,6 @@ export function Header() {
       setIsAtTop(false);
 
       // 2. Định hướng cuộn trang: Cuộn xuống ẩn, cuộn lên hiện
-      // Thêm đệm cuộn tối thiểu 5px để tránh kích hoạt rung lắc nhẹ
       if (Math.abs(currentScrollY - lastScrollY) > 5) {
         if (currentScrollY > lastScrollY) {
           setIsVisible(false); // Cuộn xuống -> Ẩn Toolbar
@@ -59,29 +58,29 @@ export function Header() {
       animate={{ y: isVisible ? 0 : -80 }}
       transition={{ duration: duration.base, ease: easing.reveal }}
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-all duration-300",
         isAtTop 
-          ? "border-transparent bg-transparent py-2" // Rộng rãi ở đỉnh trang
-          : "border-border bg-bg-primary/90 backdrop-blur-md shadow-sm py-0" // Gọn gàng và mờ khi cuộn xuống
+          ? "border-b border-transparent bg-transparent py-2" // Rộng rãi và trong suốt ở đỉnh trang
+          : "border-b border-border/80 bg-bg-primary/95 backdrop-blur-md shadow-[0_1px_4px_rgba(29,11,17,0.02)] py-0" // Siêu gọn gàng khi cuộn xuống
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           {/* Mobile Menu Icon */}
           <div className="flex md:hidden">
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="text-text-primary hover:text-accent p-2 focus:outline-none"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             </button>
           </div>
 
-          {/* Brand Logo */}
-          <div className="flex items-center justify-center md:justify-start">
+          {/* Brand Logo & Editorial Divider */}
+          <div className="flex items-center">
             <Link href="/" className="hover:opacity-90 transition-opacity flex items-center">
               {/* Desktop Logo */}
-              <div className="hidden sm:block relative w-[130px] h-[36px]">
+              <div className="hidden sm:block relative w-[110px] h-[28px]">
                 <Image
                   src="/logo-full.png"
                   alt={SITE_NAME}
@@ -91,7 +90,7 @@ export function Header() {
                 />
               </div>
               {/* Mobile Logo */}
-              <div className="sm:hidden relative w-[32px] h-[32px]">
+              <div className="sm:hidden relative w-[28px] h-[28px]">
                 <Image
                   src="/logo-icon.png"
                   alt={SITE_NAME}
@@ -101,28 +100,36 @@ export function Header() {
                 />
               </div>
             </Link>
+
+            {/* Vạch kẻ dọc phân chia editorial giữa Logo và Nav */}
+            <div className="hidden md:block w-[1px] h-5 bg-border/80 mx-8" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-10">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "font-body text-[11px] font-semibold tracking-widest uppercase transition-all duration-300 relative py-1 hover:text-accent",
-                    isActive 
-                      ? "text-accent after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-accent" 
-                      : "text-text-secondary"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <div className="hidden md:flex items-center flex-1 justify-center">
+            <nav className="flex space-x-8">
+              {NAV_LINKS.map((link) => {
+                const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "font-body text-[10px] font-medium tracking-[0.25em] uppercase transition-all duration-300 relative py-1 hover:text-accent",
+                      isActive 
+                        ? "text-accent after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-accent" 
+                        : "text-text-secondary"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Vạch kẻ dọc phân chia editorial giữa Nav và Action */}
+          <div className="hidden md:block w-[1px] h-5 bg-border/80 mx-8" />
 
           {/* Right Action: Shopee Link */}
           <div className="flex items-center">
@@ -130,9 +137,9 @@ export function Header() {
               href="https://shopee.vn/d.blink"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[10px] font-semibold uppercase tracking-widest transition-all duration-300"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 border border-text-primary text-text-primary hover:bg-text-primary hover:text-white rounded-button font-body text-[9px] font-medium tracking-widest uppercase transition-all duration-300"
             >
-              Ghé Shopee <ArrowUpRight className="h-3.5 w-3.5" />
+              Ghé Shopee <ArrowUpRight className="h-3 w-3" />
             </a>
             
             {/* Mobile Shop Link Icon */}
@@ -142,7 +149,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="sm:hidden text-text-primary hover:text-accent p-2"
             >
-              <ArrowUpRight className="h-5 w-5" />
+              <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -168,7 +175,7 @@ export function Header() {
                 className="text-text-primary hover:text-accent p-2 focus:outline-none"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 
@@ -179,7 +186,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "block font-body text-xs font-semibold uppercase tracking-widest transition-colors duration-300",
+                    "block font-body text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-300",
                     pathname === link.href ? "text-accent" : "text-text-primary hover:text-accent"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -193,9 +200,9 @@ export function Header() {
                   href="https://shopee.vn/d.blink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-1.5 px-4 py-3.5 bg-accent text-white rounded-button font-body text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-[#B36852]"
+                  className="w-full flex items-center justify-center gap-1.5 px-4 py-3 bg-accent text-white rounded-button font-body text-[10px] font-medium uppercase tracking-widest transition-all duration-300 hover:bg-[#7D1137]"
                 >
-                  Mua tại Shopee <ArrowUpRight className="h-4 w-4" />
+                  Mua tại Shopee <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </div>
