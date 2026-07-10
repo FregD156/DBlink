@@ -152,13 +152,15 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                 Mua ngay tại Shopee <ArrowUpRight className="h-4 w-4" />
               </a>
             )}
-            <Link 
-              href={`/products/${product.slug}`}
+            <a 
+              href="https://shopee.vn/d.blink"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block w-full text-center py-3 border border-border hover:border-text-primary rounded-button font-body text-[9px] font-semibold uppercase tracking-widest transition-all duration-300 text-text-secondary hover:text-text-primary"
               onClick={onClose}
             >
-              Xem chi tiết đầy đủ
-            </Link>
+              Ghé thăm cửa hàng Shopee
+            </a>
           </div>
         </div>
       </div>
