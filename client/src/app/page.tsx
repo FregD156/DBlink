@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useProducts } from '@/hooks/useProducts';
 import { ProductCard } from '@/components/product/ProductCard';
+import { QuickViewModal } from '@/components/product/QuickViewModal';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, ShieldCheck, Truck, RefreshCw, ArrowUpRight, Plus, Sparkles } from 'lucide-react';
 import { easing, duration, stagger } from '@/lib/motion-tokens';
@@ -82,6 +83,7 @@ function InfiniteMarquee() {
 export default function HomePage() {
   const { getFeaturedProducts } = useProducts();
   const featuredProducts = getFeaturedProducts();
+  const [quickViewProduct, setQuickViewProduct] = useState<any>(null);
 
   // 1. Dữ liệu Phối đồ ảo (Mix & Match Coordinator)
   const [selectedOutfit, setSelectedOutfit] = useState<'blazer' | 'dress' | 'denim'>('blazer');
@@ -643,7 +645,7 @@ export default function HomePage() {
                 transition={{ duration: duration.base, delay: idx * 0.05, ease: easing.reveal }}
                 className="min-w-[280px] sm:min-w-[320px] max-w-[320px] snap-start"
               >
-                <ProductCard product={product} />
+                <ProductCard product={product} onQuickView={setQuickViewProduct} />
               </motion.div>
             ))}
           </div>
@@ -744,6 +746,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Quick View Modal */}
+      {quickViewProduct && (
+        <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
+      )}
     </div>
   );
 }
