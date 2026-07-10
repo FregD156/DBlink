@@ -12,19 +12,20 @@ import { easing, duration } from '@/lib/motion-tokens';
 
 interface ProductCardProps {
   product: Product;
+  onQuickView?: (product: Product) => void;
 }
 
 const getOutfitTip = (colorName: string): string => {
   switch (colorName) {
     case 'Đen Nâu': return 'Phối cùng blazer sáng màu hoặc sơ mi tối giản';
     case 'Đỏ Mận': return 'Nổi bật khi đi cùng đầm lụa trắng hoặc set váy champagne';
-    case 'Xanh Rêu': return 'Hợp với outfit linen trắng hoặc đồ jean cá tính';
+    case 'Xanh Than': return 'Phối cùng sơ mi trắng, quần tây sáng màu hoặc đồ denim thời thượng';
     case 'Be Cát': return 'Hoàn hảo cho phong cách tone-sur-tone màu ấm';
     default: return 'Dễ dàng mix-match với mọi trang phục thường ngày';
   }
 };
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onQuickView }: ProductCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
   const [isCardHovered, setIsCardHovered] = useState(false);
@@ -39,6 +40,16 @@ export function ProductCard({ product }: ProductCardProps) {
     ? currentImageIndex 
     : (isCardHovered && images[1] ? 1 : 0);
 
+  const CardContainer = (onQuickView ? 'div' : Link) as any;
+  const containerProps = onQuickView 
+    ? { onClick: () => onQuickView(product), className: "flex flex-col w-full focus:outline-none cursor-pointer" }
+    : { href: `/products/${product?.slug}`, className: "flex flex-col w-full focus:outline-none" };
+
+  const TitleContainer = (onQuickView ? 'div' : Link) as any;
+  const titleProps = onQuickView
+    ? { onClick: () => onQuickView(product), className: "flex-1 min-w-0 cursor-pointer" }
+    : { href: `/products/${product?.slug}`, className: "flex-1 min-w-0" };
+
   return (
     <div 
       className="flex flex-col w-full group mb-4"
@@ -48,10 +59,7 @@ export function ProductCard({ product }: ProductCardProps) {
         setCurrentImageIndex(0);
       }}
     >
-      <Link 
-        href={`/products/${product?.slug}`}
-        className="flex flex-col w-full focus:outline-none"
-      >
+      <CardContainer {...containerProps}>
         {/* Floating Fine-Art Frame (Khung tranh nghệ thuật lơ lửng) */}
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -98,19 +106,19 @@ export function ProductCard({ product }: ProductCardProps) {
             </motion.span>
           </div>
         </motion.div>
-      </Link>
+      </CardContainer>
 
       {/* Info & Color Dots — Sắp xếp dạng nhãn triển lãm tranh nghệ thuật */}
       <div className="mt-3.5 flex flex-col relative min-h-[90px] px-1">
         <div className="flex justify-between items-baseline gap-2">
-          <Link href={`/products/${product?.slug}`} className="flex-1 min-w-0">
+          <TitleContainer {...titleProps}>
             <h3 className="font-heading text-sm font-medium text-text-primary group-hover:text-accent transition-colors duration-300 line-clamp-1">
               {product?.name}
             </h3>
-          </Link>
+          </TitleContainer>
           
           <div className="flex items-baseline gap-1.5 flex-shrink-0">
-            <span className="font-heading italic text-xs font-semibold text-accent">
+            <span className="font-heading text-xs font-semibold text-accent">
               {formatPrice(price)}
             </span>
           </div>

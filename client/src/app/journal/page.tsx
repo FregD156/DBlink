@@ -10,21 +10,21 @@ export default function JournalPage() {
       title: "Xu hướng balo tối giản chiếm lĩnh thời trang công sở 2026",
       date: "02 Tháng 7, 2026",
       excerpt: "Balo da mềm không chỉ tiện dụng mà còn trở thành điểm nhấn thanh lịch cho các nàng công sở hiện đại. Khám phá ngay cách mix đồ cực đỉnh cùng balo DBlink.",
-      image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"
+      image: "/images/icons/15.jpg"
     },
     {
       id: 2,
       title: "Cách bảo quản balo da luôn bền đẹp như mới mua tại store",
       date: "25 Tháng 6, 2026",
       excerpt: "Làm sạch balo da đúng cách không hề khó như bạn nghĩ. Những tips cực kỳ đơn giản giúp kéo dài tuổi thọ chiếc balo yêu quý của bạn thêm nhiều năm.",
-      image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop"
+      image: "/images/icons/16.jpg"
     },
     {
       id: 3,
       title: "Balo Canvas phối da: Sự lựa chọn hoàn hảo cho các buổi dã ngoại hè",
       date: "18 Tháng 6, 2026",
       excerpt: "Năng động, cá tính nhưng không kém phần ngọt ngào. Balo vải canvas dệt cao cấp của DBlink sẽ đồng hành cùng bạn đi đến bất cứ đâu trong mùa hè này.",
-      image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop"
+      image: "/images/icons/17.jpg"
     }
   ];
 

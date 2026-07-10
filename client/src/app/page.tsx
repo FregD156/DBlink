@@ -94,21 +94,21 @@ export default function HomePage() {
   };
 
   const balos = {
-    'balo-da': { name: "Balo Da Mềm Minimalist", slug: "balo-da-mem-minimalist-dblink" },
-    'balo-canvas': { name: "Balo Canvas Phối Da", slug: "balo-canvas-phoi-da-classic" },
-    'balo-laptop': { name: "Balo Laptop Smart", slug: "balo-lap-top-nu-chong-nuoc-smart" },
-    'balo-mini': { name: "Balo Mini Longchamp Vibes", slug: "balo-mini-nu-longchamp-vibes" }
+    'balo-da': { name: "Túi Xách Da TL01", slug: "dblink-tl01" },
+    'balo-canvas': { name: "Balo Canvas BLN10", slug: "dblink-bln10" },
+    'balo-laptop': { name: "Balo Laptop BLN26", slug: "dblink-bln26" },
+    'balo-mini': { name: "Balo Mini BLN07", slug: "dblink-bln07" }
   };
 
   const getMixMatchImage = () => {
     const key = `${selectedOutfit}-${selectedBalo}`;
     const imagesMap: Record<string, string> = {
-      'blazer-balo-da': 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop',
-      'blazer-balo-laptop': 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=800&auto=format&fit=crop',
-      'dress-balo-mini': 'https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=800&auto=format&fit=crop',
-      'denim-balo-canvas': 'https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=800&auto=format&fit=crop',
+      'blazer-balo-da': '/images/icons/1.jpg',
+      'blazer-balo-laptop': '/images/icons/2.jpg',
+      'dress-balo-mini': '/images/icons/3.jpg',
+      'denim-balo-canvas': '/images/icons/4.jpg',
     };
-    return imagesMap[key] || 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop';
+    return imagesMap[key] || '/images/icons/5.jpg';
   };
 
   const getStyleRating = () => {
@@ -144,61 +144,61 @@ export default function HomePage() {
     {
       id: 1,
       title: "I. Office Elegance",
-      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
+      image: "/images/icons/6.jpg",
       layoutClass: "absolute left-[4%] top-[10%] w-[210px] sm:w-[270px] aspect-[3/4]",
       defaultRotate: -4,
       product: {
         id: 1,
-        name: "Balo Da Mềm Minimalist D' Blink",
-        price: 850000,
-        slug: "balo-da-mem-minimalist-dblink",
+        name: "Túi Xách Công Sở D' Blink TL01",
+        price: 570000,
+        slug: "dblink-tl01",
         coords: { top: "45%", left: "55%" },
-        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=200&auto=format&fit=crop"
+        image: "/images/icons/6.jpg"
       }
     },
     {
       id: 2,
       title: "II. Smart Innovation",
-      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop",
+      image: "/images/icons/7.jpg",
       layoutClass: "absolute left-[28%] top-[5%] w-[200px] sm:w-[260px] aspect-[3/4]",
       defaultRotate: 3,
       product: {
         id: 3,
-        name: "Balo Laptop Chống Nước Smart",
-        price: 950000,
-        slug: "balo-laptop-nu-chong-nuoc-smart",
+        name: "Balo Laptop Chống Nước Smart BLN26",
+        price: 790000,
+        slug: "dblink-bln26",
         coords: { top: "48%", left: "50%" },
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=200"
+        image: "/images/icons/7.jpg"
       }
     },
     {
       id: 3,
       title: "III. Street Casual",
-      image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=800&auto=format&fit=crop",
+      image: "/images/icons/8.jpg",
       layoutClass: "absolute right-[28%] top-[12%] w-[200px] sm:w-[265px] aspect-[3/4]",
       defaultRotate: -2,
       product: {
         id: 4,
-        name: "Balo Mini Longchamp Vibes",
-        price: 590000,
-        slug: "balo-mini-nu-longchamp-vibes",
+        name: "Balo Mini Longchamp Vibes BLN07",
+        price: 690000,
+        slug: "dblink-bln07",
         coords: { top: "52%", left: "48%" },
-        image: "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=200&auto=format&fit=crop"
+        image: "/images/icons/8.jpg"
       }
     },
     {
       id: 4,
       title: "IV. Weekend Wanderlust",
-      image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=800&auto=format&fit=crop",
+      image: "/images/icons/9.jpg",
       layoutClass: "absolute right-[4%] top-[6%] w-[210px] sm:w-[270px] aspect-[3/4]",
       defaultRotate: 5,
       product: {
         id: 2,
-        name: "Balo Canvas Phối Da Classic",
-        price: 650000,
-        slug: "balo-canvas-phoi-da-classic",
+        name: "Balo Canvas Phối Da Classic BLN10",
+        price: 680000,
+        slug: "dblink-bln10",
         coords: { top: "45%", left: "42%" },
-        image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=200&auto=format&fit=crop"
+        image: "/images/icons/9.jpg"
       }
     }
   ];
@@ -329,7 +329,7 @@ export default function HomePage() {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=800&auto=format&fit=crop"
+                  src="/images/icons/10.jpg"
                   alt="D' Blink Lifestyle"
                   fill
                   sizes="(max-width: 768px) 60vw, 40vw"
@@ -354,7 +354,7 @@ export default function HomePage() {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop"
+                  src="/images/icons/11.jpg"
                   alt="D' Blink Detail Craft"
                   fill
                   sizes="(max-width: 768px) 50vw, 30vw"
@@ -583,7 +583,7 @@ export default function HomePage() {
                               </div>
                               <div className="flex flex-col justify-center min-w-0">
                                 <h4 className="font-heading text-[10.5px] font-medium text-text-primary truncate leading-tight">{p.product.name}</h4>
-                                <span className="font-heading italic text-[11px] text-accent font-semibold mt-1 block">{formatPrice(p.product.price)}</span>
+                                <span className="font-heading text-[11px] text-accent font-semibold mt-1 block">{formatPrice(p.product.price)}</span>
                               </div>
                             </div>
                             <div className="border-t border-border/60 my-2.5" />
@@ -631,45 +631,21 @@ export default function HomePage() {
           </Link>
         </div>
         
-        {/* Lưới 3 cột bất đối xứng so le cho đủ 6 sản phẩm */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start mt-8">
-          {/* Cột 1: Sản phẩm 1 & Sản phẩm 4 */}
-          <div className="w-full flex flex-col gap-16">
-            {featuredProducts[0] && (
-              <div className="space-y-4">
-                <span className="font-body text-[9px] font-bold text-accent tracking-widest uppercase bg-accent/5 px-2.5 py-1.5 rounded-button inline-block shadow-sm">
-                  Signature Piece
-                </span>
-                <ProductCard product={featuredProducts[0]} />
-              </div>
-            )}
-            {featuredProducts[3] && (
-              <div className="md:-ml-4 md:pr-4"> {/* Lệch nhẹ sang trái */}
-                <ProductCard product={featuredProducts[3]} />
-              </div>
-            )}
-          </div>
-
-          {/* Cột 2: Sản phẩm 2 & Sản phẩm 5 (Thụt sâu toàn bộ cột xuống dưới tạo sự so le) */}
-          <div className="w-full md:mt-24 flex flex-col gap-16">
-            {featuredProducts[1] && (
-              <ProductCard product={featuredProducts[1]} />
-            )}
-            {featuredProducts[4] && (
-              <ProductCard product={featuredProducts[4]} />
-            )}
-          </div>
-
-          {/* Cột 3: Sản phẩm 3 & Sản phẩm 6 (Xếp dọc so le) */}
-          <div className="w-full flex flex-col gap-16">
-            {featuredProducts[2] && (
-              <ProductCard product={featuredProducts[2]} />
-            )}
-            {featuredProducts[5] && (
-              <div className="md:pl-8"> {/* Thụt nhẹ sang phải 32px */}
-                <ProductCard product={featuredProducts[5]} />
-              </div>
-            )}
+        {/* Bố cục cuộn ngang (Horizontal Scroll Slider) mượt mà cho toàn bộ sản phẩm thịnh hành */}
+        <div className="relative mt-8">
+          <div className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            {featuredProducts.map((product, idx) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-5%" }}
+                transition={{ duration: duration.base, delay: idx * 0.05, ease: easing.reveal }}
+                className="min-w-[280px] sm:min-w-[320px] max-w-[320px] snap-start"
+              >
+                <ProductCard product={product} />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -691,7 +667,7 @@ export default function HomePage() {
             className="w-full h-full relative"
           >
             <Image
-              src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop"
+              src="/images/icons/12.jpg"
               alt="D' Blink Leather detail"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

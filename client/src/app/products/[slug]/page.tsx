@@ -34,6 +34,8 @@ export default function ProductDetailPage() {
     }
   }, [product]);
 
+
+
   if (!mounted) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-20 text-center animate-pulse">
@@ -60,6 +62,16 @@ export default function ProductDetailPage() {
   const colors = product.colors || [];
   const buyLinks = product.buyLinks || {};
   const details = product.details || { material: "", dimensions: "", care: "" };
+
+  // Khi chọn màu, tự động tìm index của ảnh màu đó trong mảng images và active nó!
+  useEffect(() => {
+    if (selectedColor && selectedColor.image) {
+      const idx = images.indexOf(selectedColor.image);
+      if (idx !== -1) {
+        setActiveImageIndex(idx);
+      }
+    }
+  }, [selectedColor, images]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
@@ -124,7 +136,7 @@ export default function ProductDetailPage() {
 
           <div className="mt-4 flex items-baseline gap-3">
             <span className="font-body font-semibold text-2xl text-accent">
-              {formatPrice(product.price)}
+              {formatPrice(selectedColor?.price || product.price)}
             </span>
             {product.originalPrice > product.price && (
               <span className="font-body text-sm text-text-secondary line-through">

@@ -35,8 +35,8 @@ export default function ContactPage() {
             <div className="flex gap-4 items-start">
               <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-body text-sm font-semibold text-text-primary uppercase tracking-wider">Cửa hàng flagship</h4>
-                <p className="font-body text-xs text-text-secondary mt-1">123 Đường Bà Triệu, Phường Nguyễn Du, Quận Hai Bà Trưng, Hà Nội</p>
+                <h4 className="font-body text-sm font-semibold text-text-primary uppercase tracking-wider">DBlink Store</h4>
+                <p className="font-body text-xs text-text-secondary mt-1">Hà Nội</p>
               </div>
             </div>
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
               <Phone className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
               <div>
                 <h4 className="font-body text-sm font-semibold text-text-primary uppercase tracking-wider">Hotline hỗ trợ</h4>
-                <p className="font-body text-xs text-text-secondary mt-1">1900 8198 (8:00 - 22:00 hằng ngày)</p>
+                <p className="font-body text-xs text-text-secondary mt-1">0385558380 (8:00 - 22:00 hằng ngày)</p>
               </div>
             </div>
 

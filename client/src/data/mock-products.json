@@ -1,193 +1,1421 @@
 [
   {
-    "id": "p1",
-    "slug": "balo-da-mem-minimalist-dblink",
-    "name": "Balo Da Mềm Minimalist DBlink",
-    "price": 850000,
-    "originalPrice": 1100000,
-    "description": "Thiết kế tối giản sang trọng với những đường nét góc cạnh thanh lịch. Được làm từ chất liệu da tổng hợp cao cấp mềm mịn, chống xước tốt. Hoàn hảo cho các cô nàng hiện đại đi làm hay dạo phố.",
-    "category": "balo-da",
-    "rating": 4.8,
-    "isNew": true,
-    "isBestSeller": true,
-    "colors": [
-      { "name": "Đen Nâu", "hex": "#221C18" },
-      { "name": "Đỏ Mận", "hex": "#650728" },
-      { "name": "Xanh Rêu", "hex": "#3F4B3B" }
-    ],
-    "images": [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop"
-    ],
-    "details": {
-      "material": "Da tổng hợp cao cấp chống xước nhẹ, lót trong Polyester chống thấm.",
-      "dimensions": "32cm x 26cm x 12cm (Vừa iPad 11 inch & sổ tay A4)",
-      "care": "Lau sạch nhẹ nhàng bằng khăn ẩm mềm. Tránh tiếp xúc cồn hay hóa chất tẩy rửa mạnh."
-    },
-    "buyLinks": {
-      "shopee": "https://shopee.vn/d.blink",
-      "facebook": "https://m.me/dblink.vn",
-      "tiktok": "https://tiktok.com/@dblink.vn",
-      "zalo": "https://zalo.me/0901234567"
-    }
-  },
-  {
-    "id": "p2",
-    "slug": "balo-canvas-phoi-da-classic",
-    "name": "Balo Canvas Phối Da Classic",
-    "price": 680000,
-    "originalPrice": 850000,
-    "description": "Sự hòa quyện tuyệt vời giữa chất liệu vải canvas dệt sợi kép bền bỉ và các chi tiết viền da cao cấp. Mang phong cách trẻ trung năng động nhưng không kém phần thanh lịch.",
-    "category": "balo-canvas",
+    "id": "TL01",
+    "slug": "dblink-tl01",
+    "name": "Túi Xách Công Sở D' Blink TL01",
+    "price": 570000,
+    "originalPrice": 710000,
+    "description": "Túi xách nữ công sở thời trang đựng laptop cao cấp DBLINK TL01 Túi tote nữ đi làm sành điệu , Túi công sở nữ size to",
+    "category": "tui-xach",
     "rating": 4.6,
     "isNew": true,
-    "isBestSeller": true,
+    "isBestSeller": false,
     "colors": [
-      { "name": "Be Cát", "hex": "#EFE6DC" },
-      { "name": "Đen Nâu", "hex": "#221C18" }
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/1_TL01/1_TL01_Be.jpg",
+        "price": 570000
+      },
+      {
+        "name": "Hồng Nhạt",
+        "hex": "#E8C5C8",
+        "image": "/images/products/1_TL01/1_TL01_Hồng.jpg",
+        "price": 570000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/1_TL01/1_TL01_Đen.jpg",
+        "price": 570000
+      }
     ],
     "images": [
-      "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop"
+      "/images/products/1_TL01/1_TL01_Be.jpg",
+      "/images/products/1_TL01/1_TL01_Hồng.jpg",
+      "/images/products/1_TL01/1_TL01_Đen.jpg"
     ],
     "details": {
-      "material": "Vải Canvas 12oz bền bỉ phối viền da bò thật.",
-      "dimensions": "30cm x 24cm x 11cm",
-      "care": "Nên giặt tay nhẹ nhàng bằng xà phòng loãng, phơi bóng râm tránh nắng gắt."
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/d.blink",
+      "shopee": "https://shopee.vn/d.blink?keyword=TL01",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"
     }
   },
   {
-    "id": "p3",
-    "slug": "balo-lap-top-nu-chong-nuoc-smart",
-    "name": "Balo Laptop Nữ Chống Nước Smart",
-    "price": 950000,
-    "originalPrice": 1250000,
-    "description": "Balo chuyên dụng cho laptop lên đến 14 inch với chất liệu vải Oxford trượt nước vượt trội. Các ngăn khóa ẩn thông minh bảo vệ đồ dùng cá nhân hoàn hảo.",
-    "category": "balo-laptop",
+    "id": "TL02",
+    "slug": "dblink-tl02",
+    "name": "Túi Xách Công Sở D' Blink TL02",
+    "price": 570000,
+    "originalPrice": 710000,
+    "description": "Túi xách công sở nữ thời trang size to cao cấp DBLINK TL02 Túi nữ đi làm đựng laptop tài liệu , Túi công sở nữ đẹp",
+    "category": "tui-xach",
+    "rating": 4.8,
+    "isNew": true,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/2_TL02/2_TL02_Be.jpg",
+        "price": 570000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/2_TL02/2_TL02_Đen.jpg",
+        "price": 570000
+      }
+    ],
+    "images": [
+      "/images/products/2_TL02/2_TL02_Be.jpg",
+      "/images/products/2_TL02/2_TL02_Đen.jpg"
+    ],
+    "details": {
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=TL02",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "TL03",
+    "slug": "dblink-tl03",
+    "name": "Túi Xách Công Sở D' Blink TL03",
+    "price": 680000,
+    "originalPrice": 850000,
+    "description": "Túi nữ công sở thời trang DBLINK TL03 Túi xách nữ đi làm cao cấp đựng laptop tài liệu , Túi đi làm nữ size to đẹp",
+    "category": "tui-xach",
+    "rating": 4.5,
+    "isNew": true,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/3_TL03/3_TL03_Nâu.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Xanh Than",
+        "hex": "#1D2A44",
+        "image": "/images/products/3_TL03/3_TL03_Xanh.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/3_TL03/3_TL03_Đen.jpg",
+        "price": 680000
+      }
+    ],
+    "images": [
+      "/images/products/3_TL03/3_TL03_Nâu.jpg",
+      "/images/products/3_TL03/3_TL03_Xanh.jpg",
+      "/images/products/3_TL03/3_TL03_Đen.jpg"
+    ],
+    "details": {
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=TL03",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "TL04",
+    "slug": "dblink-tl04",
+    "name": "Túi Xách Công Sở D' Blink TL04",
+    "price": 620000,
+    "originalPrice": 780000,
+    "description": "Túi xách nữ công sở thời trang đựng laptop cao cấp DBLINK TL04 Túi nữ đi làm đẹp , Túi công sở nữ size to",
+    "category": "tui-xach",
+    "rating": 4.8,
+    "isNew": true,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/4_TL04/4_TL04_Be.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Xanh Than",
+        "hex": "#1D2A44",
+        "image": "/images/products/4_TL04/4_TL04_Xanh.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/4_TL04/4_TL04_Đen.jpg",
+        "price": 620000
+      }
+    ],
+    "images": [
+      "/images/products/4_TL04/4_TL04_Be.jpg",
+      "/images/products/4_TL04/4_TL04_Xanh.jpg",
+      "/images/products/4_TL04/4_TL04_Đen.jpg"
+    ],
+    "details": {
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=TL04",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "TL11",
+    "slug": "dblink-tl11",
+    "name": "Túi Xách Công Sở D' Blink TL11",
+    "price": 910000,
+    "originalPrice": 1140000,
+    "description": "Túi xách nữ thời trang DBLINK TL11 đi du lịch đi công tác đi tập gym túi chống nước phong cách tối giản",
+    "category": "tui-xach",
+    "rating": 4.6,
+    "isNew": true,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Kaki",
+        "hex": "#C5B358",
+        "image": "/images/products/5_TL11/5_TL11_Kaki.jpg",
+        "price": 910000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/5_TL11/5_TL11_Đen.jpg",
+        "price": 910000
+      }
+    ],
+    "images": [
+      "/images/products/5_TL11/5_TL11_Kaki.jpg",
+      "/images/products/5_TL11/5_TL11_Đen.jpg"
+    ],
+    "details": {
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=TL11",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "TL12",
+    "slug": "dblink-tl12",
+    "name": "Túi Xách Công Sở D' Blink TL12",
+    "price": 670000,
+    "originalPrice": 840000,
+    "description": "Túi xách nữ công sở thời trang cao cấp DBLINK TL12 Túi đi làm nữ đựng tài liệu , Túi nữ công sở quai xách đẹp",
+    "category": "tui-xach",
+    "rating": 4.7,
+    "isNew": true,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Kaki",
+        "hex": "#C5B358",
+        "image": "/images/products/6_TL12/6_TL12_Kaki.jpg",
+        "price": 670000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/6_TL12/6_TL12_Đen.jpg",
+        "price": 670000
+      }
+    ],
+    "images": [
+      "/images/products/6_TL12/6_TL12_Kaki.jpg",
+      "/images/products/6_TL12/6_TL12_Đen.jpg"
+    ],
+    "details": {
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=TL12",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "TL13",
+    "slug": "dblink-tl13",
+    "name": "Túi Xách Công Sở D' Blink TL13",
+    "price": 640000,
+    "originalPrice": 800000,
+    "description": "Túi xách nữ công sở thời trang cao cấp DBLINK TL13 Túi đi làm nữ đựng tài liệu , Túi nữ công sở quai xách đẹp",
+    "category": "tui-xach",
+    "rating": 4.5,
+    "isNew": true,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Kaki",
+        "hex": "#C5B358",
+        "image": "/images/products/7_TL13/7_TL13_Kaki.jpg",
+        "price": 640000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/7_TL13/7_TL13_Đen.jpg",
+        "price": 640000
+      }
+    ],
+    "images": [
+      "/images/products/7_TL13/7_TL13_Kaki.jpg",
+      "/images/products/7_TL13/7_TL13_Đen.jpg"
+    ],
+    "details": {
+      "material": "Da tổng hợp cao cấp phủ bề mặt chống trầy xước nhẹ, lót Polyester chống ẩm.",
+      "dimensions": "36cm x 28cm x 10cm (Đựng vừa laptop 14 inch & tài liệu văn phòng)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=TL13",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN06",
+    "slug": "dblink-bln06",
+    "name": "Balo Thời Trang D' Blink BLN06",
+    "price": 700000,
+    "originalPrice": 880000,
+    "description": "Balo nữ thời trang DBLINK BLN06 vải Oxford cao cấp chống nước, Cặp đi học nữ đẹp, Balo đi học nữ đựng laptop 15.6 inch",
+    "category": "balo-nu",
+    "rating": 4.6,
+    "isNew": true,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/8_BLN06/8_BLN06_Be.jpg",
+        "price": 700000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/8_BLN06/8_BLN06_Ghi Nhạt.jpg",
+        "price": 700000
+      },
+      {
+        "name": "Hồng Nhạt",
+        "hex": "#E8C5C8",
+        "image": "/images/products/8_BLN06/8_BLN06_Hồng.jpg",
+        "price": 700000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/8_BLN06/8_BLN06_Đen.jpg",
+        "price": 700000
+      }
+    ],
+    "images": [
+      "/images/products/8_BLN06/8_BLN06_Be.jpg",
+      "/images/products/8_BLN06/8_BLN06_Ghi Nhạt.jpg",
+      "/images/products/8_BLN06/8_BLN06_Hồng.jpg",
+      "/images/products/8_BLN06/8_BLN06_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN06",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN07",
+    "slug": "dblink-bln07",
+    "name": "Balo Thời Trang D' Blink BLN07",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ thời trang DBLINK BLN07 vải Oxford cao cấp chống nước , Balo đi học nữ đựng laptop 15.6 inch , Cặp đi học nữ đẹp",
+    "category": "balo-nu",
     "rating": 4.9,
     "isNew": false,
     "isBestSeller": true,
     "colors": [
-      { "name": "Đen Nâu", "hex": "#221C18" },
-      { "name": "Đỏ Mận", "hex": "#650728" }
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/9_BLN07/9_BLN07_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/9_BLN07/9_BLN07_Ghi Nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Ghi",
+        "hex": "#888888",
+        "image": "/images/products/9_BLN07/9_BLN07_Ghi.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/9_BLN07/9_BLN07_Đen.jpg",
+        "price": 690000
+      }
     ],
     "images": [
-      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop"
+      "/images/products/9_BLN07/9_BLN07_Be.jpg",
+      "/images/products/9_BLN07/9_BLN07_Ghi Nhạt.jpg",
+      "/images/products/9_BLN07/9_BLN07_Ghi.jpg",
+      "/images/products/9_BLN07/9_BLN07_Đen.jpg"
     ],
     "details": {
-      "material": "Vải Oxford cao cấp trượt nước, chống trầy xước.",
-      "dimensions": "38cm x 28cm x 13cm (Vừa laptop 14 inch)",
-      "care": "Lau sạch vết bẩn bằng cọ mềm hoặc khăn ẩm. Không giặt máy."
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/d.blink",
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN07",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"
     }
   },
   {
-    "id": "p4",
-    "slug": "balo-mini-nu-longchamp-vibes",
-    "name": "Balo Mini Nữ Longchamp Vibes",
-    "price": 590000,
+    "id": "BLN08",
+    "slug": "dblink-bln08",
+    "name": "Balo Thời Trang D' Blink BLN08",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ thời trang DBLINK BLN08 vải Oxford chống nước , Balo đi học nữ đựng laptop 15.6 inch, Cặp nữ đi học đẹp công sở",
+    "category": "balo-nu",
+    "rating": 4.6,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/10_BLN08/10_BLN08_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/10_BLN08/10_BLN08_Ghi nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Ghi",
+        "hex": "#888888",
+        "image": "/images/products/10_BLN08/10_BLN08_Ghi.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Hồng Nhạt",
+        "hex": "#E8C5C8",
+        "image": "/images/products/10_BLN08/10_BLN08_Hồng.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/10_BLN08/10_BLN08_Nâu.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xanh Than",
+        "hex": "#1D2A44",
+        "image": "/images/products/10_BLN08/10_BLN08_Xanh.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/10_BLN08/10_BLN08_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/10_BLN08/10_BLN08_Be.jpg",
+      "/images/products/10_BLN08/10_BLN08_Ghi nhạt.jpg",
+      "/images/products/10_BLN08/10_BLN08_Ghi.jpg",
+      "/images/products/10_BLN08/10_BLN08_Hồng.jpg",
+      "/images/products/10_BLN08/10_BLN08_Nâu.jpg",
+      "/images/products/10_BLN08/10_BLN08_Xanh.jpg",
+      "/images/products/10_BLN08/10_BLN08_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN08",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN09",
+    "slug": "dblink-bln09",
+    "name": "Balo Thời Trang D' Blink BLN09",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ thời trang cao cấp DBLINK BLN09 vải Oxford kéo sợi chống nước , Balo đi học nữ đẹp , Cặp đi học nữ đựng laptop",
+    "category": "balo-nu",
+    "rating": 4.5,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/11_BLN09/11_BLN09_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/11_BLN09/11_BLN09_Ghi nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/11_BLN09/11_BLN09_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/11_BLN09/11_BLN09_Be.jpg",
+      "/images/products/11_BLN09/11_BLN09_Ghi nhạt.jpg",
+      "/images/products/11_BLN09/11_BLN09_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN09",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN10",
+    "slug": "dblink-bln10",
+    "name": "Balo Thời Trang D' Blink BLN10",
+    "price": 680000,
+    "originalPrice": 850000,
+    "description": "Balo nữ thời trang vải chống nước cao cấp DBLINK BLN10 Balo đi học nữ đựng laptop , Cặp đi học nữ",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/12_BLN10/12_BLN10_Be.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/12_BLN10/12_BLN10_Ghi nhạt.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/12_BLN10/12_BLN10_Đen.jpg",
+        "price": 680000
+      }
+    ],
+    "images": [
+      "/images/products/12_BLN10/12_BLN10_Be.jpg",
+      "/images/products/12_BLN10/12_BLN10_Ghi nhạt.jpg",
+      "/images/products/12_BLN10/12_BLN10_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN10",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN11",
+    "slug": "dblink-bln11",
+    "name": "Balo Thời Trang D' Blink BLN11",
+    "price": 680000,
+    "originalPrice": 850000,
+    "description": "Cặp nữ thời trang đựng laptop đa năng DBLINK BLN11 vải Oxford cao cấp chống nước , Balo đi học nữ đẹp , Balo nữ công sở",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/13_BLN11/13_BLN11_Be.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/13_BLN11/13_BLN11_Ghi nhạt.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Xám Ghi",
+        "hex": "#888888",
+        "image": "/images/products/13_BLN11/13_BLN11_Ghi.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/13_BLN11/13_BLN11_Đen.jpg",
+        "price": 680000
+      }
+    ],
+    "images": [
+      "/images/products/13_BLN11/13_BLN11_Be.jpg",
+      "/images/products/13_BLN11/13_BLN11_Ghi nhạt.jpg",
+      "/images/products/13_BLN11/13_BLN11_Ghi.jpg",
+      "/images/products/13_BLN11/13_BLN11_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN11",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN16",
+    "slug": "dblink-bln16",
+    "name": "Balo Thời Trang D' Blink BLN16",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ đi học cao cấp DBLINK BLN16 vải Oxford chống nước, Cặp đi học nữ thời trang, Balo đi học nữ đẹp đơn giản",
+    "category": "balo-nu",
+    "rating": 4.6,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/14_BLN16/14_BLN16_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/14_BLN16/14_BLN16_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/14_BLN16/14_BLN16_Be.jpg",
+      "/images/products/14_BLN16/14_BLN16_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN16",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN17",
+    "slug": "dblink-bln17",
+    "name": "Balo Thời Trang D' Blink BLN17",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ cao cấp đựng laptop 15.6 inch DBLINK BLN17 vải Oxford chống nước , Balo đi học nữ thời trang , Cặp đi học nữ đẹp",
+    "category": "balo-nu",
+    "rating": 4.5,
+    "isNew": false,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/15_BLN17/15_BLN17_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/15_BLN17/15_BLN17_Ghi nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/15_BLN17/15_BLN17_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/15_BLN17/15_BLN17_Be.jpg",
+      "/images/products/15_BLN17/15_BLN17_Ghi nhạt.jpg",
+      "/images/products/15_BLN17/15_BLN17_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN17",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN18",
+    "slug": "dblink-bln18",
+    "name": "Balo Thời Trang D' Blink BLN18",
+    "price": 600000,
     "originalPrice": 750000,
-    "description": "Kích thước mini cực xinh xắn, quai đeo thanh mảnh và chất liệu Nylon cao cấp bóng mờ siêu nhẹ. Lựa chọn tuyệt vời cho các buổi dạo phố nhẹ nhàng.",
-    "category": "balo-mini",
+    "description": "Balo da đi học thời trang họa tiết caro dập nổi DBLINK BLN18 Balo đi học da nữ nam đựng laptop , Cặp đi học da",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Trắng",
+        "hex": "#FFFFFF",
+        "image": "/images/products/16_BLN18/16_BLN18_Trắng.jpg",
+        "price": 600000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/16_BLN18/16_BLN18_Đen.jpg",
+        "price": 600000
+      }
+    ],
+    "images": [
+      "/images/products/16_BLN18/16_BLN18_Trắng.jpg",
+      "/images/products/16_BLN18/16_BLN18_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN18",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN19",
+    "slug": "dblink-bln19",
+    "name": "Balo Thời Trang D' Blink BLN19",
+    "price": 720000,
+    "originalPrice": 900000,
+    "description": "Balo nữ thời trang cao cấp DBLINK BLN19 Balo đi chơi đựng đồ nhỏ xinh , Balo đi học nữ đẹp",
+    "category": "balo-nu",
+    "rating": 4.5,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/17_BLN19/17_BLN19_Ghi nhạt.jpg",
+        "price": 720000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/17_BLN19/17_BLN19_Nâu.jpg",
+        "price": 720000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/17_BLN19/17_BLN19_Đen.jpg",
+        "price": 720000
+      }
+    ],
+    "images": [
+      "/images/products/17_BLN19/17_BLN19_Ghi nhạt.jpg",
+      "/images/products/17_BLN19/17_BLN19_Nâu.jpg",
+      "/images/products/17_BLN19/17_BLN19_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN19",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN20",
+    "slug": "dblink-bln20",
+    "name": "Balo Thời Trang D' Blink BLN20",
+    "price": 620000,
+    "originalPrice": 780000,
+    "description": "Balo nữ thời trang đi học đi chơi DBLINK BLN20 Balo đi học nữ chống nước cao cấp , Balo nhỏ xinh",
+    "category": "balo-nu",
+    "rating": 4.6,
+    "isNew": false,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/18_BLN20/18_BLN20_Be.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/18_BLN20/18_BLN20_Ghi nhạt.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Kaki",
+        "hex": "#C5B358",
+        "image": "/images/products/18_BLN20/18_BLN20_Kaki.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/18_BLN20/18_BLN20_Đen.jpg",
+        "price": 620000
+      }
+    ],
+    "images": [
+      "/images/products/18_BLN20/18_BLN20_Be.jpg",
+      "/images/products/18_BLN20/18_BLN20_Ghi nhạt.jpg",
+      "/images/products/18_BLN20/18_BLN20_Kaki.jpg",
+      "/images/products/18_BLN20/18_BLN20_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN20",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN21",
+    "slug": "dblink-bln21",
+    "name": "Balo Thời Trang D' Blink BLN21",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ đi học thời trang đựng latop 15.6 inch DBLINK BLN21 Balo đi làm nữ cao cấp chống nước chống xước ,Cặp đi học nữ",
+    "category": "balo-nu",
+    "rating": 4.7,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/19_BLN21/19_BLN21_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/19_BLN21/19_BLN21_Ghi nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/19_BLN21/19_BLN21_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/19_BLN21/19_BLN21_Be.jpg",
+      "/images/products/19_BLN21/19_BLN21_Ghi nhạt.jpg",
+      "/images/products/19_BLN21/19_BLN21_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN21",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN22",
+    "slug": "dblink-bln22",
+    "name": "Balo Thời Trang D' Blink BLN22",
+    "price": 650000,
+    "originalPrice": 810000,
+    "description": "Balo nữ đi chơi đi học thời trang DBLINK BLN22 Balo đi học nữ chống nước cao cấp , Balo nhỏ xinh",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/20_BLN22/20_BLN22_Be.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/20_BLN22/20_BLN22_Ghi nhạt.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Xám Ghi",
+        "hex": "#888888",
+        "image": "/images/products/20_BLN22/20_BLN22_Ghi.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Hồng Nhạt",
+        "hex": "#E8C5C8",
+        "image": "/images/products/20_BLN22/20_BLN22_Hồng.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/20_BLN22/20_BLN22_Nâu.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/20_BLN22/20_BLN22_Đen.jpg",
+        "price": 650000
+      }
+    ],
+    "images": [
+      "/images/products/20_BLN22/20_BLN22_Be.jpg",
+      "/images/products/20_BLN22/20_BLN22_Ghi nhạt.jpg",
+      "/images/products/20_BLN22/20_BLN22_Ghi.jpg",
+      "/images/products/20_BLN22/20_BLN22_Hồng.jpg",
+      "/images/products/20_BLN22/20_BLN22_Nâu.jpg",
+      "/images/products/20_BLN22/20_BLN22_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN22",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN23",
+    "slug": "dblink-bln23",
+    "name": "Balo Thời Trang D' Blink BLN23",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ thời trang cao cấp đựng laptop 15.6 inch DBLINK BLN23 vải Oxford chống nước, Balo laptop nữ xịn, Balo đi học nữ",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/21_BLN23/21_BLN23_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/21_BLN23/21_BLN23_Ghi nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/21_BLN23/21_BLN23_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/21_BLN23/21_BLN23_Be.jpg",
+      "/images/products/21_BLN23/21_BLN23_Ghi nhạt.jpg",
+      "/images/products/21_BLN23/21_BLN23_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN23",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN24",
+    "slug": "dblink-bln24",
+    "name": "Balo Thời Trang D' Blink BLN24",
+    "price": 650000,
+    "originalPrice": 810000,
+    "description": "Balo laptop nữ thời trang vải Oxford chống nước cao cấp DBLINK BLN24 Balo công sở nữ đẹp , Cặp đựng laptop nhỏ gọn",
+    "category": "balo-nu",
+    "rating": 4.6,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/22_BLN24/22_BLN24_Be.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/22_BLN24/22_BLN24_Ghi nhạt.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Hồng Nhạt",
+        "hex": "#E8C5C8",
+        "image": "/images/products/22_BLN24/22_BLN24_Hồng.jpg",
+        "price": 650000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/22_BLN24/22_BLN24_Đen.jpg",
+        "price": 650000
+      }
+    ],
+    "images": [
+      "/images/products/22_BLN24/22_BLN24_Be.jpg",
+      "/images/products/22_BLN24/22_BLN24_Ghi nhạt.jpg",
+      "/images/products/22_BLN24/22_BLN24_Hồng.jpg",
+      "/images/products/22_BLN24/22_BLN24_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN24",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN26",
+    "slug": "dblink-bln26",
+    "name": "Balo Thời Trang D' Blink BLN26",
+    "price": 790000,
+    "originalPrice": 990000,
+    "description": "Balo nữ thời trang cao cấp DBLINK BLN26 Cặp nữ đi học đi làm đi chơi đựng laptop 14 inch",
+    "category": "balo-nu",
+    "rating": 4.6,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/23_BLN26/23_BLN26_Be sâm banh.jpg",
+        "price": 790000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/23_BLN26/23_BLN26_Nâu.jpg",
+        "price": 790000
+      },
+      {
+        "name": "Xanh Than",
+        "hex": "#1D2A44",
+        "image": "/images/products/23_BLN26/23_BLN26_Xanh than.jpg",
+        "price": 790000
+      },
+      {
+        "name": "Đen Nâu",
+        "hex": "#221C18",
+        "image": "/images/products/23_BLN26/23_BLN26_Đen Nâu.jpg",
+        "price": 790000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/23_BLN26/23_BLN26_Đen.jpg",
+        "price": 790000
+      }
+    ],
+    "images": [
+      "/images/products/23_BLN26/23_BLN26_Be sâm banh.jpg",
+      "/images/products/23_BLN26/23_BLN26_Be.jpg",
+      "/images/products/23_BLN26/23_BLN26_Nâu.jpg",
+      "/images/products/23_BLN26/23_BLN26_Xanh than.jpg",
+      "/images/products/23_BLN26/23_BLN26_Đen Nâu.jpg",
+      "/images/products/23_BLN26/23_BLN26_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN26",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN27",
+    "slug": "dblink-bln27",
+    "name": "Balo Thời Trang D' Blink BLN27",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ công sở đi học đi làm đựng laptop DBLINK BLN27 Balo đi học nữ cao cấp , Cặp đi học nữ thời trang",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": true,
+    "colors": [
+      {
+        "name": "Kaki",
+        "hex": "#C5B358",
+        "image": "/images/products/24_BLN27/24_BLN27_Kaki.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/24_BLN27/24_BLN27_Nâu.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xanh Than",
+        "hex": "#1D2A44",
+        "image": "/images/products/24_BLN27/24_BLN27_Xanh Than.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/24_BLN27/24_BLN27_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/24_BLN27/24_BLN27_Kaki.jpg",
+      "/images/products/24_BLN27/24_BLN27_Nâu.jpg",
+      "/images/products/24_BLN27/24_BLN27_Xanh Than.jpg",
+      "/images/products/24_BLN27/24_BLN27_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN27",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN28",
+    "slug": "dblink-bln28",
+    "name": "Balo Thời Trang D' Blink BLN28",
+    "price": 690000,
+    "originalPrice": 860000,
+    "description": "Balo nữ cao cấp đựng laptop DBLINK BLN28 chống thấm nước , Balo đi học nữ , Cặp đi học nữ thời trang",
+    "category": "balo-nu",
+    "rating": 4.5,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/25_BLN28/25_BLN28_Be.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/25_BLN28/25_BLN28_Ghi nhạt.jpg",
+        "price": 690000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/25_BLN28/25_BLN28_Đen.jpg",
+        "price": 690000
+      }
+    ],
+    "images": [
+      "/images/products/25_BLN28/25_BLN28_Be.jpg",
+      "/images/products/25_BLN28/25_BLN28_Ghi nhạt.jpg",
+      "/images/products/25_BLN28/25_BLN28_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN28",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN29",
+    "slug": "dblink-bln29",
+    "name": "Balo Thời Trang D' Blink BLN29",
+    "price": 680000,
+    "originalPrice": 850000,
+    "description": "Balo nữ thời trang vải chống nước cao cấp DBLINK BLN29 Balo đi học nữ , Cặp nữ quai xách xinh xắn",
+    "category": "balo-nu",
+    "rating": 4.9,
+    "isNew": false,
+    "isBestSeller": false,
+    "colors": [
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/26_BLN29/26_BLN29_Be.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/26_BLN29/26_BLN29_Ghi nhạt.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Hồng Nhạt",
+        "hex": "#E8C5C8",
+        "image": "/images/products/26_BLN29/26_BLN29_Hồng.jpg",
+        "price": 680000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/26_BLN29/26_BLN29_Đen.jpg",
+        "price": 680000
+      }
+    ],
+    "images": [
+      "/images/products/26_BLN29/26_BLN29_Be.jpg",
+      "/images/products/26_BLN29/26_BLN29_Ghi nhạt.jpg",
+      "/images/products/26_BLN29/26_BLN29_Hồng.jpg",
+      "/images/products/26_BLN29/26_BLN29_Đen.jpg"
+    ],
+    "details": {
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
+    },
+    "buyLinks": {
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN29",
+      "facebook": "https://m.me/dblink.vn",
+      "tiktok": "https://tiktok.com/@dblink.vn",
+      "zalo": "https://zalo.me/0901234567"
+    }
+  },
+  {
+    "id": "BLN30",
+    "slug": "dblink-bln30",
+    "name": "Balo Thời Trang D' Blink BLN30",
+    "price": 620000,
+    "originalPrice": 780000,
+    "description": "Balo nữ mini thời trang vải Oxford chống nước cao cấp DBLINK BLN30 Balo nhỏ nữ cao cấp , Balo đi chơi nữ",
+    "category": "balo-nu",
     "rating": 4.7,
     "isNew": false,
     "isBestSeller": true,
     "colors": [
-      { "name": "Xanh Rêu", "hex": "#3F4B3B" },
-      { "name": "Đỏ Mận", "hex": "#650728" },
-      { "name": "Be Cát", "hex": "#EFE6DC" }
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/27_BLN30/27_BLN30_Be.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Xám Nhạt",
+        "hex": "#CCCCCC",
+        "image": "/images/products/27_BLN30/27_BLN30_Ghi nhạt.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/27_BLN30/27_BLN30_Nâu.jpg",
+        "price": 620000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/27_BLN30/27_BLN30_Đen.jpg",
+        "price": 620000
+      }
     ],
     "images": [
-      "https://images.unsplash.com/photo-1575844621280-577745e65c1a?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"
+      "/images/products/27_BLN30/27_BLN30_Be.jpg",
+      "/images/products/27_BLN30/27_BLN30_Ghi nhạt.jpg",
+      "/images/products/27_BLN30/27_BLN30_Nâu.jpg",
+      "/images/products/27_BLN30/27_BLN30_Đen.jpg"
     ],
     "details": {
-      "material": "Nylon cao cấp chống thấm siêu nhẹ, quai viền da.",
-      "dimensions": "25cm x 22cm x 10cm",
-      "care": "Dùng khăn ẩm lau sạch. Không là/ủi ở nhiệt độ cao."
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/d.blink",
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN30",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"
     }
   },
   {
-    "id": "p5",
-    "slug": "balo-du-lich-dã-ngoai-travel-smart",
-    "name": "Balo Du Lịch Dã Ngoại Travel Smart",
-    "price": 1250000,
-    "originalPrice": 1500000,
-    "description": "Balo du lịch đa năng, chống thấm nước tuyệt đối với dung tích lớn, ngăn chứa thông minh và đệm quai vai êm ái chống gù lưng hiệu quả cho các hành trình dài ngày.",
-    "category": "balo-du-lich",
-    "rating": 4.9,
-    "isNew": true,
-    "isBestSeller": true,
+    "id": "BLN33",
+    "slug": "dblink-bln33",
+    "name": "Balo Thời Trang D' Blink BLN33",
+    "price": 790000,
+    "originalPrice": 990000,
+    "description": "Balo nữ công sở đi học đi làm đựng laptop DBLINK BLN33 Balo đi học nữ cao cấp , Cặp đi học nữ thời trang",
+    "category": "balo-nu",
+    "rating": 4.8,
+    "isNew": false,
+    "isBestSeller": false,
     "colors": [
-      { "name": "Đen Nâu", "hex": "#221C18" },
-      { "name": "Xanh Rêu", "hex": "#3F4B3B" }
+      {
+        "name": "Be Cát",
+        "hex": "#EFE6DC",
+        "image": "/images/products/28_BNL33/28_BLN33_Be.jpg",
+        "price": 790000
+      },
+      {
+        "name": "Nâu Đất",
+        "hex": "#8F7E6D",
+        "image": "/images/products/28_BNL33/28_BLN33_Nâu.jpg",
+        "price": 790000
+      },
+      {
+        "name": "Đen",
+        "hex": "#1D0B11",
+        "image": "/images/products/28_BNL33/28_BLN33_Đen.jpg",
+        "price": 790000
+      }
     ],
     "images": [
-      "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"
+      "/images/products/28_BNL33/28_BLN33_Be.jpg",
+      "/images/products/28_BNL33/28_BLN33_Nâu.jpg",
+      "/images/products/28_BNL33/28_BLN33_Đen.jpg"
     ],
     "details": {
-      "material": "Vải Oxford 900D siêu bền bỉ, chống mài mòn và kháng nước vượt trội.",
-      "dimensions": "45cm x 32cm x 18cm (Dung tích 25L)",
-      "care": "Vệ sinh khô bằng bàn chải mềm, tránh phơi trực tiếp dưới ánh nắng chói chang."
+      "material": "Vải Oxford cao cấp kéo sợi mật độ cao chống thấm nước vượt trội, phối viền da tinh tế.",
+      "dimensions": "40cm x 30cm x 13cm (Đựng vừa laptop 15.6 inch & sách vở thoải mái)",
+      "care": "Lau sạch nhẹ nhàng bằng khăn mềm vắt ráo nước. Tránh phơi trực tiếp dưới ánh nắng gay gắt."
     },
     "buyLinks": {
-      "shopee": "https://shopee.vn/d.blink",
-      "facebook": "https://m.me/dblink.vn",
-      "tiktok": "https://tiktok.com/@dblink.vn",
-      "zalo": "https://zalo.me/0901234567"
-    }
-  },
-  {
-    "id": "p6",
-    "slug": "balo-da-bo-limited-edition",
-    "name": "Balo Da Bò Limited Edition",
-    "price": 1450000,
-    "originalPrice": 1850000,
-    "description": "Sản phẩm chế tác số lượng giới hạn. Khâu thủ công tỉ mỉ bằng chất liệu da bò thật nguyên tấm mang lại độ bóng tự nhiên sang trọng bậc nhất.",
-    "category": "limited-edition",
-    "rating": 5.0,
-    "isNew": true,
-    "isBestSeller": true,
-    "colors": [
-      { "name": "Be Cát", "hex": "#EFE6DC" },
-      { "name": "Đen Nâu", "hex": "#221C18" }
-    ],
-    "images": [
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?q=80&w=600&auto=format&fit=crop"
-    ],
-    "details": {
-      "material": "Da bò thật 100% nguyên tấm phối hợp phụ kiện khóa đồng thau mạ vàng.",
-      "dimensions": "34cm x 28cm x 12cm",
-      "care": "Dùng kem dưỡng da chuyên dụng lau bề mặt 3 tháng một lần để giữ độ mềm bóng."
-    },
-    "buyLinks": {
-      "shopee": "https://shopee.vn/d.blink",
+      "shopee": "https://shopee.vn/d.blink?keyword=BLN33",
       "facebook": "https://m.me/dblink.vn",
       "tiktok": "https://tiktok.com/@dblink.vn",
       "zalo": "https://zalo.me/0901234567"

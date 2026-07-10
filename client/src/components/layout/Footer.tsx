@@ -82,7 +82,7 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://zalo.me/0901234567" target="_blank" rel="noopener noreferrer" className="font-body text-xs text-text-secondary hover:text-accent transition-colors duration-300 inline-flex items-center gap-1">
+                  <a href="https://zalo.me/0385558380" target="_blank" rel="noopener noreferrer" className="font-body text-xs text-text-secondary hover:text-accent transition-colors duration-300 inline-flex items-center gap-1">
                     Zalo tư vấn <ArrowUpRight className="h-3 w-3" />
                   </a>
                 </li>
@@ -116,7 +116,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {SITE_NAME}. Mọi quyền được bảo lưu. Thiết kế và phát triển bởi FregD.
           </p>
           <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-center md:text-right">
-            <span className="font-body text-[11px] text-text-secondary">Hotline CSKH: 1900 8198</span>
+            <span className="font-body text-[11px] text-text-secondary">Hotline CSKH: 0385558380</span>
             <span className="font-body text-[11px] text-text-secondary">Email: cskh@dblink.vn</span>
           </div>
         </div>
