@@ -648,8 +648,12 @@ export default function HomePage() {
         <div className="relative mt-8 group">
           {/* Left Arrow Button */}
           <button
-            onClick={() => handleScroll('left')}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-text-primary border border-border w-10 h-10 rounded-full shadow-md z-10 transition-all duration-300 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 focus:outline-none"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleScroll('left');
+            }}
+            className="absolute -left-5 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-text-primary border border-border w-11 h-11 rounded-full shadow-md z-30 transition-all duration-300 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 focus:outline-none cursor-pointer"
             aria-label="Scroll left"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -657,8 +661,12 @@ export default function HomePage() {
 
           {/* Right Arrow Button */}
           <button
-            onClick={() => handleScroll('right')}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-text-primary border border-border w-10 h-10 rounded-full shadow-md z-10 transition-all duration-300 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 focus:outline-none"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleScroll('right');
+            }}
+            className="absolute -right-5 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-text-primary border border-border w-11 h-11 rounded-full shadow-md z-30 transition-all duration-300 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 focus:outline-none cursor-pointer"
             aria-label="Scroll right"
           >
             <ChevronRight className="h-5 w-5" />
