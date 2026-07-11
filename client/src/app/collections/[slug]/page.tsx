@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import { useProducts } from '@/hooks/useProducts';
 import { CATEGORIES } from '@/lib/constants';
 import { ProductCard } from '@/components/product/ProductCard';
@@ -11,7 +11,9 @@ import { formatPrice } from '@/lib/utils';
 
 export default function CollectionPage() {
   const params = useParams();
+  const searchParams = useSearchParams();
   const slug = params.slug as string;
+  const quickviewParam = searchParams.get('quickview');
   const { getProductsByCategory } = useProducts();
 
   const [mounted, setMounted] = useState(false);
@@ -34,6 +36,18 @@ export default function CollectionPage() {
     if (!mounted) return [];
     return getProductsByCategory(slug) || [];
   }, [slug, getProductsByCategory, mounted]);
+
+  // Tự động mở Quick View Modal nếu có query parameter ?quickview=[slug-hoac-sku]
+  useEffect(() => {
+    if (quickviewParam && rawProducts.length > 0) {
+      const targetProduct = rawProducts.find(
+        (p) => p.slug === quickviewParam || p.id === quickviewParam
+      );
+      if (targetProduct) {
+        setQuickViewProduct(targetProduct);
+      }
+    }
+  }, [quickviewParam, rawProducts]);
 
   // Lấy danh sách màu sắc duy nhất có trong các sản phẩm để lọc
   const allColors = useMemo(() => {

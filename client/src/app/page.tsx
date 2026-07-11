@@ -643,7 +643,7 @@ export default function HomePage() {
                             </div>
                             <div className="border-t border-border/60 my-2.5" />
                             <div className="flex gap-2">
-                              <Link href={`/products/${p.product.slug}`} className="flex-1">
+                              <Link href={`/collections/all?quickview=${p.product.slug}`} className="flex-1">
                                 <Button variant="outline" className="w-full text-[8.5px] py-1.5 uppercase tracking-wider font-semibold">
                                   Chi tiết
                                 </Button>
