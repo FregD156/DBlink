@@ -118,8 +118,18 @@ export default function HomePage() {
     const imagesMap: Record<string, string> = {
       'blazer-balo-da': '/images/icons/TL01.jpg',
       'blazer-balo-laptop': '/images/icons/BLN28.jpg',
-      'dress-balo-mini': '/images/icons/BLN07.jpg',
-      'denim-balo-canvas': '/images/icons/BLN10.jpg',
+      'blazer-balo-mini': '/images/icons/BLN07.jpg',
+      'blazer-balo-canvas': '/images/icons/BLN10.jpg',
+      
+      'dress-balo-da': '/images/icons/TL02.jpg',
+      'dress-balo-laptop': '/images/icons/BLN33.jpg',
+      'dress-balo-mini': '/images/icons/BLN11.jpg',
+      'dress-balo-canvas': '/images/icons/BLN24.jpg',
+      
+      'denim-balo-da': '/images/icons/TL03.jpg',
+      'denim-balo-laptop': '/images/icons/BLN08.jpg',
+      'denim-balo-mini': '/images/icons/BLN09.jpg',
+      'denim-balo-canvas': '/images/icons/BLN06.jpg',
     };
     return imagesMap[key] || '/images/icons/BLN09.jpg';
   };
@@ -128,20 +138,52 @@ export default function HomePage() {
     const key = `${selectedOutfit}-${selectedBalo}`;
     const ratingsMap: Record<string, { rating: string; tip: string }> = {
       'blazer-balo-da': {
-        rating: "9.8/10 — Cực Kỳ Thanh Lịch",
-        tip: "Sự kết hợp hoàn hảo tôn vinh vẻ đẹp tối giản của các cô nàng công sở. Chiếc balo da trơn mang lại sự chuyên nghiệp nhưng vô cùng thời thượng."
+        rating: "9.8/10 — Office Chic Đỉnh Cao",
+        tip: "Sự kết hợp hoàn hảo giữa suit thanh lịch và túi da trơn. Mang lại hình ảnh một quý cô công sở hiện đại, tự tin và vô cùng chuyên nghiệp."
       },
       'blazer-balo-laptop': {
-        rating: "9.5/10 — Workstyle Thời Thượng",
-        tip: "Thiết kế balo ôm dáng kết hợp cùng blazer đứng phom mang lại sự an tâm tuyệt đối mà vẫn bảo vệ laptop của bạn mượt mà."
+        rating: "9.5/10 — Công Sở Năng Động",
+        tip: "Balo laptop dáng đứng ôm sát lưng đi kèm blazer tạo phom dáng gọn gàng, an toàn bảo vệ thiết bị công nghệ mà vẫn thanh lịch."
+      },
+      'blazer-balo-mini': {
+        rating: "9.0/10 — Điệu Đà Nơi Làm Việc",
+        tip: "Balo mini nhỏ xinh tạo điểm nhấn thời trang nhẹ nhàng trên nền blazer công sở chỉn chu. Phù hợp cho những ngày đi họp nhẹ hoặc trà chiều."
+      },
+      'blazer-balo-canvas': {
+        rating: "9.2/10 — Tự Do & Phóng Khoáng",
+        tip: "Sự pha trộn độc đáo giữa sự lịch thiệp của blazer và nét mộc mạc của balo canvas phối da. Tạo vẻ ngoài thoải mái, gần gũi."
+      },
+      'dress-balo-da': {
+        rating: "9.3/10 — Nữ Tính Kiêu Kỳ",
+        tip: "Chiếc đầm lụa thướt tha kết hợp cùng túi xách da thanh mảnh. Thích hợp cho những buổi tiệc nhẹ hoặc dạo phố cuối tuần sang chảnh."
+      },
+      'dress-balo-laptop': {
+        rating: "8.8/10 — Năng Động Giao Thoa",
+        tip: "Đầm điệu đà đi kèm balo laptop lớn là một thử thách phá cách. Nên chọn balo laptop dáng mỏng nhẹ để giữ nét nữ tính thanh mảnh."
       },
       'dress-balo-mini': {
-        rating: "9.7/10 — Nữ Tính & Bay Bổng",
-        tip: "Quai đeo mảnh mai của balo mini giúp cân bằng lại sự mềm mại của đầm lụa. Điểm nhấn tuyệt vời cho các buổi hẹn hò chụp hình lookbook."
+        rating: "9.8/10 — Công Chúa Dạo Phố",
+        tip: "Cặp đôi hoàn hảo cho những buổi hẹn hò! Balo mini nhỏ nhắn giúp đầm lụa bay bổng tuyệt đối mà vẫn đựng vừa son môi và điện thoại."
+      },
+      'dress-balo-canvas': {
+        rating: "9.1/10 — Dã Ngoại Thơ Mộng",
+        tip: "Balo canvas dệt sợi tự nhiên phối cùng đầm lụa tạo vẻ ngoài trong trẻo, mộc mạc như nàng thơ châu Âu. Rất ăn ảnh khi chụp lookbook ngoài trời."
+      },
+      'denim-balo-da': {
+        rating: "9.4/10 — Casual Bụi Bặm",
+        tip: "Nét cứng cáp của chất liệu denim phối cùng chiếc túi da bò trơn tạo nên sự tương phản chất liệu đầy thú vị và cá tính."
+      },
+      'denim-balo-laptop': {
+        rating: "9.3/10 — Urban Explorer",
+        tip: "Set đồ hoàn hảo cho các bạn sinh viên hoặc freelancer năng động di chuyển cả ngày dài với laptop và trang phục bò cá tính."
+      },
+      'denim-balo-mini': {
+        rating: "9.2/10 — Năng Động Dạo Phố",
+        tip: "Sự kết hợp tinh nghịch giữa đầm/áo khoác denim thô ráp và chiếc balo mini xinh xắn. Vừa năng động vừa không mất đi sự dễ thương."
       },
       'denim-balo-canvas': {
-        rating: "9.6/10 — Streetwear Năng Động",
-        tip: "Vải canvas thô bụi bặm phối hợp cực ăn ý với chất denim phóng khoáng. Một set đồ lý tưởng cho các chuyến dã ngoại hay dạo phố dài ngày."
+        rating: "9.7/10 — Streetwear Phóng Khoáng",
+        tip: "Vải canvas thô phối hợp ăn ý tuyệt đối với chất denim phủi bụi. Đây là bộ đôi kinh điển cho phong cách thời trang đường phố năng động."
       }
     };
     return ratingsMap[key] || {
