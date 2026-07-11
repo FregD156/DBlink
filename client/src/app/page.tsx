@@ -595,15 +595,15 @@ export default function HomePage() {
               >
                 {/* Khung ảnh Polaroid truyền thống */}
                 <div className="w-full h-full bg-white p-3 pb-8 sm:p-4 sm:pb-10 border border-border/60 rounded shadow-sm flex flex-col justify-between select-none">
-                  <div className="relative flex-1 w-full overflow-hidden bg-bg-secondary rounded-sm">
+                  <div className="relative flex-1 w-full bg-bg-secondary rounded-sm">
                     <Image
                       src={p.image}
                       alt={p.title}
                       fill
                       sizes="(max-width: 768px) 50vw, 30vw"
-                      className="object-cover brightness-95"
+                      className="object-cover brightness-95 rounded-sm"
                     />
-                    <div className="absolute inset-0 bg-[#1D0B11]/5" />
+                    <div className="absolute inset-0 bg-[#1D0B11]/5 rounded-sm" />
 
                     {/* Interactive Hotspot */}
                     <div
@@ -629,7 +629,7 @@ export default function HomePage() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 10 }}
                             transition={{ duration: 0.25, ease: easing.hover }}
-                            className="absolute top-9 -left-20 sm:left-9 bg-white p-4 rounded-card border border-border shadow-xl w-[210px] z-30"
+                            className="absolute top-9 left-1/2 -translate-x-1/2 bg-white p-4 rounded-card border border-border shadow-xl w-[210px] z-30"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <div className="flex gap-3 text-left">
