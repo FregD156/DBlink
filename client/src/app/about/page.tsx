@@ -12,25 +12,25 @@ const timelineSteps = [
     step: "Công đoạn 01",
     title: "Phác Thảo & Nghiên Cứu Kiểu Dáng",
     description: "Khởi đầu từ những nét vẽ tối giản tại studio thiết kế. DBlink tập trung nghiên cứu thói quen sử dụng của các cô gái Việt Nam để tối ưu hóa ngăn chứa đồ (iPad, son môi, sổ tay) mà vẫn giữ được phom dáng nhỏ gọn, thanh lịch đứng dáng.",
-    image: "/images/icons/13.jpg"
+    image: "/images/icons/TL03.jpg"
   },
   {
     step: "Công đoạn 02",
     title: "Tuyển Chọn Nguyên Liệu Nghiêm Ngặt",
     description: "Chúng tôi loại bỏ các loại chất liệu rẻ tiền dễ bong tróc. Chỉ những tấm da tổng hợp cao cấp mềm mịn như da thật, có khả năng chống xước nhẹ hoặc vải canvas dệt kép 12oz mật độ cao mới được lựa chọn để chế tác.",
-    image: "/images/icons/14.jpg"
+    image: "/images/icons/TL04.jpg"
   },
   {
     step: "Công đoạn 03",
     title: "Chế Tác Thủ Công Tỉ Mỉ",
     description: "Mỗi chiếc balo là sản phẩm của bàn tay nghệ nhân may lành nghề. Từng đường chỉ đều đặn, cúc bấm mạ vàng sáng bóng và khóa kéo trượt êm ái đều phải vượt qua 3 vòng kiểm duyệt chất lượng gắt gao trước khi xuất xưởng.",
-    image: "/images/icons/15.jpg"
+    image: "/images/icons/BLN06.jpg"
   },
   {
     step: "Công đoạn 04",
     title: "Đóng Gói Chỉn Chu & Thân Thiện",
     description: "Chúng tôi tin rằng trải nghiệm mở hộp là phần không thể thiếu của một thương hiệu cao cấp. Sản phẩm được bọc cẩn thận trong túi vải chống bụi, đặt trong hộp giấy Kraft cứng cáp tái chế và thiệp cảm ơn viết tay trân trọng gửi tới bạn.",
-    image: "/images/icons/16.jpg"
+    image: "/images/icons/BLN24.jpg"
   }
 ];
 

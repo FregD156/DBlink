@@ -109,19 +109,19 @@ export default function HomePage() {
   const balos = {
     'balo-da': { name: "Túi Xách Da TL01", slug: "dblink-tl01" },
     'balo-canvas': { name: "Balo Canvas BLN10", slug: "dblink-bln10" },
-    'balo-laptop': { name: "Balo Laptop BLN26", slug: "dblink-bln26" },
+    'balo-laptop': { name: "Balo Laptop BLN28", slug: "dblink-bln28" },
     'balo-mini': { name: "Balo Mini BLN07", slug: "dblink-bln07" }
   };
 
   const getMixMatchImage = () => {
     const key = `${selectedOutfit}-${selectedBalo}`;
     const imagesMap: Record<string, string> = {
-      'blazer-balo-da': '/images/icons/1.jpg',
-      'blazer-balo-laptop': '/images/icons/2.jpg',
-      'dress-balo-mini': '/images/icons/3.jpg',
-      'denim-balo-canvas': '/images/icons/4.jpg',
+      'blazer-balo-da': '/images/icons/TL01.jpg',
+      'blazer-balo-laptop': '/images/icons/BLN28.jpg',
+      'dress-balo-mini': '/images/icons/BLN07.jpg',
+      'denim-balo-canvas': '/images/icons/BLN10.jpg',
     };
-    return imagesMap[key] || '/images/icons/5.jpg';
+    return imagesMap[key] || '/images/icons/BLN09.jpg';
   };
 
   const getStyleRating = () => {
@@ -157,7 +157,7 @@ export default function HomePage() {
     {
       id: 1,
       title: "I. Office Elegance",
-      image: "/images/icons/6.jpg",
+      image: "/images/icons/TL01.jpg",
       layoutClass: "absolute left-[4%] top-[10%] w-[210px] sm:w-[270px] aspect-[3/4]",
       defaultRotate: -4,
       product: {
@@ -166,28 +166,28 @@ export default function HomePage() {
         price: 570000,
         slug: "dblink-tl01",
         coords: { top: "45%", left: "55%" },
-        image: "/images/icons/6.jpg"
+        image: "/images/icons/TL01.jpg"
       }
     },
     {
       id: 2,
       title: "II. Smart Innovation",
-      image: "/images/icons/7.jpg",
+      image: "/images/icons/BLN28.jpg",
       layoutClass: "absolute left-[28%] top-[5%] w-[200px] sm:w-[260px] aspect-[3/4]",
       defaultRotate: 3,
       product: {
         id: 3,
-        name: "Balo Laptop Chống Nước Smart BLN26",
-        price: 790000,
-        slug: "dblink-bln26",
+        name: "Balo Laptop Đựng Laptop BLN28",
+        price: 690000,
+        slug: "dblink-bln28",
         coords: { top: "48%", left: "50%" },
-        image: "/images/icons/7.jpg"
+        image: "/images/icons/BLN28.jpg"
       }
     },
     {
       id: 3,
       title: "III. Street Casual",
-      image: "/images/icons/8.jpg",
+      image: "/images/icons/BLN07.jpg",
       layoutClass: "absolute right-[28%] top-[12%] w-[200px] sm:w-[265px] aspect-[3/4]",
       defaultRotate: -2,
       product: {
@@ -196,13 +196,13 @@ export default function HomePage() {
         price: 690000,
         slug: "dblink-bln07",
         coords: { top: "52%", left: "48%" },
-        image: "/images/icons/8.jpg"
+        image: "/images/icons/BLN07.jpg"
       }
     },
     {
       id: 4,
       title: "IV. Weekend Wanderlust",
-      image: "/images/icons/9.jpg",
+      image: "/images/icons/BLN10.jpg",
       layoutClass: "absolute right-[4%] top-[6%] w-[210px] sm:w-[270px] aspect-[3/4]",
       defaultRotate: 5,
       product: {
@@ -211,7 +211,7 @@ export default function HomePage() {
         price: 680000,
         slug: "dblink-bln10",
         coords: { top: "45%", left: "42%" },
-        image: "/images/icons/9.jpg"
+        image: "/images/icons/BLN10.jpg"
       }
     }
   ];
@@ -342,7 +342,7 @@ export default function HomePage() {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="/images/icons/10.jpg"
+                  src="/images/icons/BLN33.jpg"
                   alt="D' Blink Lifestyle"
                   fill
                   sizes="(max-width: 768px) 60vw, 40vw"
@@ -367,7 +367,7 @@ export default function HomePage() {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="/images/icons/11.jpg"
+                  src="/images/icons/TL02.jpg"
                   alt="D' Blink Detail Craft"
                   fill
                   sizes="(max-width: 768px) 50vw, 30vw"
@@ -709,7 +709,7 @@ export default function HomePage() {
             className="w-full h-full relative"
           >
             <Image
-              src="/images/icons/12.jpg"
+              src="/images/icons/BLN29.jpg"
               alt="D' Blink Leather detail"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
