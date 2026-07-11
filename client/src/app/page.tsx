@@ -538,7 +538,7 @@ export default function HomePage() {
               
               <div className="border-t border-border my-6" />
               
-              <Link href={`/products/${balos[selectedBalo].slug}`} className="w-full">
+              <Link href={`/collections/all?quickview=${balos[selectedBalo].slug}`} className="w-full">
                 <Button variant="primary" className="w-full text-[9px] py-3.5 tracking-widest uppercase">
                   Chi tiết sản phẩm phối <ArrowRight className="ml-1 h-3 w-3" />
                 </Button>
