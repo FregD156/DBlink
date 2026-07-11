@@ -42,7 +42,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
       <div className="absolute inset-0" onClick={onClose} />
       
-      <div className="relative bg-bg-primary w-full max-w-4xl rounded-card border border-border shadow-2xl overflow-hidden flex flex-col md:flex-row z-10 max-h-[90vh] md:max-h-none overflow-y-auto md:overflow-visible">
+      <div className="relative bg-bg-primary w-full max-w-4xl rounded-card border border-border shadow-2xl overflow-hidden flex flex-col md:flex-row z-10 max-h-[90vh] md:max-h-[85vh] lg:max-h-none overflow-y-auto md:overflow-visible">
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 w-8 h-8 rounded-full border border-border bg-white flex items-center justify-center hover:bg-bg-secondary transition-colors duration-300 z-30 focus:outline-none"
@@ -51,8 +51,8 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
         </button>
 
         {/* Gallery */}
-        <div className="md:w-1/2 p-6 flex flex-col gap-4 border-b md:border-b-0 md:border-r border-border">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/30">
+        <div className="md:w-1/2 p-4 md:p-6 flex flex-col gap-3 md:gap-4 border-b md:border-b-0 md:border-r border-border bg-white md:bg-transparent">
+          <div className="relative aspect-[4/5] w-[180px] md:w-full mx-auto overflow-hidden rounded-card bg-[#F8F6F2] border border-[#EBE6DD]/30 shadow-sm md:shadow-none">
             <Image
               src={images[activeImageIndex] || "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop"}
               alt={`${product.name} - View ${activeImageIndex + 1}`}
@@ -61,13 +61,13 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
             />
           </div>
           {images.length > 1 && (
-            <div className="grid grid-cols-4 gap-2.5">
+            <div className="flex justify-center md:grid md:grid-cols-4 gap-1.5 md:gap-2.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
               {images.map((img: string, idx: number) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`relative aspect-[4/5] w-full overflow-hidden rounded-card bg-[#F8F6F2] border transition-all duration-300 focus:outline-none ${
-                    activeImageIndex === idx ? 'border-accent' : 'border-border hover:border-text-secondary'
+                  className={`relative w-9 h-11 md:w-full md:aspect-[4/5] flex-shrink-0 overflow-hidden rounded-card bg-[#F8F6F2] border transition-all duration-300 focus:outline-none ${
+                    activeImageIndex === idx ? 'border-accent scale-102 shadow-sm' : 'border-border hover:border-text-secondary'
                   }`}
                 >
                   <Image src={img} alt="Thumb" fill className="object-cover" />
@@ -78,27 +78,27 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
         </div>
 
         {/* Product Details */}
-        <div className="md:w-1/2 p-8 flex flex-col justify-between max-h-[85vh] md:max-h-none overflow-y-auto">
-          <div className="space-y-6">
-            <span className="font-body text-[10px] font-bold text-accent tracking-[0.2em] uppercase block">
+        <div className="md:w-1/2 p-5 md:p-8 flex flex-col justify-between overflow-y-auto md:overflow-visible">
+          <div className="space-y-4 md:space-y-6">
+            <span className="font-body text-[9px] md:text-[10px] font-bold text-accent tracking-[0.2em] uppercase block">
               Mã sản phẩm: {product.id}
             </span>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary leading-tight">
+            <h2 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-text-primary leading-tight">
               {product.name}
             </h2>
 
-            <div className="flex items-baseline gap-3">
-              <span className="font-body font-semibold text-xl text-accent">
+            <div className="flex items-baseline gap-2.5">
+              <span className="font-body font-semibold text-lg md:text-xl text-accent">
                 {formatPrice(currentPrice)}
               </span>
               {currentOriginalPrice > currentPrice && (
-                <span className="font-body text-xs text-text-secondary line-through">
+                <span className="font-body text-[10px] md:text-xs text-text-secondary line-through">
                   {formatPrice(currentOriginalPrice)}
                 </span>
               )}
             </div>
 
-            <p className="font-body text-xs text-text-secondary leading-relaxed">
+            <p className="font-body text-[11px] md:text-xs text-text-secondary leading-relaxed">
               {product.description}
             </p>
 
@@ -106,23 +106,23 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
 
             {/* Colors */}
             {colors.length > 0 && (
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 <span className="font-body text-[10px] font-bold text-text-primary uppercase tracking-widest block">
                   Màu sắc: {selectedColor?.name}
                 </span>
-                <div className="flex gap-2.5">
+                <div className="flex gap-2 md:gap-2.5">
                   {colors.map((color: any) => (
                     <button
                       key={color.hex}
                       onClick={() => setSelectedColor(color)}
-                      className={`relative w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 focus:outline-none ${
+                      className={`relative w-6 h-6 md:w-7 md:h-7 rounded-full border flex items-center justify-center transition-all duration-300 focus:outline-none ${
                         selectedColor?.hex === color.hex ? 'border-text-primary scale-110 shadow-sm' : 'border-border hover:border-text-secondary'
                       }`}
                       style={{ backgroundColor: color.hex }}
                       title={color.name}
                     >
                       {selectedColor?.hex === color.hex && (
-                        <Check className={`h-3 w-3 ${color.hex === '#FFFFFF' ? 'text-black' : 'text-white'}`} />
+                        <Check className={`h-2.5 w-2.5 ${color.hex === '#FFFFFF' ? 'text-black' : 'text-white'}`} />
                       )}
                     </button>
                   ))}
