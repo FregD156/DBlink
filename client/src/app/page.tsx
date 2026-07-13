@@ -638,7 +638,7 @@ export default function HomePage() {
                               </div>
                               <div className="flex flex-col justify-center min-w-0">
                                 <h4 className="font-heading text-[10.5px] font-medium text-text-primary truncate leading-tight">{p.product.name}</h4>
-                                <span className="font-heading text-[11px] text-accent font-semibold mt-1 block">{formatPrice(p.product.price)}</span>
+                                <span className="font-body text-[11px] text-accent font-semibold mt-1 block">{formatPrice(p.product.price)}</span>
                               </div>
                             </div>
                             <div className="border-t border-border/60 my-2.5" />

@@ -118,7 +118,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
           </TitleContainer>
           
           <div className="flex items-baseline gap-1.5 flex-shrink-0">
-            <span className="font-heading text-xs font-semibold text-accent">
+            <span className="font-body text-xs font-semibold text-accent">
               {formatPrice(price)}
             </span>
           </div>
